@@ -4,7 +4,7 @@ const ContentPage = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imageName, setImageName] = useState(null);
   const [product, setProduct] = useState([]);
-  const [goldPrice, setGoldPrice] = useState([]);
+  const [goldPrice, setGoldPrice] = useState(null);
   const [data, setData] = useState("");
   const handleFileInput = (e) => {
     console.log("handleFileInput working!");
@@ -37,7 +37,7 @@ const ContentPage = () => {
 
   return (
     <section className="container">
-      <div>
+     {goldPrice && <div>
         <div>ราคาทองวันนี้</div>
         <div>วันที่ {goldPrice.date}</div>
         <div>ราคาซื้อ {goldPrice.price.gold_bar.buy}</div>
@@ -45,7 +45,7 @@ const ContentPage = () => {
         <div>ราคารับซื้อทองรูปพรรณ {goldPrice.price.gold.sell}</div>
         <div>อัปเดตล่าสุด {goldPrice.update_time}</div>
         <div>====================</div>
-      </div>
+      </div>}
       {product.map((item, index) => {
         return (
           <div key={index}>
