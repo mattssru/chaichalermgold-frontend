@@ -1,0 +1,30 @@
+{
+  "name": "chaichalermgold-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsc --skipLibCheck && next -p 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.7.0",
+    "@mui/styles": "^5.7.0",
+    "next": "12.1.6",
+    "react": "17.0.0",
+    "react-dom": "17.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.32",
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.3",
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6",
+    "typescript": "4.6.4"
+  }
+}

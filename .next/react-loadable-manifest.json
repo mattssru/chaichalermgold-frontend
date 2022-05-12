@@ -1,0 +1,22 @@
+{
+  "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Footer": {
+    "id": "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Footer",
+    "files": []
+  },
+  "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Header": {
+    "id": "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Header",
+    "files": []
+  },
+  "../components/layouts/InnerLayout/InnerLayout.tsx -> ../Footer": {
+    "id": "../components/layouts/InnerLayout/InnerLayout.tsx -> ../Footer",
+    "files": [
+      "static/chunks/components_layouts_Footer_tsx.js"
+    ]
+  },
+  "../components/layouts/InnerLayout/InnerLayout.tsx -> ../Header": {
+    "id": "../components/layouts/InnerLayout/InnerLayout.tsx -> ../Header",
+    "files": [
+      "static/chunks/components_layouts_Header_tsx.js"
+    ]
+  }
+}
