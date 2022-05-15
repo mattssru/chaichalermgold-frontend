@@ -1,8 +1,7 @@
-import InnerLayout from "components/layouts/InnerLayout/InnerLayout";
 import React from "react";
 
 const WeddingPage = () => {
-  return <InnerLayout>WeddingPage</InnerLayout>;
+  return <div>WeddingPage</div>;
 };
 
 export default WeddingPage;
