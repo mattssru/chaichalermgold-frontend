@@ -4,6 +4,8 @@ import Head from "next/head";
 import "../styles/globals.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "theme";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 class App extends NextApp {
   static getInitialProps = async ({ Component, ctx }: any) => {
