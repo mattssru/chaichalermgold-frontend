@@ -1,6 +1,7 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 // Create a theme instance.
+
 const theme = createTheme({
   components: {
     MuiCssBaseline: {
@@ -26,10 +27,6 @@ const theme = createTheme({
           maxWidth: "1920px",
           color: "#3d3d3d",
           backgroundColor: "#fff",
-          margin: 0,
-          padding: 0,
-          border: 0,
-          verticalAlign: "baseline",
         },
         article: {
           overflow: "hidden",
@@ -95,6 +92,8 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: "Work Sans",
+    htmlFontSize: 16,
     h1: {
       fontFamily: "Work Sans",
       fontSize: "3.2rem",
@@ -102,30 +101,88 @@ const theme = createTheme({
       fontWeight: 700,
     },
     h2: {
+      fontSize: 44,
+      lineHeight: "52px",
       fontFamily: "Work Sans",
-      fontSize: "2rem",
-      lineHeight: "2.2rem",
-      fontWeight: 700,
+      fontWeight: 400,
+      "@media (max-width: 1024px)": {
+        fontSize: 32,
+        lineHeight: "40px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 28,
+        lineHeight: "36px",
+      },
     },
     h3: {
+      fontSize: 44,
+      lineHeight: "52px",
       fontFamily: "Work Sans",
-      fontWeight: 700,
+      fontWeight: 400,
+      "@media (max-width: 1024px)": {
+        fontSize: 32,
+        lineHeight: "40px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 28,
+        lineHeight: "36px",
+      },
     },
     h4: {
+      fontSize: 44,
+      lineHeight: "52px",
       fontFamily: "Work Sans",
-      fontWeight: 700,
+      fontWeight: 400,
+      "@media (max-width: 1024px)": {
+        fontSize: 34,
+        lineHeight: "40px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 28,
+        lineHeight: "36px",
+      },
     },
     h5: {
+      fontSize: 44,
+      lineHeight: "52px",
       fontFamily: "Work Sans",
-      fontWeight: 700,
+      fontWeight: 400,
+      "@media (max-width: 1024px)": {
+        fontSize: 34,
+        lineHeight: "40px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 28,
+        lineHeight: "36px",
+      },
     },
     h6: {
+      fontSize: 44,
+      lineHeight: "52px",
       fontFamily: "Work Sans",
-      fontWeight: 700,
+      fontWeight: 400,
+      "@media (max-width: 1024px)": {
+        fontSize: 34,
+        lineHeight: "40px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 28,
+        lineHeight: "36px",
+      },
     },
     body1: {
-      fontSize: 24,
-      lineHeight: "28px",
+      fontSize: 22,
+      lineHeight: "24px",
+      fontWeight: 400,
+      fontFamily: "Work Sans",
+      "@media (max-width: 1024px)": {
+        fontSize: 16,
+        lineHeight: "20px",
+      },
+      "@media (max-width: 768px)": {
+        fontSize: 14,
+        lineHeight: "16px",
+      },
     },
   },
   breakpoints: {
