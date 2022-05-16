@@ -2,10 +2,11 @@ import React from "react";
 import NextApp from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "theme";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { HomeLayout } from "components/layouts/HomeLayout";
 
 class App extends NextApp {
   static getInitialProps = async ({ Component, ctx }: any) => {
@@ -21,6 +22,7 @@ class App extends NextApp {
       jssStyles.parentNode.removeChild(jssStyles);
     }
   }
+
   render = () => {
     const { Component, pageProps }: any = this.props;
     return (
@@ -37,7 +39,9 @@ class App extends NextApp {
           <title>ห้างทองเพชรเฉลิมชัย ตราดาว</title>
         </Head>
         <CssBaseline />
-        <Component {...pageProps} />
+        <HomeLayout>
+          <Component {...pageProps} />
+        </HomeLayout>
       </ThemeProvider>
     );
   };
