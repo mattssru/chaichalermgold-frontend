@@ -1,1 +1,25 @@
-[{"type":"product","name":"สร้อยคอแฟนซี 1 สลึง","descriptions":"ทองคำแท้ 96.5%","image":"/uploads/280927671_3305604143053882_8680492170853641479_n.jpeg"},{"type":"product","name":"สร้อยคอแฟนซี 2 สลึง","descriptions":"ทองคำแท้ 96.5%","image":"/uploads/20627679_1833382030010107_6249584243572211712_n.jpeg"},{"type":"product","name":"สร้อยคอแฟนซี 2 สลึง","descriptions":"ทองคำแท้ 96.5%","image":"/uploads/205400271_3098007190480246_4584539627451374032_n.jpeg"}]
+[
+  {
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 1 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/280927671_3305604143053882_8680492170853641479_n.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 2 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/20627679_1833382030010107_6249584243572211712_n.jpeg"
+  },
+  {
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 2 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/205400271_3098007190480246_4584539627451374032_n.jpeg"
+  },
+  {
+    "type": "admin",
+    "username": "kosol-admin",
+    "password": "kosol-admin"
+  }
+]
