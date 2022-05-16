@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import next from "next";
-import product from './database/db.json'
+import database from './database/db.json'
 import bodyParser from "body-parser";
 import multer from 'multer'
 import fs from 'fs'
@@ -62,9 +62,12 @@ const authenticateJWT = (req, res, next) => {
       res.sendStatus(401);
   }
 };
+server.get('/server/fetch-all', (req, res) => {
+  res.json(database)
+})
 
 server.get('/server/product/fetch', (req, res) => {
-  res.json(product.filter((p :any) => p.type === 'product'))
+  res.json(database.filter((p :any) => p.type === 'product'))
 })
 
 server.post('/server/product/create', (req, res) => { 
@@ -76,7 +79,7 @@ server.post('/server/product/create', (req, res) => {
   fs.writeFile(__dirname+"/database/db.json", JSON.stringify(newProduct), err => {
     if (err) console.log("Error writing file:", err);
   }); 
-  product.push(req.body)
+  database.push(req.body)
   res.status(201).json(req.body)
 })
 

@@ -16,7 +16,7 @@ const BasicSelect = (props: any) => {
 
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+      <FormControl fullWidth size="small">
         <InputLabel id="demo-simple-ed-label">{label}</InputLabel>
         <Select
           labelId="demo-simple-select-label"

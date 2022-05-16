@@ -40,3 +40,9 @@ export const getGoldPrice = async () => {
     .get("https://thai-gold-api.herokuapp.com/latest")
     .then((res) => res.data);
 };
+
+export const deleteProduct = async (item) => {
+  const product = await server.get("product/fetch");
+  console.log("item", product, item);
+  return product.filter((p) => p.id !== item.id);
+};
