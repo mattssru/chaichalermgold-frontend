@@ -1,7 +1,9 @@
 import { Box, Grid, Hidden, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import prefix from "utils/path";
+import { getGoldPrice } from "utils/api";
+import { get } from "lodash";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -24,7 +26,24 @@ const useStyles = makeStyles((theme: any) => ({
 }));
 
 const SectionGold = () => {
+  const [goldPrice, setGoldPrice] = useState({});
   const classes = useStyles();
+  useEffect(() => {
+    getGoldPrice().then((res: any) => {
+      const gold = res.response;
+      setGoldPrice(gold);
+    });
+
+    const interval = setInterval(() => {
+      getGoldPrice().then((res: any) => {
+        const gold = res.response;
+        setGoldPrice(gold);
+      });
+    }, 1800000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={classes.root}>
       <Grid container spacing={0}>
@@ -50,22 +69,22 @@ const SectionGold = () => {
               GOLD PRICE TODAY
             </Typography>
             <Typography sx={{ mb: "15px" }}>
-              1 พฤษภาคม 2565 เวลา 09.21 น.
+              {get(goldPrice, "date", "")} {get(goldPrice, "update_time", "")}
             </Typography>
             <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
-              30,850.00
+              {get(goldPrice, "price.gold_bar.buy", "•••")}
             </Typography>
-            <Typography sx={{ mb: "20px" }}>ราคาขายออก(บาท)</Typography>
+            <Typography sx={{ mb: "20px" }}>ราคาทองแท่งขายออก(บาท)</Typography>
             <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
-              30,750.00
+              {get(goldPrice, "price.gold_bar.sell", "•••")}
             </Typography>
-            <Typography sx={{ mb: "20px" }}>ราคารับซื้อ(บาท)</Typography>
-            <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
-              31,350.00
+            <Typography sx={{ mb: "20px" }}>ราคาทองแท่งรับซื้อ(บาท)</Typography>
+            {/* <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
+              {get(goldPrice, "price.gold.buy", "•••")}
             </Typography>
             <Typography sx={{ mb: "20px", pb: "20px" }}>
               ราคาขายออกทองรูปพรรณ(บาท)
-            </Typography>
+            </Typography> */}
             <Typography
               sx={{
                 position: "absolute",
@@ -74,7 +93,10 @@ const SectionGold = () => {
                 fontSize: "10px !important",
               }}
             >
-              อ้างอิงจากเว็บ https://www.goldtraders.or.th/
+              อ้างอิงจากเว็บ{" "}
+              <a href="https://www.goldtraders.or.th/" target="_blank">
+                https://www.goldtraders.or.th/
+              </a>
             </Typography>
           </Box>
         </Grid>

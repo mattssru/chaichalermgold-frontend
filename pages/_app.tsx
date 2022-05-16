@@ -7,6 +7,7 @@ import theme from "theme";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HomeLayout } from "components/layouts/HomeLayout";
+import { SnackbarProvider } from "notistack";
 
 class App extends NextApp {
   static getInitialProps = async ({ Component, ctx }: any) => {
@@ -39,9 +40,17 @@ class App extends NextApp {
           <title>ห้างทองเพชรเฉลิมชัย ตราดาว</title>
         </Head>
         <CssBaseline />
-        <HomeLayout>
-          <Component {...pageProps} />
-        </HomeLayout>
+        <SnackbarProvider
+          maxSnack={1}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+        >
+          <HomeLayout>
+            <Component {...pageProps} />
+          </HomeLayout>
+        </SnackbarProvider>
       </ThemeProvider>
     );
   };

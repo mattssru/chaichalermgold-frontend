@@ -10,7 +10,7 @@ import { getToken, setToken } from "../utils/helper";
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 const server = express(); 
 server.use(bodyParser.json({limit: '50mb'}));
@@ -63,8 +63,8 @@ const authenticateJWT = (req, res, next) => {
   }
 };
 
-server.get('/server/product/fetch', authenticateJWT, (req, res) => {
-  res.json(product)
+server.get('/server/product/fetch', (req, res) => {
+  res.json(product.filter((p :any) => p.type === 'product'))
 })
 
 server.post('/server/product/create', (req, res) => { 
@@ -80,7 +80,7 @@ server.post('/server/product/create', (req, res) => {
   res.status(201).json(req.body)
 })
 
-server.post('/server/upload-image', upload.single('myFile'), (req, res) => {
+server.post('/server/product/upload-image', upload.single('myFile'), (req, res) => {
   console.log(req.body.file + " file successfully uploaded !!");
   res.sendStatus(200);
 })

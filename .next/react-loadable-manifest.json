@@ -1,1 +1,10 @@
-{}
+{
+  "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Footer": {
+    "id": "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Footer",
+    "files": []
+  },
+  "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Header": {
+    "id": "../components/layouts/HomeLayout/HomeLayout.tsx -> ../Header",
+    "files": []
+  }
+}

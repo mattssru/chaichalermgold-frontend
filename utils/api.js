@@ -26,3 +26,17 @@ export const login = async ({ username, password }) => {
 export const fetchProduct = async () => await server.get("product/fetch");
 
 export const createProduct = async () => await server.post("product/create");
+
+export const uploadImage = async (imageFile) => {
+  await server.post("product/upload-image", imageFile, {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  });
+};
+
+export const getGoldPrice = async () => {
+  return await axios
+    .get("https://thai-gold-api.herokuapp.com/latest")
+    .then((res) => res.data);
+};

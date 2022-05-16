@@ -16,7 +16,7 @@ const ContentPage = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/server/get").then((res) => {
+    axios.get("http://localhost:3000/server/product/fetch").then((res) => {
       setProduct(res.data);
     });
   }, []);
@@ -37,15 +37,17 @@ const ContentPage = () => {
 
   return (
     <section className="container">
-     {goldPrice && <div>
-        <div>ราคาทองวันนี้</div>
-        <div>วันที่ {goldPrice.date}</div>
-        <div>ราคาซื้อ {goldPrice.price.gold_bar.buy}</div>
-        <div>ราคาขาย {goldPrice.price.gold_bar.sell}</div>
-        <div>ราคารับซื้อทองรูปพรรณ {goldPrice.price.gold.sell}</div>
-        <div>อัปเดตล่าสุด {goldPrice.update_time}</div>
-        <div>====================</div>
-      </div>}
+      {goldPrice && (
+        <div>
+          <div>ราคาทองวันนี้</div>
+          <div>วันที่ {goldPrice.date}</div>
+          <div>ราคาซื้อ {goldPrice.price.gold_bar.buy}</div>
+          <div>ราคาขาย {goldPrice.price.gold_bar.sell}</div>
+          <div>ราคารับซื้อทองรูปพรรณ {goldPrice.price.gold.sell}</div>
+          <div>อัปเดตล่าสุด {goldPrice.update_time}</div>
+          <div>====================</div>
+        </div>
+      )}
       {product.map((item, index) => {
         return (
           <div key={index}>
