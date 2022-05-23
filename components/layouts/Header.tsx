@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme: any) => ({
       marginRight: 15,
       display: "block",
       fontWeight: 400,
+      letterSpacing: 0,
       color: theme.palette.primary.main,
     },
   },
@@ -97,7 +98,11 @@ const Header = () => {
     <AppBar
       position="fixed"
       className={classes.root}
-      sx={{ boxShadow: "none", bgcolor: "#fff", py: "15px" }}
+      sx={{
+        boxShadow: { xs: "0 3px 6px rgba(0,0,0,0.16)", md: "none" },
+        bgcolor: "#fff",
+        py: "15px",
+      }}
     >
       <Container maxWidth="lg">
         <Grid

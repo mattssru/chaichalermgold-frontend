@@ -8,6 +8,7 @@ const NextLink = (props: any) => {
         className={props.className}
         target={props.target}
         onClick={props.onClick}
+        style={props.style}
       >
         {props.children}
       </a>

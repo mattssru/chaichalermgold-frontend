@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchProduct } from "utils/api";
 import { makeStyles } from "@mui/styles";
+import { Link } from "@mui/material";
 const useStyles = makeStyles(() => ({
   root: {
     paddingTop: 40,

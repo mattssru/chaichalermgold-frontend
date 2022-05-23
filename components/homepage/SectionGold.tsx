@@ -4,9 +4,14 @@ import { makeStyles } from "@mui/styles";
 import prefix from "utils/path";
 import { getGoldPrice } from "utils/api";
 import { get } from "lodash";
+import Link from "components/Link";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
+    marginBottom: 60,
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: 30,
+    },
     "& .bannerGold": {
       lineHeight: 0,
       height: "100%",
@@ -65,7 +70,10 @@ const SectionGold = () => {
               position: "relative",
             }}
           >
-            <Typography variant="h2" sx={{ fontWeight: 400, pt: "20px" }}>
+            <Typography
+              variant="h2"
+              sx={{ fontWeight: { lg: 400, sm: 600 }, pt: "20px" }}
+            >
               GOLD PRICE TODAY
             </Typography>
             <Typography sx={{ mb: "15px" }}>
@@ -78,7 +86,9 @@ const SectionGold = () => {
             <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
               {get(goldPrice, "price.gold_bar.sell", "•••")}
             </Typography>
-            <Typography sx={{ mb: "20px" }}>ราคาทองแท่งรับซื้อ(บาท)</Typography>
+            <Typography sx={{ mb: "20px", pb: "20px" }}>
+              ราคาทองแท่งรับซื้อ(บาท)
+            </Typography>
             {/* <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
               {get(goldPrice, "price.gold.buy", "•••")}
             </Typography>
@@ -94,9 +104,13 @@ const SectionGold = () => {
               }}
             >
               อ้างอิงจากเว็บ{" "}
-              <a href="https://www.goldtraders.or.th/" target="_blank">
+              <Link
+                href="https://www.goldtraders.or.th/"
+                target="_blank"
+                style={{ fontWeight: 400 }}
+              >
                 https://www.goldtraders.or.th/
-              </a>
+              </Link>
             </Typography>
           </Box>
         </Grid>
