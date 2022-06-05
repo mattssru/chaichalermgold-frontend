@@ -155,3 +155,98 @@ a:hover {
   height: 100%;
   object-fit: cover;
 }
+.data-table{
+  position: relative;
+  margin-bottom: 30px;
+}
+.data-table > .MuiPaper-root{
+  box-shadow: none;
+  position: unset !important;
+}
+.data-table .Component-horizontalScrollContainer-18{
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+  border-radius: 10px;
+}
+.data-table .MuiPaper-root > .MuiToolbar-root{
+  padding: 0 !important;
+  margin-bottom: 25px;
+  display: block;
+  min-height: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.data-table .MuiFormControl-root{
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  width: 100%;
+  border-radius: 4px;
+  height: 50px;
+}
+.data-table .MuiFormControl-root input{
+  height: 50px;
+  padding: 0;
+}
+.data-table .MuiInputBase-root::before,
+.data-table .MuiInputBase-root::after{
+  border-bottom: none !important;
+}
+.data-table  table tfoot{
+  display: table-footer-group !important;
+}
+.data-table  table tfoot .MuiToolbar-root{
+  display: flex;
+  margin-bottom: 0;
+}
+.data-table  table tfoot td{
+  border-bottom: none;
+}
+.data-table  table tfoot .MuiTablePagination-selectLabel{
+  display: none;
+}
+.data-table .MuiTableSortLabel-root.MuiTableSortLabel-active, 
+.data-table .MuiTableSortLabel-root.MuiTableSortLabel-active.MuiTableSortLabel-root.MuiTableSortLabel-active .MuiTableSortLabel-icon{
+  color: #fff;
+}
+.data-table  table thead tr th{
+  background-color: #202020;
+  color: #fff;
+  height: 60px;
+  font-family: 'Prompt-SemiBold';
+  font-size: 0.9rem;
+  border-bottom: none;
+}
+.data-table  table thead tr th:first-child{
+  border-top-left-radius: 5px;
+}
+.data-table  table thead tr th:last-child{
+  border-top-right-radius: 5px;
+  padding: 16px;
+}
+.data-table  table tbody tr td{
+  background-color: #fff;
+  color: #000;
+  border-bottom: none;
+  font-size: 0.85rem !important;
+}
+.data-table  table tbody tr:nth-child(even) td{
+  background-color: #E7E9EB;
+}
+/* .data-table  table tbody tr td:first-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+} */
+.data-table  table tbody tr td:last-child{
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
+  padding: 16px !important;
+}
+@media (max-width: 1024px){
+  .data-table table:first-child.MuiTable-root{
+    min-width: 800px;
+  }
+}
+@media (max-width: 767px){
+  .data-table .MuiPaper-root > .MuiToolbar-root{
+    position: relative;
+  }
+}

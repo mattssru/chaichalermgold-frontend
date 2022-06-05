@@ -1,10 +1,10 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Link from "components/Link";
 import React from "react";
 import prefix from "utils/path";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .socail": {
       height: 55,
@@ -44,9 +44,13 @@ const Footer = () => {
           >
             <Grid item md sm={12} xs={12}>
               <Box
-                sx={{ maxHeight: 150, textAlign: { md: "left", xs: "center" } }}
+                sx={{ maxWidth: 300, textAlign: { md: "left", xs: "center" } }}
               >
-                <img src={`${prefix}/images/logo_footer.svg`} alt="" />
+                <img
+                  src={`${prefix}/images/logo_footer.svg`}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </Box>
             </Grid>
             <Grid

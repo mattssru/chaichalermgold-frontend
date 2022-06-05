@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
       marginBottom: 15,
     },
     "& .name": {
-      fontSize: 30,
+      fontSize: 28,
       lineHeight: "40px",
       marginBottom: 5,
       display: "block",
@@ -29,14 +29,22 @@ const CardContent = (props: any) => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Link href={props.href} className="imageCard">
+      <Link href={`/contents/${props.slug}`} className="imageCard">
         <img src={props.image} alt="" className="ratio" />
       </Link>
       <Box className="detailCard">
-        <Link href={props.href} className="name">
+        <Link href={`/contents/${props.slug}`} className="name">
           {props.name}
         </Link>
-        <Typography variant="body1" sx={{ mb: "15px" }}>
+        <Typography
+          variant="body1"
+          sx={{
+            mb: "15px",
+            color: "#777",
+            textOverflow: "ellipsis",
+            overflow: "hidden",
+          }}
+        >
           {props.description}
         </Typography>
       </Box>

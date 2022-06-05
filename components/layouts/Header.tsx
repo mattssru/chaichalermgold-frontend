@@ -5,13 +5,14 @@ import {
   Drawer,
   Grid,
   IconButton,
+  Theme,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Link from "components/Link";
 import React from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .logo": {
       display: "block",
@@ -99,7 +100,7 @@ const Header = () => {
       position="fixed"
       className={classes.root}
       sx={{
-        boxShadow: { xs: "0 3px 6px rgba(0,0,0,0.16)", md: "none" },
+        boxShadow: { xs: "0 3px 6px rgba(0,0,0,0.16)" },
         bgcolor: "#fff",
         py: "15px",
       }}

@@ -1,4 +1,4 @@
-import { Box, Grid, Hidden, Typography } from "@mui/material";
+import { Box, Grid, Hidden, Theme, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import prefix from "utils/path";
@@ -6,7 +6,7 @@ import { getGoldPrice } from "utils/api";
 import { get } from "lodash";
 import Link from "components/Link";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginBottom: 60,
     [theme.breakpoints.down("sm")]: {

@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 import Link from "./Link";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .productImage": {
       "& img": {
@@ -74,7 +74,10 @@ const CardProduct = (props: any) => {
           position: "relative",
         }}
       >
-        <Link href={`/products/${props.productId}`} className="imgOverlay">
+        <Link
+          href={`/products/detail/${props.productId}`}
+          className="imgOverlay"
+        >
           <Box
             className="hoverButton"
             sx={{
@@ -112,7 +115,7 @@ const CardProduct = (props: any) => {
         </Box>
       </Box>
       <Box className="productDetail" sx={{ mt: "15px" }}>
-        <Link href={`/products/${props.productId}`}>{name}</Link>
+        <Link href={`/products/detail/${props.productId}`}>{name}</Link>
         <Typography className="price" sx={{ color: "#777" }}>
           {price} THB
         </Typography>

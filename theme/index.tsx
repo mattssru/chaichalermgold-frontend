@@ -24,6 +24,7 @@ const theme = createTheme({
           fontWeight: 400,
           maxWidth: "1920px",
           color: "#3d3d3d",
+          margin: "0 auto",
           backgroundColor: "#fff",
         },
         article: {
@@ -49,6 +50,15 @@ const theme = createTheme({
           fontWeight: 600,
           color: "#3d3d3d",
         },
+        ".MuiFormControl-root": {
+          ".MuiOutlinedInput-root": {
+            "& input, select": {
+              height: 50,
+              paddingTop: 0,
+              paddingBottom: 0,
+            },
+          },
+        },
         ".MuiContainer-root, .MuiToolbar-gutters": {
           padding: "0 15px !important",
         },
@@ -61,15 +71,33 @@ const theme = createTheme({
             padding: "0 !important",
           },
         },
-        ".MuiInputBase-root": {
-          fontFamily: "Prompt-Regular !important",
-        },
-        ".MuiTableCell-root": {
-          fontFamily: "DBHeavent",
-          fontWeight: "normal !important",
-        },
         "&:focus, &:hover, &:visited, &:link, &:active": {
           textDecoration: "none",
+        },
+        ".MTableToolbar": {
+          padding: 0,
+          display: "none",
+        },
+        // ".MuiTableCell-root": {
+        //   padding: "15px 8px",
+        // },
+        ".MuiTableBody-root": {
+          "& > tr:nth-child(even) td": {
+            backgroundColor: "rgba(0,0,0,0.03)",
+          },
+        },
+        ".MuiTableSortLabel-root": {
+          "& .MuiTableSortLabel-icon": {
+            margin: 0,
+            fontSize: 15,
+          },
+        },
+        ".MuiTable-root": {
+          "& thead tr th:first-child": {
+            "& .MuiCheckbox-colorSecondary.Mui-checked": {
+              color: "#fff !important",
+            },
+          },
         },
       },
     },
@@ -79,7 +107,7 @@ const theme = createTheme({
       main: "#202020",
     },
     secondary: {
-      main: "#4A4A4A",
+      main: "#777",
     },
     error: {
       main: "#f44336",
@@ -190,7 +218,7 @@ const theme = createTheme({
       sm: 768,
       md: 1024,
       lg: 1400,
-      xl: 1920,
+      xl: 2000,
     },
   },
 });

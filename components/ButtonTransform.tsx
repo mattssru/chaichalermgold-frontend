@@ -5,13 +5,16 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 const ButtonTransform = (props: any) => {
   return (
     <Button
+      className={props.className}
       variant="contained"
+      component={props.component}
       color="secondary"
       endIcon={<ArrowRightAltIcon />}
+      startIcon={props.startIcon}
       onClick={props.onClick}
       sx={{
         height: props.height || 50,
-        maxWidth: props.maxwidth || 250,
+        maxWidth: props.maxwidth || { xs: "100%", sm: 250 },
         width: "100%",
         margin: props.margin || { xs: "30px auto 0", md: "50px auto 0" },
         justifyContent: "center",

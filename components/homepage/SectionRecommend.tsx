@@ -1,10 +1,10 @@
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 import prefix from "utils/path";
 import { CardRecommend } from "..";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     marginBottom: 60,
     [theme.breakpoints.down("sm")]: {

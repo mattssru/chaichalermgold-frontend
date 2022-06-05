@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Button, Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 import { ButtonTransform, CardProduct } from "..";
@@ -6,7 +6,7 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { mockproduct } from "mock/mockproduct";
 import router from "next/router";
 
-const useStyles = makeStyles((theme: any) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: "#EDEDED",
     padding: "4rem 0",
