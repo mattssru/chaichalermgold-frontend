@@ -6,7 +6,7 @@ export const getToken = () => {
   return localStorage.getItem(AUTHENTICATION_TOKEN);
 };
 
-export const setToken = (token) => {
+export const setToken = (token: any) => {
   localStorage.setItem(AUTHENTICATION_TOKEN, token);
 };
 

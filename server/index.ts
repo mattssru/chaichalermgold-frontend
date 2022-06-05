@@ -103,4 +103,8 @@ server.post('/server/login', (req, res) => {
   } 
 })
 
+server.get('/server/contents/fetch', (req, res) => {
+  res.json(database.filter((p :any) => p.type === 'content'))
+}) 
+
 export default server

@@ -1,4 +1,4 @@
-import { Box, Theme } from "@mui/material";
+import { Theme } from "@mui/material";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import prefix from "utils/path";
@@ -16,9 +16,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& .imgSlider": {
       position: "relative",
       width: "100%",
-      paddingTop: "45%",
+      paddingTop: "43.5%",
       [theme.breakpoints.down("sm")]: {
-        paddginTop: "47%",
+        paddingTop: "60%",
       },
       "& img": {
         position: "absolute",
