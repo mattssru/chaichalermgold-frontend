@@ -138,8 +138,8 @@ const theme = createTheme({
       letterSpacing: 1.1,
     },
     h2: {
-      fontSize: 44,
-      lineHeight: "50px",
+      fontSize: 30,
+      lineHeight: "40px",
       fontFamily: "Work Sans",
       fontWeight: 600,
       letterSpacing: 1.1,
@@ -171,19 +171,19 @@ const theme = createTheme({
       fontSize: "1.5rem",
       lineHeight: 1.5,
       fontFamily: "Work Sans",
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: 1.1,
     },
     h5: {
       fontSize: "1.5rem",
       fontFamily: "Work Sans",
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: 1.1,
     },
     h6: {
       lineHeight: 1.5,
       fontFamily: "Work Sans",
-      fontWeight: 600,
+      fontWeight: 700,
       letterSpacing: 1.1,
     },
     subtitle1: {

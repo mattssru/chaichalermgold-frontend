@@ -1,8 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import ButtonTransform from "./ButtonTransform";
-import Link from "./Link";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -13,9 +11,16 @@ const useStyles = makeStyles(() => ({
       display: "block",
       marginBottom: 15,
     },
+    "& .detailCard": {
+      "& p": {
+        fontSize: (props: any) => props.sizedes,
+        height: (props: any) => props.heightdes,
+        marginBottom: (props: any) => props.mb,
+      },
+    },
     "& .name": {
-      fontSize: 28,
-      lineHeight: "40px",
+      fontSize: (props: any) => props.fontsize || 20,
+      lineHeight: (props: any) => props.lineheight || "24px",
       marginBottom: 5,
       display: "block",
       "&:hover": {
@@ -26,7 +31,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CardContent = (props: any) => {
-  const classes = useStyles();
+  const classes = useStyles(props);
   return (
     <Box className={classes.root}>
       <Link href={`/contents/${props.slug}`} className="imageCard">
@@ -37,9 +42,8 @@ const CardContent = (props: any) => {
           {props.name}
         </Link>
         <Typography
-          variant="body1"
+          variant="body2"
           sx={{
-            mb: "15px",
             color: "#777",
             textOverflow: "ellipsis",
             overflow: "hidden",

@@ -1,9 +1,8 @@
-import { Box, Theme, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import Link from "./Link";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     "& .productImage": {
       "& img": {
@@ -41,8 +40,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     "& .productDetail": {
       "& a": {
-        fontSize: 16,
-        lineHeight: "34px",
+        fontSize: 20,
+        lineHeight: "26px",
         display: "block",
         fontWeight: 600,
         "&:hover": {
@@ -55,8 +54,8 @@ const useStyles = makeStyles((theme: Theme) => ({
       },
     },
     "& .price": {
-      fontSize: 21,
-      lineHeight: "30px",
+      color: "#419547",
+      fontWeight: 700,
     },
   },
 }));
@@ -74,10 +73,7 @@ const CardProduct = (props: any) => {
           position: "relative",
         }}
       >
-        <Link
-          href={`/products/detail/${props.productId}`}
-          className="imgOverlay"
-        >
+        <Link href={`/products/${props.productId}`} className="imgOverlay">
           <Box
             className="hoverButton"
             sx={{
@@ -115,8 +111,9 @@ const CardProduct = (props: any) => {
         </Box>
       </Box>
       <Box className="productDetail" sx={{ mt: "15px" }}>
-        <Link href={`/products/detail/${props.productId}`}>{name}</Link>
-        <Typography className="price" sx={{ color: "#777" }}>
+        <Link href={`/products/${props.productId}`}>{name}</Link>
+        <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
+        <Typography variant="body1" className="price" sx={{ color: "#777" }}>
           {price} THB
         </Typography>
       </Box>

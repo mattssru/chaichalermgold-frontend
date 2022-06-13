@@ -1,5 +1,8 @@
 import { getToken } from "./helper";
 import axios from "axios";
+import datajson from "../server/database/db.json";
+
+const data = datajson || [];
 
 const api = axios.create({
   baseURL: "http://localhost:3000/server",
@@ -26,7 +29,10 @@ const server = {
 //   await axios.post("login", { username, password });
 // };
 
-export const fetchProduct = async () => await server.get("product/fetch");
+// export const fetchProduct = async () => await server.get("product/fetch");
+export const fetchProduct = async () => {
+  return data?.filter((p: any) => p.type === "product");
+};
 
 export const createProduct = async (values: any) =>
   await server.post("product/create");
@@ -47,12 +53,14 @@ export const getGoldPrice = async () => {
 
 export const deleteProduct = async (item: any) => {
   const product = await server.get("product/fetch");
-  console.log("item", product, item);
   return product.filter((p: any) => p.id !== item.id);
 };
 
-export const fetchContent = async () => await server.get("contents/fetch");
+// export const fetchContent = async () => await server.get("contents/fetch");
+export const fetchContent = async () => {
+  return data?.filter((p: any) => p.type === "content");
+};
 export const getContent = async (id: any) => {
-  const contents = await server.get("contents/fetch");
+  const contents = data?.filter((p: any) => p.type === "content");
   return contents.find((content: any) => content.slug === id);
 };

@@ -76,7 +76,7 @@ const ManagePage = () => {
 
   useEffect(() => {
     const fetch: any = async () => {
-      const data = await fetchProduct();
+      const data: any = await fetchProduct();
       setProduct(data);
       return data;
     };

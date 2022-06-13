@@ -1,36 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { fetchProduct } from "utils/api";
 import { makeStyles } from "@mui/styles";
-import { Link } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
+import CardProduct from "components/CardProduct";
 const useStyles = makeStyles(() => ({
   root: {
-    paddingTop: 40,
+    padding: "50px 0",
   },
 }));
 
 const ProductsPage = () => {
-  const [product, setProduct] = useState([]);
   const classes = useStyles();
+  const [products, setProduct] = useState([]);
   useEffect(() => {
     async function scopeFunc() {
-      const product = await fetchProduct();
-      setProduct(product);
+      const products: any = await fetchProduct();
+      setProduct(products);
     }
     scopeFunc();
   }, [fetchProduct]);
 
   return (
     <section className={classes.root}>
-      {product.map((item: any, index) => {
-        return (
-          <div key={index}>
-            <div>{item.name}</div>
-            <img src={item.image} width="200" />
-            <div>{item.descriptions}</div>
-            <div>20,000 THB</div>
-          </div>
-        );
-      })}
+      <Container maxWidth="lg">
+        <Typography variant="h1" sx={{ mb: "30px" }}>
+          PRODUCTS
+        </Typography>
+        <Grid container spacing={3}>
+          {products.map((item: any, index: number) => {
+            return (
+              <Grid item lg={3} sm={4} xs={12} key={index}>
+                <CardProduct
+                  productId={item.id}
+                  image={item.image}
+                  name={item.name}
+                  price={item.price}
+                  descriptions={item.descriptions}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Container>
     </section>
   );
 };

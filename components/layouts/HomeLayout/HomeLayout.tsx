@@ -1,4 +1,3 @@
-import { Box, Theme } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -21,14 +20,13 @@ const useStyles = makeStyles((theme: any) => ({
 }));
 
 const HomeLayout = (props: any) => {
-  const { children } = props;
   const classes = useStyles();
   return (
-    <Box>
+    <>
       <Header />
-      <article className={classes.article}>{children}</article>
+      <article className={classes.article}>{props.children}</article>
       <Footer />
-    </Box>
+    </>
   );
 };
 

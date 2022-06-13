@@ -1,4 +1,5 @@
 // import fs from "fs";
+import Router from "next/router";
 
 export const AUTHENTICATION_TOKEN = "authenticationToken";
 
@@ -12,6 +13,10 @@ export const setToken = (token: any) => {
 
 export const clearToken = () => {
   localStorage.removeItem(AUTHENTICATION_TOKEN);
+};
+
+export const PageReload = () => {
+  Router.replace(Router.asPath);
 };
 
 // export const readJsonFile = (pathFile) => {
