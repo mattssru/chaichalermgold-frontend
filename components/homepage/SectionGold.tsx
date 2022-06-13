@@ -71,7 +71,7 @@ const SectionGold = () => {
             }}
           >
             <Typography
-              variant="h2"
+              variant="h1"
               sx={{ fontWeight: { lg: 400, sm: 600 }, pt: "20px" }}
             >
               GOLD PRICE TODAY

@@ -77,7 +77,6 @@ const UploadImage = (props: any) => {
         />
         <label htmlFor="contained-button-file" style={{ width: "auto" }}>
           <ButtonTransform
-            className="btnUpload"
             title="อัปโหลดรูปภาพ"
             maxwidth="300px"
             margin="0 !important"

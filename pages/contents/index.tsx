@@ -1,14 +1,12 @@
-import { CardContent, Headline } from "@components/*";
+import { CardContent } from "@components/*";
 import { makeStyles } from "@mui/styles";
 import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import prefix from "utils/path";
-import { mockcontent } from "mock/mockcontent";
 import { fetchContent } from "utils/api";
 
 const useStyles = makeStyles(() => ({
   root: {
-    paddingTop: 50,
+    padding: "50px 0",
   },
 }));
 
@@ -18,7 +16,7 @@ const ContentPage = () => {
 
   useEffect(() => {
     const fetch: any = async () => {
-      const data = await fetchContent();
+      const data: any = await fetchContent();
       setContent(data);
       return data;
     };

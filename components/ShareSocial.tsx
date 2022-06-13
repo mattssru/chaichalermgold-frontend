@@ -4,16 +4,12 @@ import React from "react";
 import ShareRoundedIcon from "@mui/icons-material/ShareRounded";
 import {
   FacebookIcon,
-  FacebookMessengerIcon,
-  FacebookMessengerShareButton,
   FacebookShareButton,
-  FacebookShareCount,
   LineIcon,
   LineShareButton,
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
-import Link from "./Link";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -96,7 +92,7 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-const Share = (props: any) => {
+const ShareSocial = (props: any) => {
   const classes = useStyles();
   // const url = `https://www.facebook.com/dialog/send?link=/${props.url2}`;
   return (
@@ -131,4 +127,4 @@ const Share = (props: any) => {
   );
 };
 
-export default Share;
+export default ShareSocial;

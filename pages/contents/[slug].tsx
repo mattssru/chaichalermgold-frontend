@@ -1,22 +1,15 @@
-import { Headline, Share } from "@components/*";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import router from "next/router";
 import React, { useState, useEffect } from "react";
-import {
-  FacebookIcon,
-  FacebookShareButton,
-  LineIcon,
-  LineShareButton,
-  TwitterIcon,
-  TwitterShareButton,
-} from "react-share";
-import { getContent } from "utils/api";
+import { fetchContent, getContent } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import { CardContent, ShareSocial } from "@components/*";
+import { mockcontent } from "mock/mockcontent";
+import router from "next/router";
 
 const useStyles = makeStyles(() => ({
   root: {
-    paddingTop: 50,
+    padding: "50px 0",
     "& .imageContent": {
       "& img": {
         display: "block",
@@ -24,6 +17,12 @@ const useStyles = makeStyles(() => ({
         width: "100%",
         height: "auto",
       },
+    },
+    "& .nav-link": {
+      textDecoration: "none",
+    },
+    "& .active:after": {
+      content: " (current page)",
     },
   },
 }));
@@ -39,16 +38,27 @@ interface IContent {
 const ContentDetailPage = () => {
   const classes = useStyles();
   const [content, setContent] = useState<IContent>();
+  const [listContent, setListContent] = useState([]);
 
   useEffect(() => {
     const { slug } = router.query;
     const fetch: any = async () => {
-      const data = await getContent(slug);
+      const data: any = await getContent(slug);
       setContent(data);
       return data;
     };
     fetch();
   }, [getContent]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const { slug } = router.query;
+      const data: any = await fetchContent();
+      setListContent(data.filter((content: any) => content.slug !== slug));
+      return data;
+    };
+    fetch();
+  }, [fetchContent]);
 
   // const url = typeof window !== "undefined" ? window.location.href : "";
   const url =
@@ -56,7 +66,7 @@ const ContentDetailPage = () => {
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           <Grid item md={9} sm={12} xs={12}>
             <Typography variant="h1" sx={{ mb: "10px" }}>
               {content?.name}
@@ -80,16 +90,41 @@ const ContentDetailPage = () => {
                 xs={12}
                 sx={{ textAlign: { xs: "left", sm: "right" } }}
               >
-                <Share url={url} url2={url} />
+                <ShareSocial url={url} />
               </Grid>
             </Grid>
 
-            <Box className="imageContent">
+            <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
               <img src={content?.image} alt={content?.name} />
             </Box>
-            <Typography variant="body1">{content?.description}</Typography>
+            <Typography variant="body1" sx={{ mb: "20px" }}>
+              {content?.description}
+            </Typography>
           </Grid>
-          <Grid item md={9} sm={12} xs={12}></Grid>
+          <Grid item md={3} sm={12} xs={12}>
+            <Typography variant="h4" sx={{ mb: "20px" }}>
+              More Content
+            </Typography>
+            <Grid container spacing={2}>
+              {listContent.map((item: any, index: number) => {
+                return (
+                  <Grid item md={12} sm={6} xs={6} key={index}>
+                    <CardContent
+                      slug={item.slug}
+                      image={item.image}
+                      name={item.name}
+                      description={item.description}
+                      fontsize="18px"
+                      lineheight="24px"
+                      sizedes="14px"
+                      heightdes="63px"
+                      mb="0"
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
         </Grid>
       </Container>
     </section>

@@ -4,7 +4,7 @@
     "type": "product",
     "name": "สร้อยคอแฟนซี 1 สลึง",
     "descriptions": "ทองคำแท้ 96.5%",
-    "image": "/uploads/280927671_3305604143053882_8680492170853641479_n.jpeg",
+    "image": "/uploads/product_01.jpg",
     "price": 21000
   },
   {
@@ -12,7 +12,7 @@
     "type": "product",
     "name": "สร้อยคอแฟนซี 2 สลึง",
     "descriptions": "ทองคำแท้ 96.5%",
-    "image": "/uploads/20627679_1833382030010107_6249584243572211712_n.jpeg",
+    "image": "/uploads/product_02.jpg",
     "price": 22000
   },
   {
@@ -20,9 +20,49 @@
     "type": "product",
     "name": "สร้อยคอแฟนซี 2 สลึง",
     "descriptions": "ทองคำแท้ 96.5%",
-    "image": "/uploads/205400271_3098007190480246_4584539627451374032_n.jpeg",
+    "image": "/uploads/product_03.jpg",
     "price": 23000
   }, 
+  {
+    "id": 4,
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 1 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/product_04.jpg",
+    "price": 21000
+  },
+  {
+    "id": 5,
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 2 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/product_05.jpg",
+    "price": 22000
+  },
+  {
+    "id": 6,
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 2 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/product_06.jpg",
+    "price": 23000
+  }, 
+  {
+    "id": 7,
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 1 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/product_07.jpg",
+    "price": 21000
+  },
+  {
+    "id": 8,
+    "type": "product",
+    "name": "สร้อยคอแฟนซี 2 สลึง",
+    "descriptions": "ทองคำแท้ 96.5%",
+    "image": "/uploads/product_08.jpg",
+    "price": 22000
+  },
   {
     "id": 1,
     "slug": "test_slug1",
@@ -45,7 +85,7 @@
     "id": 3,
     "slug": "test_slug3",
     "type": "content",
-    "image": "/uploads/content_01.jpg",
+    "image": "/uploads/banner.jpg",
     "name": "แพคเกจงานแต่ง",
     "description":
       "ไม่ว่าจะพิธีไทย งานเลี้ยงฉลองมงคลสมรส ให้เราช่วยทำงานยากให้เป็นงานง่าย ผู้ใหญ่สบายใจ เพื่อนๆสนุกสนานคู่บ่าวสาวสุดประทับใจ"

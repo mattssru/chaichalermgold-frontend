@@ -1,15 +1,15 @@
-import { Button, Container, Grid, Theme, Typography } from "@mui/material";
+import { Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ButtonTransform, CardProduct } from "..";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import { mockproduct } from "mock/mockproduct";
 import router from "next/router";
+import { fetchProduct } from "utils/api";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     backgroundColor: "#EDEDED",
-    padding: "4rem 0",
+    padding: "3rem 0",
     marginBottom: 50,
     [theme.breakpoints.down("sm")]: {
       padding: "2rem 0",
@@ -20,6 +20,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const SectionProduct = () => {
   const classes = useStyles();
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetch = async () => {
+      const data: any = await fetchProduct();
+      setProducts(data);
+      return data;
+    };
+    fetch();
+  }, [fetchProduct]);
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
@@ -27,7 +36,7 @@ const SectionProduct = () => {
           PRODUCTS
         </Typography>
         <Grid container spacing={3}>
-          {mockproduct.map((item: any, index: number) => {
+          {products.map((item: any, index: number) => {
             return (
               <Grid item lg={3} sm={4} xs={12} key={index}>
                 <CardProduct
@@ -35,10 +44,16 @@ const SectionProduct = () => {
                   image={item.image}
                   name={item.name}
                   price={item.price}
+                  descriptions={item.descriptions}
                 />
               </Grid>
             );
           })}
+          {/* <Grid item sm={3}>
+            <div>
+              <img src={`${prefix}/images/product_01.jpg`} alt="" />
+            </div>
+          </Grid> */}
         </Grid>
         <ButtonTransform
           title="VIEW ALL PRODUCTS"

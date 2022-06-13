@@ -5,7 +5,6 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 const ButtonTransform = (props: any) => {
   return (
     <Button
-      className={props.className}
       variant="contained"
       component={props.component}
       color="secondary"
