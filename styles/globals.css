@@ -1,0 +1,252 @@
+html,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+code,
+del,
+dfn,
+em,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+dialog,
+figure,
+footer,
+hgroup,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+dialog,
+footer,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+p {
+  word-wrap: break-word;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  float: none !important;
+}
+table,
+th,
+td {
+  vertical-align: middle;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+blockquote,
+q {
+  quotes: "" "";
+}
+a img {
+  border: none;
+}
+img{
+  -moz-transition:  0.4s ease;
+  -webkit-transition: 0.4s ease;
+  transition: 0.5s ease;
+}
+a img:hover{
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  transition: 0.6s ease;
+}
+:focus {
+  outline: 0;
+}
+ul li {
+  list-style: none;
+}
+/* end reset */
+a,
+button {
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  text-decoration: none;
+}
+a{
+  overflow: hidden;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  outline-offset: 0;
+  opacity: 0.7;
+}
+a,
+a:hover {
+  text-decoration: none !important;
+  cursor: pointer;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.ratio{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.data-table{
+  position: relative;
+  margin-bottom: 30px;
+}
+.data-table > .MuiPaper-root{
+  box-shadow: none;
+  position: unset !important;
+}
+.data-table .Component-horizontalScrollContainer-18{
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+  border-radius: 10px;
+}
+.data-table .MuiPaper-root > .MuiToolbar-root{
+  padding: 0 !important;
+  margin-bottom: 25px;
+  display: block;
+  min-height: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.data-table .MuiFormControl-root{
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  width: 100%;
+  border-radius: 4px;
+  height: 50px;
+}
+.data-table .MuiFormControl-root input{
+  height: 50px;
+  padding: 0;
+}
+.data-table .MuiInputBase-root::before,
+.data-table .MuiInputBase-root::after{
+  border-bottom: none !important;
+}
+.data-table  table tfoot{
+  display: table-footer-group !important;
+}
+.data-table  table tfoot .MuiToolbar-root{
+  display: flex;
+  margin-bottom: 0;
+}
+.data-table  table tfoot td{
+  border-bottom: none;
+}
+.data-table  table tfoot .MuiTablePagination-selectLabel{
+  display: none;
+}
+.data-table .MuiTableSortLabel-root.MuiTableSortLabel-active, 
+.data-table .MuiTableSortLabel-root.MuiTableSortLabel-active.MuiTableSortLabel-root.MuiTableSortLabel-active .MuiTableSortLabel-icon{
+  color: #fff;
+}
+.data-table  table thead tr th{
+  background-color: #202020;
+  color: #fff;
+  height: 60px;
+  font-family: 'Prompt-SemiBold';
+  font-size: 0.9rem;
+  border-bottom: none;
+}
+.data-table  table thead tr th:first-child{
+  border-top-left-radius: 5px;
+}
+.data-table  table thead tr th:last-child{
+  border-top-right-radius: 5px;
+  padding: 16px;
+}
+.data-table  table tbody tr td{
+  background-color: #fff;
+  color: #000;
+  border-bottom: none;
+  font-size: 0.85rem !important;
+}
+.data-table  table tbody tr:nth-child(even) td{
+  background-color: #E7E9EB;
+}
+/* .data-table  table tbody tr td:first-child{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+} */
+.data-table  table tbody tr td:last-child{
+  /* border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; */
+  padding: 16px !important;
+}
+@media (max-width: 1024px){
+  .data-table table:first-child.MuiTable-root{
+    min-width: 800px;
+  }
+}
+@media (max-width: 767px){
+  .data-table .MuiPaper-root > .MuiToolbar-root{
+    position: relative;
+  }
+}
