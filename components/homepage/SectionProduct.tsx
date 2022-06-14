@@ -32,15 +32,19 @@ const SectionProduct = () => {
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
-        <Typography variant="h2" align="center" sx={{ mb: "30px" }}>
+        <Typography
+          variant="h2"
+          align="center"
+          sx={{ mb: { xs: "20px", md: "30px" } }}
+        >
           PRODUCTS
         </Typography>
-        <Grid container spacing={3}>
+        <Grid container spacing={2}>
           {products.map((item: any, index: number) => {
             return (
-              <Grid item lg={3} sm={4} xs={12} key={index}>
+              <Grid item lg={3} sm={4} xs={6} key={index}>
                 <CardProduct
-                  productId={item.id}
+                  slug={item.id}
                   image={item.image}
                   name={item.name}
                   price={item.price}

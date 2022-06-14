@@ -65,7 +65,7 @@
   },
   {
     "id": 1,
-    "slug": "test_slug1",
+    "slug": "20-คำสอนของพ่อ",
     "type": "content",
     "image": "/uploads/content_01.jpg",
     "name": "20 คำสอนของ'พ่อ'",
@@ -74,7 +74,7 @@
   },
   {
     "id": 2,
-    "slug": "test_slug2",
+    "slug": "12-สิงหาวันแม่เห่งชาติ",
     "type": "content",
     "image": "/uploads/content_02.jpg",
     "name": "12 สิงหา วันแม่เห่งชาติ",
@@ -83,7 +83,7 @@
   },
   {
     "id": 3,
-    "slug": "test_slug3",
+    "slug": "แพคเกจงานแต่ง",
     "type": "content",
     "image": "/uploads/banner.jpg",
     "name": "แพคเกจงานแต่ง",
