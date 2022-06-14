@@ -129,27 +129,25 @@ const theme = createTheme({
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 700,
+    fontWeightBold: 600,
     h1: {
       fontFamily: "Work Sans",
-      fontSize: "2.25rem",
+      fontSize: "2rem",
       lineHeight: 1.22222,
-      fontWeight: 700,
-      letterSpacing: 1.1,
+      fontWeight: 600,
+      "@media (max-width: 768px)": {
+        fontSize: 30,
+        lineHeight: "30px",
+      },
     },
     h2: {
       fontSize: 30,
       lineHeight: "40px",
       fontFamily: "Work Sans",
       fontWeight: 600,
-      letterSpacing: 1.1,
-      "@media (max-width: 1024px)": {
-        fontSize: 32,
-        lineHeight: "40px",
-      },
       "@media (max-width: 768px)": {
         fontSize: 28,
-        lineHeight: "36px",
+        lineHeight: "31px",
       },
     },
     h3: {
@@ -157,7 +155,6 @@ const theme = createTheme({
       lineHeight: "50px",
       fontFamily: "Work Sans",
       fontWeight: 400,
-      letterSpacing: 1.1,
       "@media (max-width: 1024px)": {
         fontSize: 32,
         lineHeight: "40px",
@@ -171,27 +168,23 @@ const theme = createTheme({
       fontSize: "1.5rem",
       lineHeight: 1.5,
       fontFamily: "Work Sans",
-      fontWeight: 700,
-      letterSpacing: 1.1,
+      fontWeight: 600,
     },
     h5: {
       fontSize: "1.5rem",
       fontFamily: "Work Sans",
-      fontWeight: 700,
-      letterSpacing: 1.1,
+      fontWeight: 600,
     },
     h6: {
       lineHeight: 1.5,
       fontFamily: "Work Sans",
-      fontWeight: 700,
-      letterSpacing: 1.1,
+      fontWeight: 600,
     },
     subtitle1: {
       fontSize: "1.3rem",
       lineHeight: 1.5,
       fontWeight: 400,
       fontFamily: "Work Sans",
-      letterSpacing: 1.1,
       "@media (max-width: 1024px)": {
         fontSize: "1rem",
         lineHeight: 1.5,
@@ -202,14 +195,19 @@ const theme = createTheme({
       lineHeight: 1.5,
       fontWeight: 400,
       fontFamily: "Work Sans",
-      letterSpacing: 1.1,
+      "@media (max-width: 991px)": {
+        fontSize: "0.85rem",
+        lineHeight: 1.35,
+      },
     },
     body2: {
       fontSize: "0.875rem",
       lineHeight: 1.43,
       fontWeight: 400,
       fontFamily: "Work Sans",
-      letterSpacing: 1.1,
+      "@media (max-width: 768px)": {
+        fontSize: "0.875rem",
+      },
     },
   },
   breakpoints: {

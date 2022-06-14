@@ -7,12 +7,13 @@ import prefix from "utils/path";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .socail": {
-      height: 55,
+      height: 40,
       display: "flex",
       lineHeight: 0,
       margin: "0 10px",
       [theme.breakpoints.down("md")]: {
-        height: 45,
+        height: 30,
+        margin: "0 6px",
       },
       "& img": {
         width: "100%",
@@ -43,9 +44,7 @@ const Footer = () => {
             sx={{ height: "100%" }}
           >
             <Grid item md sm={12} xs={12}>
-              <Box
-                sx={{ maxWidth: 300, textAlign: { md: "left", xs: "center" } }}
-              >
+              <Box sx={{ maxWidth: 250, margin: { xs: "0 auto", md: 0 } }}>
                 <img
                   src={`${prefix}/images/logo_footer.svg`}
                   alt=""
@@ -84,11 +83,11 @@ const Footer = () => {
               <Typography
                 align="center"
                 sx={{
-                  fontSize: { md: 21, xs: 18 },
+                  fontSize: { md: 20, xs: 16 },
                   lineHeight: "30px",
                   color: "#fff",
                   fontWeight: 500,
-                  mb: "15px",
+                  mb: "10px",
                   display: { md: "block", xs: "none" },
                 }}
               >

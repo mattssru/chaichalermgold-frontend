@@ -2,7 +2,7 @@ import { Box, Link, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     "& .productImage": {
       "& img": {
@@ -44,6 +44,9 @@ const useStyles = makeStyles(() => ({
         lineHeight: "26px",
         display: "block",
         fontWeight: 600,
+        [theme.breakpoints.down("md")]: {
+          fontSize: 16,
+        },
         "&:hover": {
           opacity: 0.7,
         },
@@ -62,7 +65,6 @@ const useStyles = makeStyles(() => ({
 
 const CardProduct = (props: any) => {
   const classes = useStyles(props);
-  const { image, name, price } = props;
   return (
     <Box className={classes.root}>
       <Box
@@ -73,7 +75,7 @@ const CardProduct = (props: any) => {
           position: "relative",
         }}
       >
-        <Link href={`/products/${props.productId}`} className="imgOverlay">
+        <Link href={`/products/${props.slug}`} className="imgOverlay">
           <Box
             className="hoverButton"
             sx={{
@@ -82,8 +84,8 @@ const CardProduct = (props: any) => {
               alignItems: "center",
               bgcolor: "#fff",
               color: "#000",
-              height: { xs: 50, sm: 40, md: 50 },
-              fontSize: { xs: 16, sm: 12, md: 16 },
+              height: { xs: 45, sm: 40, md: 50 },
+              fontSize: { xs: 14, sm: 12, md: 16 },
               maxWidth: 300,
               width: "100%",
               margin: "0 auto",
@@ -107,14 +109,14 @@ const CardProduct = (props: any) => {
             paddingTop: "100%",
           }}
         >
-          <img src={image} alt="" />
+          <img src={props.image} alt="" />
         </Box>
       </Box>
-      <Box className="productDetail" sx={{ mt: "15px" }}>
-        <Link href={`/products/${props.productId}`}>{name}</Link>
+      <Box className="productDetail" sx={{ mt: { xs: "10px", md: "15px" } }}>
+        <Link href={`/products/${props.slug}`}>{props.name}</Link>
         <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
         <Typography variant="body1" className="price" sx={{ color: "#777" }}>
-          {price} THB
+          {props.price} THB
         </Typography>
       </Box>
     </Box>

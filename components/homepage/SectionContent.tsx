@@ -19,7 +19,11 @@ const SectionContent = () => {
   return (
     <section>
       <Container maxWidth="lg">
-        <Typography variant="h2" align="center" sx={{ mb: "30px" }}>
+        <Typography
+          variant="h2"
+          align="center"
+          sx={{ mb: { xs: "20px", md: "30px" } }}
+        >
           CONTENTS
         </Typography>
         <Grid container spacing={3}>

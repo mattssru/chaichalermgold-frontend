@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     "& .btnMenu": {
       marginRight: 15,
       display: "block",
-      fontWeight: 400,
+      fontWeight: 500,
       letterSpacing: 0,
       color: theme.palette.primary.main,
     },

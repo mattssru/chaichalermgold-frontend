@@ -4,9 +4,12 @@ import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { fetchContent } from "utils/api";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     padding: "50px 0",
+    [theme.breakpoints.down("md")]: {
+      padding: "30px 0",
+    },
   },
 }));
 

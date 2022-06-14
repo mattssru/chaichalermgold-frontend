@@ -28,27 +28,28 @@ const server = {
 // export const login = async ({ username, password }) => {
 //   await axios.post("login", { username, password });
 // };
+export const getGoldPrice = async () => {
+  return await axios
+    .get("https://thai-gold-api.herokuapp.com/latest")
+    .then((res) => res.data);
+};
 
 // export const fetchProduct = async () => await server.get("product/fetch");
 export const fetchProduct = async () => {
   return data?.filter((p: any) => p.type === "product");
 };
-
+export const getProduct = async (id: any) => {
+  const products = data?.filter((p: any) => p.type === "product");
+  return products.find((product: any) => product.slug === id);
+};
 export const createProduct = async (values: any) =>
   await server.post("product/create");
-
 export const uploadImage = async (imageFile: any) => {
   await server.post("product/upload-image", imageFile, {
     headers: {
       "content-type": "multipart/form-data",
     },
   });
-};
-
-export const getGoldPrice = async () => {
-  return await axios
-    .get("https://thai-gold-api.herokuapp.com/latest")
-    .then((res) => res.data);
 };
 
 export const deleteProduct = async (item: any) => {

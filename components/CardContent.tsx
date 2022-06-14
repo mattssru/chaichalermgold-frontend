@@ -47,6 +47,7 @@ const CardContent = (props: any) => {
             color: "#777",
             textOverflow: "ellipsis",
             overflow: "hidden",
+            height: { xs: 41, sm: 60 },
           }}
         >
           {props.description}

@@ -4,12 +4,14 @@ import React, { useState, useEffect } from "react";
 import { fetchContent, getContent } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { CardContent, ShareSocial } from "@components/*";
-import { mockcontent } from "mock/mockcontent";
 import router from "next/router";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
     padding: "50px 0",
+    [theme.breakpoints.down("md")]: {
+      padding: "30px 0",
+    },
     "& .imageContent": {
       "& img": {
         display: "block",
