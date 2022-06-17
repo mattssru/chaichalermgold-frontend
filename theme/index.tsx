@@ -6,19 +6,19 @@ const theme = createTheme({
       styleOverrides: {
         body: {
           WebkitFontSmoothing: "auto",
-          fontFamily: [
-            "Work Sans",
-            "-apple-system",
-            "BlinkMacSystemFont",
-            '"Segoe UI"',
-            "Roboto",
-            '"Helvetica Neue"',
-            "Arial",
-            "sans-serif",
-            '"Apple Color Emoji"',
-            '"Segoe UI Emoji"',
-            '"Segoe UI Symbol"',
-          ].join(","),
+          // fontFamily: [
+          //   "Work Sans",
+          //   "-apple-system",
+          //   "BlinkMacSystemFont",
+          //   '"Segoe UI"',
+          //   "Roboto",
+          //   '"Helvetica Neue"',
+          //   "Arial",
+          //   "sans-serif",
+          //   '"Apple Color Emoji"',
+          //   '"Segoe UI Emoji"',
+          //   '"Segoe UI Symbol"',
+          // ].join(","),
           fontSize: "100%",
           lineHeight: "24px",
           fontWeight: 400,
@@ -123,7 +123,13 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Work Sans",
+    fontFamily: [
+      "Work Sans",
+      "-apple-system",
+      "Roboto",
+      "Arial",
+      "sans-serif",
+    ].join(","),
     htmlFontSize: 16,
     fontSize: 14,
     fontWeightLight: 300,
@@ -131,7 +137,6 @@ const theme = createTheme({
     fontWeightMedium: 500,
     fontWeightBold: 600,
     h1: {
-      fontFamily: "Work Sans",
       fontSize: "2rem",
       lineHeight: 1.22222,
       fontWeight: 600,
@@ -143,7 +148,6 @@ const theme = createTheme({
     h2: {
       fontSize: 30,
       lineHeight: "40px",
-      fontFamily: "Work Sans",
       fontWeight: 600,
       "@media (max-width: 768px)": {
         fontSize: 28,
@@ -153,7 +157,6 @@ const theme = createTheme({
     h3: {
       fontSize: 44,
       lineHeight: "50px",
-      fontFamily: "Work Sans",
       fontWeight: 400,
       "@media (max-width: 1024px)": {
         fontSize: 32,
@@ -167,24 +170,20 @@ const theme = createTheme({
     h4: {
       fontSize: "1.5rem",
       lineHeight: 1.5,
-      fontFamily: "Work Sans",
       fontWeight: 600,
     },
     h5: {
       fontSize: "1.5rem",
-      fontFamily: "Work Sans",
       fontWeight: 600,
     },
     h6: {
       lineHeight: 1.5,
-      fontFamily: "Work Sans",
       fontWeight: 600,
     },
     subtitle1: {
       fontSize: "1.3rem",
       lineHeight: 1.5,
       fontWeight: 400,
-      fontFamily: "Work Sans",
       "@media (max-width: 1024px)": {
         fontSize: "1rem",
         lineHeight: 1.5,
@@ -194,7 +193,6 @@ const theme = createTheme({
       fontSize: "1rem",
       lineHeight: 1.5,
       fontWeight: 400,
-      fontFamily: "Work Sans",
       "@media (max-width: 991px)": {
         fontSize: "0.85rem",
         lineHeight: 1.35,
