@@ -1,6 +1,6 @@
 import { Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import React, { useEffect } from "react";
 import prefix from "utils/path";
 import { CardRecommend } from "..";
 
@@ -51,15 +51,18 @@ const data = [
   //   image: `${prefix}/images/product_06.jpg`,
   // },
 ];
-
 const SectionRecommend = () => {
   const classes = useStyles();
-
   return (
-    <section className={classes.root}>
+    <section
+      className={classes.root}
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+    >
       <Container maxWidth="lg">
         <Typography variant="h2" align="center" sx={{ mb: "20px" }}>
-          RECOMMEND
+          {/* RECOMMEND */}
+          สินค้าแนะนำ
         </Typography>
 
         <Grid container spacing={3}>

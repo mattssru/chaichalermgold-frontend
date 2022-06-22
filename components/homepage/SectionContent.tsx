@@ -4,6 +4,7 @@ import CardContent from "components/CardContent";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { fetchContent } from "utils/api";
+import AOS from "aos";
 
 const SectionContent = () => {
   const [contents, setContents] = useState([]);
@@ -23,13 +24,23 @@ const SectionContent = () => {
           variant="h2"
           align="center"
           sx={{ mb: { xs: "20px", md: "30px" } }}
+          data-aos="fade-down"
+          data-aos-duration="1500"
         >
-          CONTENTS
+          บทความ
         </Typography>
         <Grid container spacing={3}>
           {contents.map((item: any, index: number) => {
             return (
-              <Grid item md={4} sm={6} xs={12} key={index}>
+              <Grid
+                item
+                md={4}
+                sm={6}
+                xs={12}
+                key={index}
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
                 <CardContent
                   slug={item.slug}
                   image={item.image}

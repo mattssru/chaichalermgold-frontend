@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NextApp from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
@@ -26,6 +26,7 @@ class App extends NextApp {
 
   render = () => {
     const { Component, pageProps }: any = this.props;
+
     return (
       <ThemeProvider theme={theme}>
         <Head>
@@ -47,6 +48,11 @@ class App extends NextApp {
             href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+          ></link>
+          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
           <title>ห้างทองเพชรเฉลิมชัย ตราดาว</title>
         </Head>
         <CssBaseline />

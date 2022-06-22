@@ -29,23 +29,23 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-interface IContent {
-  name: string | "";
-  description: string | "";
-  image: string | "";
-  type: string | "";
-  id: number | 1;
-}
+// interface IContent {
+//   name: string | "";
+//   description: string | "";
+//   image: string | "";
+//   type: string | "";
+//   id: number | 1;
+// }
 
 const ContentDetailPage = () => {
   const classes = useStyles();
-  const [content, setContent] = useState<IContent>();
+  const [content, setContent] = useState<any>();
   const [listContent, setListContent] = useState([]);
 
   useEffect(() => {
     const { slug } = router.query;
-    const fetch: any = async () => {
-      const data: any = await getContent(slug);
+    const fetch = async () => {
+      const data = await getContent(slug);
       setContent(data);
       return data;
     };

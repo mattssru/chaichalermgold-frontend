@@ -30,7 +30,7 @@ const ContentPage = () => {
     <section className={classes.root}>
       <Container maxWidth="lg">
         <Typography variant="h1" sx={{ mb: "30px" }}>
-          CONTENTS
+          บทความ
         </Typography>
         <Grid container spacing={3}>
           {contents.map((item: any, index: number) => {

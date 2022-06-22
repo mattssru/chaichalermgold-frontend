@@ -53,13 +53,27 @@ const SectionGold = () => {
     <section className={classes.root}>
       <Grid container spacing={0}>
         <Hidden smDown>
-          <Grid item lg={8} sm={6} xs={12}>
+          <Grid
+            item
+            lg={8}
+            sm={6}
+            xs={12}
+            data-aos="fade-right"
+            data-aos-duration="2200"
+          >
             <Box className="bannerGold">
               <img src={`${prefix}/images/section_gold.jpg`} alt="" />
             </Box>
           </Grid>
         </Hidden>
-        <Grid item lg={4} sm={6} xs={12}>
+        <Grid
+          item
+          lg={4}
+          sm={6}
+          xs={12}
+          data-aos="fade-left"
+          data-aos-duration="2200"
+        >
           <Box
             className="contentGold"
             sx={{
