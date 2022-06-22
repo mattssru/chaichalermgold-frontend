@@ -75,7 +75,7 @@ const CardProduct = (props: any) => {
           position: "relative",
         }}
       >
-        <Link href={`/products/${props.slug}`} className="imgOverlay">
+        <Link href={`/products/${props.productId}`} className="imgOverlay">
           <Box
             className="hoverButton"
             sx={{
@@ -113,7 +113,7 @@ const CardProduct = (props: any) => {
         </Box>
       </Box>
       <Box className="productDetail" sx={{ mt: { xs: "10px", md: "15px" } }}>
-        <Link href={`/products/${props.slug}`}>{props.name}</Link>
+        <Link href={`/products/${props.productId}`}>{props.name}</Link>
         <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
         <Typography variant="body1" className="price" sx={{ color: "#777" }}>
           {props.price} THB

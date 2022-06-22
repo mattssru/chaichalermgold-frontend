@@ -34,13 +34,14 @@ export const getGoldPrice = async () => {
     .then((res) => res.data);
 };
 
-// export const fetchProduct = async () => await server.get("product/fetch");
-export const fetchProduct = async () => {
-  return data?.filter((p: any) => p.type === "product");
-};
+export const fetchProduct = async () => await server.get("product/fetch");
+// export const fetchProduct = async () => {
+//   return data?.filter((p: any) => p.type === "product");
+// };
 export const getProduct = async (id: any) => {
-  const products = data?.filter((p: any) => p.type === "product");
-  return products.find((product: any) => product.slug === id);
+  console.log("typeof ", typeof id);
+  const products = await server.get("product/fetch");
+  return products.find((product: any) => product.id === parseInt(id));
 };
 export const createProduct = async (values: any) =>
   await server.post("product/create");
@@ -57,11 +58,11 @@ export const deleteProduct = async (item: any) => {
   return product.filter((p: any) => p.id !== item.id);
 };
 
-// export const fetchContent = async () => await server.get("contents/fetch");
-export const fetchContent = async () => {
-  return data?.filter((p: any) => p.type === "content");
-};
+export const fetchContent = async () => await server.get("contents/fetch");
+// export const fetchContent = async () => {
+//   return data?.filter((p: any) => p.type === "content");
+// };
 export const getContent = async (id: any) => {
-  const contents = data?.filter((p: any) => p.type === "content");
+  const contents = await server.get("contents/fetch");
   return contents.find((content: any) => content.slug === id);
 };

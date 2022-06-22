@@ -36,15 +36,25 @@ const SectionProduct = () => {
           variant="h2"
           align="center"
           sx={{ mb: { xs: "20px", md: "30px" } }}
+          data-aos="fade-down"
+          data-aos-duration="1500"
         >
-          PRODUCTS
+          สินค้า
         </Typography>
         <Grid container spacing={2}>
           {products.map((item: any, index: number) => {
             return (
-              <Grid item lg={3} sm={4} xs={6} key={index}>
+              <Grid
+                item
+                lg={3}
+                sm={4}
+                xs={6}
+                key={index}
+                data-aos="fade-up"
+                data-aos-duration="2000"
+              >
                 <CardProduct
-                  slug={item.id}
+                  productId={item.id}
                   image={item.image}
                   name={item.name}
                   price={item.price}

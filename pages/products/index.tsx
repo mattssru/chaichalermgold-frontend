@@ -36,7 +36,7 @@ const ProductsPage = () => {
             return (
               <Grid item lg={3} sm={4} xs={6} key={index}>
                 <CardProduct
-                  slug={item.id}
+                  productId={item.id}
                   image={item.image}
                   name={item.name}
                   price={item.price}

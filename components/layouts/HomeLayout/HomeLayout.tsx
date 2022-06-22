@@ -1,6 +1,7 @@
 import { makeStyles } from "@mui/styles";
 import dynamic from "next/dynamic";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
 
 const Header = dynamic(import("../Header"));
 const Footer = dynamic(import("../Footer"));
@@ -21,6 +22,9 @@ const useStyles = makeStyles((theme: any) => ({
 
 const HomeLayout = (props: any) => {
   const classes = useStyles();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
       <Header />

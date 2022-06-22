@@ -10,7 +10,10 @@ import Link from "components/Link";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    paddingTop: 30,
+    padding: "50px 0",
+    [theme.breakpoints.down("md")]: {
+      padding: "30px 0,",
+    },
     "& .image": {
       position: "relative",
       width: "100%",
@@ -56,7 +59,9 @@ const ContactPage = () => {
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
-        <Headline>CONTACT</Headline>
+        <Typography variant="h1" sx={{ mb: "30px" }}>
+          เกี่ยวกับเรา
+        </Typography>
         <Box className="image" sx={{ mb: { xs: "30px", md: "50px" } }}>
           <img src={`${prefix}/images/contact.jpg`} alt="" className="ratio" />
         </Box>
