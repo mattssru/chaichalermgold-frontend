@@ -3,15 +3,10 @@ import { makeStyles } from "@mui/styles";
 import { Container, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { fetchContent } from "utils/api";
+import BreadcrumpDefault from "components/BreadCrumpDefault";
+import { InnerLayout } from "components/layouts/InnerLayout";
 
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    padding: "50px 0",
-    [theme.breakpoints.down("md")]: {
-      padding: "30px 0",
-    },
-  },
-}));
+const useStyles = makeStyles((theme: any) => ({}));
 
 const ContentPage = () => {
   const classes = useStyles();
@@ -26,9 +21,11 @@ const ContentPage = () => {
     fetch();
   }, [fetchContent]);
 
+  const navi = [{ title: "หน้าแรก", path: "/" }, { title: "บทความ" }];
   return (
-    <section className={classes.root}>
+    <InnerLayout>
       <Container maxWidth="lg">
+        <BreadcrumpDefault items={navi} />
         <Typography variant="h1" sx={{ mb: "30px" }}>
           บทความ
         </Typography>
@@ -47,7 +44,7 @@ const ContentPage = () => {
           })}
         </Grid>
       </Container>
-    </section>
+    </InnerLayout>
   );
 };
 

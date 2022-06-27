@@ -57,12 +57,15 @@ const SectionRecommend = () => {
     <section
       className={classes.root}
       data-aos="zoom-in"
-      data-aos-duration="1500"
+      data-aos-duration="1000"
     >
       <Container maxWidth="lg">
-        <Typography variant="h2" align="center" sx={{ mb: "20px" }}>
-          {/* RECOMMEND */}
-          สินค้าแนะนำ
+        <Typography
+          variant="h2"
+          align="center"
+          sx={{ mb: { xs: "2rem", md: "2.5rem" } }}
+        >
+          Recommend
         </Typography>
 
         <Grid container spacing={3}>

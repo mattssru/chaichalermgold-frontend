@@ -7,7 +7,7 @@ const useStyles = makeStyles(() => ({
     "& .imageCard": {
       position: "relative",
       width: "100%",
-      paddingTop: "50%",
+      paddingTop: "62%",
       display: "block",
       marginBottom: 15,
     },
@@ -34,7 +34,15 @@ const CardContent = (props: any) => {
   const classes = useStyles(props);
   return (
     <Box className={classes.root}>
-      <Link href={`/contents/${props.slug}`} className="imageCard">
+      <Link
+        href={`/contents/${props.slug}`}
+        className="imageCard"
+        sx={{
+          "& img": {
+            borderRadius: "0.6rem",
+          },
+        }}
+      >
         <img src={props.image} alt="" className="ratio" />
       </Link>
       <Box className="detailCard">

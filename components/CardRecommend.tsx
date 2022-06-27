@@ -56,13 +56,13 @@ const CardRecommend = (props: any) => {
         position: "relative",
       }}
     >
-      <Link href={`/product/{href}`} className="imgOverlay">
+      <Link href={`/products/{href}`} className="imgOverlay">
         <Box
           sx={{
             color: "#fff",
             position: "absolute",
             fontWeight: 600,
-            fontSize: { xs: 20, sm: 15, md: 24 },
+            fontSize: 20,
             width: "100%",
             textAlign: "center",
             top: "50%",
@@ -80,8 +80,8 @@ const CardRecommend = (props: any) => {
             alignItems: "center",
             bgcolor: "#fff",
             color: "#000",
-            height: { xs: 45, sm: 35, md: 50 },
-            fontSize: { xs: 18, sm: 12, md: 16 },
+            height: 45,
+            fontSize: 14,
             maxWidth: 300,
             width: "100%",
             margin: "0 auto",
@@ -103,6 +103,9 @@ const CardRecommend = (props: any) => {
           position: "relative",
           width: "100%",
           paddingTop: "60%",
+          "& img": {
+            borderRadius: "0.6rem",
+          },
         }}
       >
         <img src={image} alt="" />

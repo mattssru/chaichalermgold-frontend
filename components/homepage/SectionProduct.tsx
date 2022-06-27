@@ -35,11 +35,11 @@ const SectionProduct = () => {
         <Typography
           variant="h2"
           align="center"
-          sx={{ mb: { xs: "20px", md: "30px" } }}
+          sx={{ mb: { xs: "2rem", md: "2.5rem" } }}
           data-aos="fade-down"
           data-aos-duration="1500"
         >
-          สินค้า
+          Products
         </Typography>
         <Grid container spacing={2}>
           {products.map((item: any, index: number) => {

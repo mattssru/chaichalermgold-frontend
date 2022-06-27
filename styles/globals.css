@@ -1,7 +1,10 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+html{
+  scroll-behavior: smooth;
+}
 div,
 span,
-object,
 iframe,
 h1,
 h2,
@@ -10,16 +13,7 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
 a,
-abbr,
-acronym,
-address,
-code,
-del,
-dfn,
-em,
 img,
 q,
 dl,
@@ -41,28 +35,16 @@ tr,
 th,
 td,
 article,
-aside,
-dialog,
-figure,
 footer,
-hgroup,
 nav,
 section {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   vertical-align: baseline;
 }
 article,
-aside,
-details,
-figcaption,
-figure,
-dialog,
 footer,
-hgroup,
-menu,
 nav,
 section {
   display: block;
@@ -74,7 +56,6 @@ table {
   border-collapse: separate;
   border-spacing: 0;
 }
-caption,
 th,
 td {
   text-align: left;
@@ -85,16 +66,6 @@ table,
 th,
 td {
   vertical-align: middle;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-}
-blockquote,
-q {
-  quotes: "" "";
 }
 a img {
   border: none;
@@ -117,6 +88,7 @@ ul li {
   list-style: none;
 }
 /* end reset */
+
 a,
 button {
   -moz-transition: all 0.2s ease-in;
@@ -231,13 +203,7 @@ a:hover {
 .data-table  table tbody tr:nth-child(even) td{
   background-color: #E7E9EB;
 }
-/* .data-table  table tbody tr td:first-child{
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-} */
 .data-table  table tbody tr td:last-child{
-  /* border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px; */
   padding: 16px !important;
 }
 @media (max-width: 1024px){

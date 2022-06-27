@@ -5,6 +5,7 @@ import { fetchContent, getContent } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { CardContent, ShareSocial } from "@components/*";
 import router from "next/router";
+import BreadcrumpDefault from "components/BreadCrumpDefault";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -62,12 +63,18 @@ const ContentDetailPage = () => {
     fetch();
   }, [fetchContent]);
 
+  const navi = [
+    { title: "หน้าแรก", path: "/" },
+    { title: "บทความ", path: "/contents" },
+    { title: content?.name },
+  ];
   // const url = typeof window !== "undefined" ? window.location.href : "";
   const url =
     "https://www.chaichalermgold.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97/%e0%b8%81%e0%b8%b3%e0%b9%84%e0%b8%a5965";
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
+        <BreadcrumpDefault items={navi} />
         <Grid container spacing={4}>
           <Grid item md={9} sm={12} xs={12}>
             <Typography variant="h1" sx={{ mb: "10px" }}>

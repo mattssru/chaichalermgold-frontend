@@ -3,6 +3,7 @@ import { fetchProduct } from "utils/api";
 import { makeStyles } from "@mui/styles";
 import { Container, Grid, Typography } from "@mui/material";
 import CardProduct from "components/CardProduct";
+import BreadcrumpDefault from "components/BreadCrumpDefault";
 const useStyles = makeStyles((theme: any) => ({
   root: {
     padding: "50px 0",
@@ -25,11 +26,13 @@ const ProductsPage = () => {
     fetch();
   }, [fetchProduct]);
 
+  const navi = [{ title: "หน้าแรก", path: "/" }, { title: "สินค้า" }];
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">
+        <BreadcrumpDefault items={navi} />
         <Typography variant="h1" sx={{ mb: "30px" }}>
-          PRODUCTS
+          สินค้า
         </Typography>
         <Grid container spacing={2}>
           {products.map((item: any, index: number) => {
