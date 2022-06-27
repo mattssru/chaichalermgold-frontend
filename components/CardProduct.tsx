@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme: any) => ({
         lineHeight: "26px",
         display: "block",
         fontWeight: 600,
+        height: 26,
         [theme.breakpoints.down("md")]: {
           fontSize: 16,
         },
@@ -107,6 +108,9 @@ const CardProduct = (props: any) => {
             position: "relative",
             width: "100%",
             paddingTop: "100%",
+            "& img": {
+              borderRadius: "0.6rem",
+            },
           }}
         >
           <img src={props.image} alt="" />

@@ -10,3 +10,4 @@ export { default as Headline } from "./Headline";
 export { default as TableIcons } from "./TableIcons";
 export { default as UploadImage } from "./UploadImage";
 export { default as ShareSocial } from "./ShareSocial";
+export { default as BreadCrumpDefault } from "./BreadCrumpDefault";

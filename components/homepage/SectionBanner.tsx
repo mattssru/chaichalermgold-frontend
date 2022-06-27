@@ -112,7 +112,11 @@ const SectionBanner = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <section className={classes.root}>
+    <section
+      className={classes.root}
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+    >
       <Slider {...settings}>
         {data.map((item: any, index: number) => {
           return (

@@ -8,15 +8,16 @@ const Footer = dynamic(import("../Footer"));
 
 const useStyles = makeStyles((theme: any) => ({
   article: {
-    paddingTop: 110,
+    // paddingTop: 110,
     paddingBottom: 50,
     minHeight: "65vh",
-    [theme.breakpoints.down("lg")]: {
-      paddingTop: 90,
-    },
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: 85,
-    },
+    overflow: "hidden",
+    // [theme.breakpoints.down("lg")]: {
+    //   paddingTop: 90,
+    // },
+    // [theme.breakpoints.down("sm")]: {
+    //   paddingTop: 85,
+    // },
   },
 }));
 

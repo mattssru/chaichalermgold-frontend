@@ -23,11 +23,11 @@ const SectionContent = () => {
         <Typography
           variant="h2"
           align="center"
-          sx={{ mb: { xs: "20px", md: "30px" } }}
+          sx={{ mb: { xs: "2rem", md: "2.5rem" } }}
           data-aos="fade-down"
           data-aos-duration="1500"
         >
-          บทความ
+          Contents
         </Typography>
         <Grid container spacing={3}>
           {contents.map((item: any, index: number) => {

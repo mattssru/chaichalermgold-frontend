@@ -39,7 +39,6 @@ export const fetchProduct = async () => await server.get("product/fetch");
 //   return data?.filter((p: any) => p.type === "product");
 // };
 export const getProduct = async (id: any) => {
-  console.log("typeof ", typeof id);
   const products = await server.get("product/fetch");
   return products.find((product: any) => product.id === parseInt(id));
 };

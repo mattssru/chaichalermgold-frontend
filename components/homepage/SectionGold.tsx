@@ -59,7 +59,7 @@ const SectionGold = () => {
             sm={6}
             xs={12}
             data-aos="fade-right"
-            data-aos-duration="2200"
+            data-aos-duration="1800"
           >
             <Box className="bannerGold">
               <img src={`${prefix}/images/section_gold.jpg`} alt="" />
@@ -72,7 +72,7 @@ const SectionGold = () => {
           sm={6}
           xs={12}
           data-aos="fade-left"
-          data-aos-duration="2200"
+          data-aos-duration="1800"
         >
           <Box
             className="contentGold"

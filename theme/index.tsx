@@ -6,40 +6,21 @@ const theme = createTheme({
       styleOverrides: {
         body: {
           WebkitFontSmoothing: "auto",
-          // fontFamily: [
-          //   "Work Sans",
-          //   "-apple-system",
-          //   "BlinkMacSystemFont",
-          //   '"Segoe UI"',
-          //   "Roboto",
-          //   '"Helvetica Neue"',
-          //   "Arial",
-          //   "sans-serif",
-          //   '"Apple Color Emoji"',
-          //   '"Segoe UI Emoji"',
-          //   '"Segoe UI Symbol"',
-          // ].join(","),
-          fontSize: "100%",
-          lineHeight: "24px",
+          fontFamily: ["Poppins", "sans-serif", "-apple-system"].join(","),
           fontWeight: 400,
           maxWidth: "1920px",
           color: "#3d3d3d",
           margin: "0 auto",
           backgroundColor: "#fff",
         },
-        article: {
-          overflow: "hidden",
-        },
         MuiButton: {
+          fontWeight: 600,
           text: {
             color: "white",
           },
         },
         button: {
           fontWeight: 600,
-        },
-        strong: {
-          fontWeight: 700,
         },
         a: {
           textDecoration: "none",
@@ -78,9 +59,6 @@ const theme = createTheme({
           padding: 0,
           display: "none",
         },
-        // ".MuiTableCell-root": {
-        //   padding: "15px 8px",
-        // },
         ".MuiTableBody-root": {
           "& > tr:nth-child(even) td": {
             backgroundColor: "rgba(0,0,0,0.03)",
@@ -123,19 +101,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: [
-      "Work Sans",
-      "-apple-system",
-      "Roboto",
-      "Arial",
-      "sans-serif",
-    ].join(","),
-    htmlFontSize: 16,
-    fontSize: 14,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    fontWeightBold: 600,
+    fontFamily: ["Poppins", "sans-serif", "-apple-system"].join(","),
     h1: {
       fontSize: "2rem",
       lineHeight: 1.22222,
@@ -168,17 +134,9 @@ const theme = createTheme({
       },
     },
     h4: {
-      fontSize: "1.5rem",
-      lineHeight: 1.5,
-      fontWeight: 600,
-    },
-    h5: {
-      fontSize: "1.5rem",
-      fontWeight: 600,
-    },
-    h6: {
-      lineHeight: 1.5,
-      fontWeight: 600,
+      fontSize: "24px",
+      lineHeight: 1.4,
+      fontWeight: 500,
     },
     subtitle1: {
       fontSize: "1.3rem",
@@ -213,7 +171,7 @@ const theme = createTheme({
       xs: 0,
       sm: 768,
       md: 1024,
-      lg: 1400,
+      lg: 1240,
       xl: 2000,
     },
   },

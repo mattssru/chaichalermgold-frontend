@@ -37,7 +37,7 @@ class App extends NextApp {
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta name="description" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
-          <link rel="icon" href="/images/logo_gold.svg" />
+          <link rel="icon" href="/images/logo_black.svg" />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -45,7 +45,7 @@ class App extends NextApp {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
             rel="stylesheet"
           />
           <link
@@ -63,9 +63,7 @@ class App extends NextApp {
             horizontal: "right",
           }}
         >
-          <HomeLayout>
-            <Component {...pageProps} />
-          </HomeLayout>
+          <Component {...pageProps} />
         </SnackbarProvider>
       </ThemeProvider>
     );
