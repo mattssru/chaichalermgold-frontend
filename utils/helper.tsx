@@ -19,6 +19,12 @@ export const PageReload = () => {
   Router.replace(Router.asPath);
 };
 
+export const currencyFormat = (num: any) => {
+  return parseFloat(num)
+    .toFixed(2)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+};
+
 // export const readJsonFile = (pathFile) => {
 //   const jsonString = fs.readFileSync(pathFile);
 //   return Json.parse(jsonString);

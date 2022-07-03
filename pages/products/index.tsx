@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchProduct } from "utils/api";
+import { fetchProduct, fetchProductV2 } from "utils/api";
 import { makeStyles } from "@mui/styles";
 import { Container, Grid, Typography } from "@mui/material";
 import CardProduct from "components/CardProduct";
@@ -12,20 +12,29 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
 }));
-
+// http://165.22.96.125:8000/wp-content/uploads/2022/06/S__22896676.jpg
 const ProductsPage = () => {
   const classes = useStyles();
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
-    const fetch: any = async () => {
-      const data: any = await fetchProduct();
+    const fetch = async () => {
+      const data = await fetchProductV2();
       setProduct(data);
       return data;
     };
     fetch();
   }, [fetchProduct]);
 
+  // useEffect(() => {
+  //   const fetch: any = async () => {
+  //     const data: any = await fetchProduct();
+  //     setProduct(data);
+  //     return data;
+  //   };
+  //   fetch();
+  // }, [fetchProduct]);
+  console.log("products", products);
   const navi = [{ title: "หน้าแรก", path: "/" }, { title: "สินค้า" }];
   return (
     <section className={classes.root}>
@@ -40,7 +49,7 @@ const ProductsPage = () => {
               <Grid item lg={3} sm={4} xs={6} key={index}>
                 <CardProduct
                   productId={item.id}
-                  image={item.image}
+                  image={item.images[0].src}
                   name={item.name}
                   price={item.price}
                   descriptions={item.descriptions}

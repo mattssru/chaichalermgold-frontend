@@ -1,6 +1,7 @@
 import { Box, Link, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
+import { currencyFormat } from "utils/helper";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -66,6 +67,7 @@ const useStyles = makeStyles((theme: any) => ({
 
 const CardProduct = (props: any) => {
   const classes = useStyles(props);
+  console.log("CardProduct", props);
   return (
     <Box className={classes.root}>
       <Box
@@ -120,7 +122,7 @@ const CardProduct = (props: any) => {
         <Link href={`/products/${props.productId}`}>{props.name}</Link>
         <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
         <Typography variant="body1" className="price" sx={{ color: "#777" }}>
-          {props.price} THB
+          {currencyFormat(props.price)} THB
         </Typography>
       </Box>
     </Box>

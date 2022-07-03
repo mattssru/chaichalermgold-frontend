@@ -1,11 +1,16 @@
 import { getToken } from "./helper";
 import axios from "axios";
 import datajson from "../server/database/db.json";
-
+import bodyParser from "body-parser";
 const data = datajson || [];
 
 const api = axios.create({
   baseURL: "http://localhost:3000/server",
+  timeout: 1000,
+});
+
+const WPApi = axios.create({
+  baseURL: "http://165.22.96.125:8000/wp-json/chaicharlerm/v1",
   timeout: 1000,
 });
 
@@ -34,10 +39,34 @@ export const getGoldPrice = async () => {
     .then((res) => res.data);
 };
 
+// const decodeToString = (object: any) => {
+//   object.forEach((element: any) => {
+//     console.log("element", decodeURI(element.slug));
+//   });
+
+//   // if (object instanceof Object) {
+
+//   // }
+//   return object;
+// };
+
+export const fetchProductV2 = async () => {
+  return await WPApi.get("/products").then((res) => {
+    return res.data;
+  });
+};
+
+export const getProductV2 = async (id: any) => {
+  return await WPApi.get(`/products/${id}`).then((res) => {
+    return res.data;
+  });
+};
+
 export const fetchProduct = async () => await server.get("product/fetch");
 // export const fetchProduct = async () => {
 //   return data?.filter((p: any) => p.type === "product");
 // };
+
 export const getProduct = async (id: any) => {
   const products = await server.get("product/fetch");
   return products.find((product: any) => product.id === parseInt(id));
