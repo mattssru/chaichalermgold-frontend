@@ -1,12 +1,19 @@
 import { Container, Grid, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import ButtonTransform from "components/ButtonTransform";
 import CardContent from "components/CardContent";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { fetchContent } from "utils/api";
-import AOS from "aos";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    marginBottom: 50,
+  },
+}));
 
 const SectionContent = () => {
+  const classes = useStyles();
   const [contents, setContents] = useState([]);
   useEffect(() => {
     const fetch = async () => {
@@ -18,7 +25,7 @@ const SectionContent = () => {
   }, [fetchContent]);
 
   return (
-    <section>
+    <section className={classes.root}>
       <Container maxWidth="lg">
         <Typography
           variant="h2"

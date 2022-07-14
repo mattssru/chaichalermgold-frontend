@@ -122,7 +122,7 @@ const CardProduct = (props: any) => {
         <Link href={`/products/${props.productId}`}>{props.name}</Link>
         <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
         <Typography variant="body1" className="price" sx={{ color: "#777" }}>
-          {currencyFormat(props.price)} THB
+          ฿{currencyFormat(props.price)}
         </Typography>
       </Box>
     </Box>

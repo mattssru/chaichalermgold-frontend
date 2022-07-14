@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { fetchProduct, fetchProductV2 } from "utils/api";
 import { makeStyles } from "@mui/styles";
-import { Container, Grid, Typography } from "@mui/material";
+import {
+  Checkbox,
+  Container,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  Typography,
+} from "@mui/material";
 import CardProduct from "components/CardProduct";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    padding: "50px 0",
-    [theme.breakpoints.down("md")]: {
-      padding: "30px 0",
-    },
-  },
-}));
-// http://165.22.96.125:8000/wp-content/uploads/2022/06/S__22896676.jpg
+import { InnerLayout } from "components/layouts/InnerLayout";
+
+const useStyles = makeStyles((theme: any) => ({}));
+
 const ProductsPage = () => {
   const classes = useStyles();
   const [products, setProduct] = useState([]);
@@ -34,32 +36,83 @@ const ProductsPage = () => {
   //   };
   //   fetch();
   // }, [fetchProduct]);
-  console.log("products", products);
   const navi = [{ title: "หน้าแรก", path: "/" }, { title: "สินค้า" }];
   return (
-    <section className={classes.root}>
+    <InnerLayout>
       <Container maxWidth="lg">
         <BreadcrumpDefault items={navi} />
-        <Typography variant="h1" sx={{ mb: "30px" }}>
-          สินค้า
-        </Typography>
         <Grid container spacing={2}>
-          {products.map((item: any, index: number) => {
-            return (
-              <Grid item lg={3} sm={4} xs={6} key={index}>
-                <CardProduct
-                  productId={item.id}
-                  image={item.images[0].src}
-                  name={item.name}
-                  price={item.price}
-                  descriptions={item.descriptions}
-                />
+          <Grid item md={3} sm={12} xs={12}>
+            <Typography
+              variant="h1"
+              component="h2"
+              sx={{ mb: { xs: "10px", md: "25px" } }}
+            >
+              หมวดหมู่สินค้า
+            </Typography>
+            <FormGroup>
+              <Grid container spacing={0}>
+                <Grid item md={12} sm={3} xs={6}>
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="สร้อยคอ"
+                    sx={{ mr: "0px", color: "#7e7e7e" }}
+                  />
+                </Grid>
+                <Grid item md={12} sm={3} xs={6}>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="สร้อยข้อมือ"
+                    sx={{ mr: "0px", color: "#7e7e7e" }}
+                  />
+                </Grid>
+                <Grid item md={12} sm={3} xs={6}>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="แหวนทอง"
+                    sx={{ mr: "0px", color: "#7e7e7e" }}
+                  />
+                </Grid>
+                <Grid item md={12} sm={3} xs={6}>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="แหวนเพชร"
+                    sx={{ mr: "0px", color: "#7e7e7e" }}
+                  />
+                </Grid>
+                <Grid item md={12} sm={3} xs={6}>
+                  <FormControlLabel
+                    control={<Checkbox />}
+                    label="ต่างหู"
+                    sx={{ mr: "0px", color: "#7e7e7e" }}
+                  />
+                </Grid>
               </Grid>
-            );
-          })}
+            </FormGroup>
+          </Grid>
+          <Grid item md={9} sm={12} xs={12}>
+            <Typography variant="h1" component="h2" sx={{ mb: "30px" }}>
+              สินค้า
+            </Typography>
+            <Grid container spacing={2}>
+              {products.map((item: any, index: number) => {
+                return (
+                  <Grid item lg={4} sm={4} xs={6} key={index}>
+                    <CardProduct
+                      productId={item.id}
+                      image={item.images[0].src}
+                      name={item.name}
+                      price={item.price}
+                      descriptions={item.descriptions}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
+          </Grid>
         </Grid>
       </Container>
-    </section>
+    </InnerLayout>
   );
 };
 

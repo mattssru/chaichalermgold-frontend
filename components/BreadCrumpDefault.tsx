@@ -7,8 +7,8 @@ import Link from "./Link";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    // borderBottom: "1px solid #eee",
-    // marginBottom: 30,
+    borderBottom: "1px solid #eee",
+    margin: "30px 0",
     "& .breadcrumbs": {
       [theme.breakpoints.down("xs")]: {
         margin: 0,
@@ -17,9 +17,6 @@ const useStyles = makeStyles((theme: any) => ({
         display: "flex",
         marginBottom: 30,
         alignItems: "center",
-        [theme.breakpoints.down("xs")]: {
-          marginBottom: 30,
-        },
         "& li": {
           display: "block",
           [theme.breakpoints.down("xs")]: {

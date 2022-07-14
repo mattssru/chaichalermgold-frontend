@@ -103,11 +103,11 @@ const theme = createTheme({
   typography: {
     fontFamily: ["Poppins", "sans-serif", "-apple-system"].join(","),
     h1: {
-      fontSize: "2rem",
+      fontSize: "1.8rem",
       lineHeight: 1.22222,
       fontWeight: 600,
       "@media (max-width: 768px)": {
-        fontSize: 30,
+        fontSize: 24,
         lineHeight: "30px",
       },
     },
@@ -143,7 +143,7 @@ const theme = createTheme({
       lineHeight: 1.5,
       fontWeight: 400,
       "@media (max-width: 1024px)": {
-        fontSize: "1rem",
+        fontSize: "1.1rem",
         lineHeight: 1.5,
       },
     },
@@ -160,7 +160,6 @@ const theme = createTheme({
       fontSize: "0.875rem",
       lineHeight: 1.43,
       fontWeight: 400,
-      fontFamily: "Work Sans",
       "@media (max-width: 768px)": {
         fontSize: "0.875rem",
       },

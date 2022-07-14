@@ -6,8 +6,8 @@ import AOS from "aos";
 const Header = dynamic(import("../Header"));
 const Footer = dynamic(import("../Footer"));
 
-const useStyles = makeStyles((theme: any) => ({
-  article: {
+const useStyles = makeStyles(() => ({
+  main: {
     // paddingTop: 110,
     paddingBottom: 50,
     minHeight: "65vh",
@@ -29,7 +29,7 @@ const HomeLayout = (props: any) => {
   return (
     <>
       <Header />
-      <article className={classes.article}>{props.children}</article>
+      <main className={classes.main}>{props.children}</main>
       <Footer />
     </>
   );
