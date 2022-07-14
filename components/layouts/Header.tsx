@@ -16,11 +16,31 @@ import prefix from "utils/path";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    "&.MuiPaper-elevation0": {
+      "& .logoWhite": {
+        display: "block",
+      },
+      "& .logoBlack": {
+        display: "none",
+      },
+    },
+    "&.MuiPaper-elevation4": {
+      "& .logoWhite": {
+        display: "none",
+      },
+      "& .logoBlack": {
+        display: "block",
+      },
+    },
     "& .logo": {
       display: "block",
-      height: 60,
+      height: 55,
+      "&:hover img": {
+        transform: "none",
+        transition: "none",
+      },
       [theme.breakpoints.down("sm")]: {
-        height: 55,
+        height: 50,
       },
       "& img": {
         maxWidth: "100%",
@@ -33,7 +53,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: "block",
       fontWeight: 500,
       letterSpacing: 0,
-      // color: theme.palette.primary.main,
       color: "#fff",
     },
   },
@@ -145,7 +164,13 @@ const Header = (props: any) => {
             <Grid item lg={3}>
               <Link href="/" className="logo">
                 <img
+                  className="logoWhite"
                   src={props.logo || `${prefix}/images/logo_white.svg`}
+                  alt=""
+                />
+                <img
+                  className="logoBlack"
+                  src={`${prefix}/images/logo_black.svg`}
                   alt=""
                 />
               </Link>

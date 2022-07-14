@@ -13,7 +13,7 @@ const ButtonTransform = (props: any) => {
       onClick={props.onClick}
       sx={{
         height: props.height || 45,
-        maxWidth: props.maxwidth || { xs: "100%", sm: 250 },
+        maxWidth: props.maxwidth || { xs: 250, sm: 250 },
         width: "100%",
         fontWeight: 600,
         margin: props.margin || { xs: "30px auto 0", md: "50px auto 0" },

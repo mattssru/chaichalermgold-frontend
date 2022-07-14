@@ -1,18 +1,22 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import ButtonTransform from "components/ButtonTransform";
+import router from "next/router";
 import React from "react";
 import prefix from "utils/path";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: any) => ({
   root: {
-    // backgroundColor: "#1b1f22",
-    // padding: "90px 0",
-    height: 840,
+    height: "100vh",
     marginBottom: 50,
     backgroundImage: `url(${prefix}/images/banner_intro.jpg)`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "50% 50%",
+    [theme.breakpoints.down("sm")]: {
+      height: "90vh",
+      backgroundPosition: "70% 50%",
+    },
     "& .MuiContainer-root": {
       height: "100%",
     },
@@ -35,19 +39,36 @@ const useStyles = makeStyles(() => ({
       justifyContent: "center",
       height: "100%",
       "& h1": {
-        fontSize: "2.5rem",
-        lineHeight: "140%",
-        marginBottom: 5,
-        fontWeight: 600,
-      },
-      "& h2": {
-        fontSize: "2rem",
-        lineHeight: 1.6,
-        marginBottom: 15,
+        fontSize: "54px",
+        lineHeight: "70px",
+        marginBottom: 20,
+        fontWeight: 700,
+        [theme.breakpoints.down("sm")]: {
+          textAlign: "center",
+          fontSize: 50,
+          lineHeight: "64px",
+        },
       },
       "& p": {
+        fontSize: 20,
+        lineHeight: "26px",
         fontWeight: 400,
-        color: "hsl(355, 4%, 75%)",
+        color: "rgba(255, 255, 255, 0.97)",
+        letterSpacing: "1.2",
+        [theme.breakpoints.down("sm")]: {
+          textAlign: "center",
+        },
+      },
+      "& button": {
+        boxShadow: "none",
+        margin: "30px 0 0 0",
+        maxWidth: 250,
+        // backgroundColor: "transparent",
+        // border: "1px solid #fff",
+        borderRadius: "25px !important",
+        [theme.breakpoints.down("sm")]: {
+          margin: "30px auto 0",
+        },
       },
     },
   },
@@ -63,21 +84,16 @@ const SectionIntro = () => {
       <Container maxWidth="lg">
         <Box className="homData" position="relative">
           <Typography variant="h1" color="#fff">
-            CHAICHALERM <br />
-            GoldSmith & Jewellery
+            Chaichalerm <br />
+            Goldsmith & Jewellery
           </Typography>
-          {/* <Typography variant="h1" color="#fff">
-                ห้างเพชรทองเฉลิมชัย
-                <br />
-                ตราดาว
-              </Typography> */}
-          {/* <Typography variant="h2" color="#fff">
-                Wedding & Engagement
-              </Typography> */}
-          <Typography variant="subtitle1" color="#fff">
-            "เพราะวันสำคัญของคุณ <br />
-            คือวันสำคัญที่สุดของเรา"
+          <Typography variant="body2">
+            “ เพราะวันสำคัญของคุณ คือวันสำคัญที่สุดของเรา ”
           </Typography>
+          <ButtonTransform
+            title="Contact"
+            onClick={() => router.push("/contact")}
+          />
         </Box>
       </Container>
     </section>

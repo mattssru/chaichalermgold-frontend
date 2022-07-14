@@ -1,26 +1,102 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
-import { first } from "lodash";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { getProductV2 } from "utils/api";
 import ImageGallery from "react-image-gallery";
 import { currencyFormat } from "utils/helper";
+import { InnerLayout } from "components/layouts/InnerLayout";
+import "react-image-gallery/styles/css/image-gallery.css";
+import ShareSocial from "components/ShareSocial";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    padding: "50px 0",
-    [theme.breakpoints.down("md")]: {
-      padding: "30px 0",
+    "& p": {
+      "& img": {
+        width: "auto",
+        height: "auto",
+        maxWidth: "100%",
+        maxHeight: "100%",
+        objectFit: "cover",
+      },
     },
-    "& .imageProduct": {
-      // position: "relative",
-      // paddingTop: "100%",
-      // width: "100%",
+    "& .sliderThumnail": {
+      position: "relative",
+      "& .image-gallery-slide": {
+        height: 500,
+        [theme.breakpoints.down("md")]: {
+          height: 350,
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: 450,
+        },
+      },
+      "& .image-gallery-slide .image-gallery-image, .image-gallery-thumbnail .image-gallery-thumbnail-image":
+        {
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: 10,
+        },
+      "& .image-gallery-thumbnail+.image-gallery-thumbnail": {
+        marginLeft: 5,
+      },
+      "& .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus": {
+        opacity: 1,
+      },
+      "& .image-gallery-thumbnail .image-gallery-thumbnail-inner": {
+        height: 90,
+        [theme.breakpoints.down("md")]: {
+          height: 70,
+        },
+      },
+      "& .image-gallery-thumbnail": {
+        width: 90,
+        height: "100%",
+        opacity: "0.6",
+        border: "none",
+        [theme.breakpoints.down("md")]: {
+          width: 70,
+        },
+      },
+      "& .image-gallery-thumbnails .image-gallery-thumbnails-container": {
+        textAlign: "left",
+      },
+      "& .image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg":
+        {
+          height: 30,
+          [theme.breakpoints.down("sm")]: {
+            height: 40,
+          },
+        },
+      "& .image-gallery-left-nav, .image-gallery-right-nav": {
+        padding: 0,
+      },
     },
   },
 }));
+const images = [
+  {
+    original: "/images/product_01.jpg",
+    thumbnail: "/images/product_01.jpg",
+  },
+  {
+    original: "/images/product_02.jpg",
+    thumbnail: "/images/product_02.jpg",
+  },
+  {
+    original: "/images/product_03.jpg",
+    thumbnail: "/images/product_03.jpg",
+  },
+  {
+    original: "/images/product_04.jpg",
+    thumbnail: "/images/product_04.jpg",
+  },
+  {
+    original: "/images/product_05.jpg",
+    thumbnail: "/images/product_05.jpg",
+  },
+];
 
 const ProductDetail = () => {
   const classes = useStyles();
@@ -48,54 +124,97 @@ const ProductDetail = () => {
       srcSet: image.src,
     };
   });
+  const url = "";
 
-  console.log("product", product);
   return (
-    <section className={classes.root}>
-      <Container maxWidth="lg">
+    <InnerLayout>
+      <Container maxWidth="lg" className={classes.root}>
         <BreadcrumpDefault items={navi} />
         <Grid container spacing={4}>
           <Grid item sm={6} xs={12}>
-            <Box className="imageProduct">
-              {/* https://github.com/xiaolin/react-image-gallery */}
-              {/* <ImageGallery showNav={false} items={featureImage} autoPlay />; */}
-              {product?.images.map((image: any) => {
-                return <div>{image.src}</div>;
-              })}
+            <Box className="sliderThumnail">
+              <ImageGallery
+                showFullscreenButton={false}
+                showPlayButton={false}
+                items={images}
+              />
             </Box>
           </Grid>
           <Grid item sm={6} xs={12}>
-            <Typography variant="h4" component="h1">
+            {/* <Typography>วันที่อัพเดตสินค้า: {product?.date_created}</Typography> */}
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontWeight: 700,
+                fontSize: 28,
+                mb: "5px",
+              }}
+            >
               {product?.name}
             </Typography>
-            <Typography>ราคา: {currencyFormat(product?.price)}</Typography>
-
-            <Typography>วันที่อัพเดตสินค้า: {product?.date_created}</Typography>
-            <Typography>
-              tags:{" "}
-              {product?.tags.map((tag: any) => {
-                return <span>#{tag?.name} </span>;
-              })}
+            <Typography
+              sx={{
+                fontSize: 20,
+                fontWeight: 600,
+                color: "#419547",
+                marginBottom: "20px",
+                borderBottom: "1px solid #e7e7e7",
+                paddingBottom: "20px",
+              }}
+            >
+              ฿{currencyFormat(product?.price)}
             </Typography>
-            <Typography>
-              category :{" "}
+            <Typography
+              variant="subtitle1"
+              sx={{ fontWeight: 600, mb: "10px", fontSize: "1.2rem" }}
+            >
+              Description
+            </Typography>
+            <Typography
+              dangerouslySetInnerHTML={{ __html: product?.description }}
+              sx={{
+                color: "#7e7e7e",
+                mb: "10px",
+                marginBottom: "25px",
+                borderBottom: "1px solid #e7e7e7",
+                paddingBottom: "20px",
+              }}
+            ></Typography>
+            <Typography
+              sx={{
+                mb: "20px",
+                fontWeight: 600,
+                color: product?.on_sale ? "#17c57a" : "#f26060",
+              }}
+            >
+              {product?.on_sale ? "มีสินค้า" : "สินค้าหมด"}
+            </Typography>
+            <Typography sx={{ fontWeight: 600, mb: "5px" }}>
+              Categories :{" "}
               {product?.categories.map((cate: any) => {
-                return <span>#{cate?.name} </span>;
+                return (
+                  <span style={{ fontWeight: 400, color: "#7e7e7e" }}>
+                    #{cate?.name}{" "}
+                  </span>
+                );
               })}
             </Typography>
-            <Typography>
-              In Stock: {product?.on_sale ? "มีวางจำหน่าย" : "สินค้าหมด"}
+            <Typography sx={{ fontWeight: 600, mb: "25px" }}>
+              Tags :{" "}
+              {product?.tags.map((tag: any) => {
+                return (
+                  <span style={{ fontWeight: 400, color: "#7e7e7e" }}>
+                    #{tag?.name}{" "}
+                  </span>
+                );
+              })}
             </Typography>
-            <Typography>
-              รายละเอียด:
-              <div
-                dangerouslySetInnerHTML={{ __html: product?.description }}
-              ></div>
-            </Typography>
+            <ShareSocial url={url} />
           </Grid>
         </Grid>
       </Container>
-    </section>
+    </InnerLayout>
   );
 };
 

@@ -6,13 +6,10 @@ import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { CardContent, ShareSocial } from "@components/*";
 import router from "next/router";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
+import { InnerLayout } from "components/layouts/InnerLayout";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    padding: "50px 0",
-    [theme.breakpoints.down("md")]: {
-      padding: "30px 0",
-    },
     "& .imageContent": {
       "& img": {
         display: "block",
@@ -29,14 +26,6 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
 }));
-
-// interface IContent {
-//   name: string | "";
-//   description: string | "";
-//   image: string | "";
-//   type: string | "";
-//   id: number | 1;
-// }
 
 const ContentDetailPage = () => {
   const classes = useStyles();
@@ -72,8 +61,8 @@ const ContentDetailPage = () => {
   const url =
     "https://www.chaichalermgold.com/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97/%e0%b8%81%e0%b8%b3%e0%b9%84%e0%b8%a5965";
   return (
-    <section className={classes.root}>
-      <Container maxWidth="lg">
+    <InnerLayout>
+      <Container maxWidth="lg" className={classes.root}>
         <BreadcrumpDefault items={navi} />
         <Grid container spacing={4}>
           <Grid item md={9} sm={12} xs={12}>
@@ -126,7 +115,7 @@ const ContentDetailPage = () => {
                       fontsize="18px"
                       lineheight="24px"
                       sizedes="14px"
-                      heightdes="63px"
+                      heightdes="60px"
                       mb="0"
                     />
                   </Grid>
@@ -136,7 +125,7 @@ const ContentDetailPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </section>
+    </InnerLayout>
   );
 };
 

@@ -7,13 +7,11 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import Link from "components/Link";
+import { InnerLayout } from "components/layouts/InnerLayout";
+import BreadcrumpDefault from "components/BreadCrumpDefault";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    padding: "50px 0",
-    [theme.breakpoints.down("md")]: {
-      padding: "30px 0,",
-    },
     "& .image": {
       position: "relative",
       width: "100%",
@@ -54,13 +52,16 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
+const navi = [{ title: "หน้าแรก", path: "/" }, { title: "ติดต่อเรา" }];
+
 const ContactPage = () => {
   const classes = useStyles();
   return (
-    <section className={classes.root}>
-      <Container maxWidth="lg">
+    <InnerLayout>
+      <Container maxWidth="lg" className={classes.root}>
+        <BreadcrumpDefault items={navi} />
         <Typography variant="h1" sx={{ mb: "30px" }}>
-          เกี่ยวกับเรา
+          ติดต่อเรา
         </Typography>
         <Box className="image" sx={{ mb: { xs: "30px", md: "50px" } }}>
           <img src={`${prefix}/images/contact.jpg`} alt="" className="ratio" />
@@ -179,7 +180,7 @@ const ContactPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </section>
+    </InnerLayout>
   );
 };
 

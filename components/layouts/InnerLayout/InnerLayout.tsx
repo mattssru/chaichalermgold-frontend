@@ -21,15 +21,12 @@ const useStyles = makeStyles((theme: any) => ({
     },
   },
   article: {
-    paddingTop: 90,
+    paddingTop: 85,
     paddingBottom: 50,
-    minHeight: "65vh",
+    minHeight: "100vh",
     overflow: "hidden",
-    [theme.breakpoints.down("lg")]: {
-      paddingTop: 90,
-    },
     [theme.breakpoints.down("sm")]: {
-      paddingTop: 85,
+      paddingTop: 81,
     },
   },
 }));
