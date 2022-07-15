@@ -114,7 +114,7 @@ const ProductDetail = () => {
       thumbnail: image?.src,
     };
   });
-  const url = window.location.href;
+  const url = "";
   return (
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
@@ -174,10 +174,15 @@ const ProductDetail = () => {
               sx={{
                 mb: "20px",
                 fontWeight: 600,
-                color: product?.on_sale ? "#17c57a" : "#f26060",
+                color:
+                  product?.stock_status !== "outofstock"
+                    ? "#17c57a"
+                    : "#f26060",
               }}
             >
-              {product?.on_sale ? "มีสินค้า" : "สินค้าหมด"}
+              {product?.stock_status !== "outofstock"
+                ? "มีสินค้า"
+                : "สินค้าหมด"}
             </Typography>
             <Typography sx={{ fontWeight: 600, mb: "5px" }}>
               Categories :{" "}
