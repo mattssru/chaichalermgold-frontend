@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: any) => ({
     backgroundSize: "cover",
     backgroundPosition: "50% 50%",
     [theme.breakpoints.down("sm")]: {
-      height: "90vh",
+      height: "100vh",
       backgroundPosition: "70% 50%",
     },
     "& .MuiContainer-root": {
@@ -57,6 +57,8 @@ const useStyles = makeStyles((theme: any) => ({
         letterSpacing: "1.2",
         [theme.breakpoints.down("sm")]: {
           textAlign: "center",
+          fontSize: 16,
+          lineHeight: "24px",
         },
       },
       "& button": {

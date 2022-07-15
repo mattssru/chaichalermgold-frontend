@@ -9,17 +9,20 @@ const useStyles = makeStyles((theme: any) => ({
   root: {
     borderBottom: "1px solid #eee",
     margin: "30px 0",
+    [theme.breakpoints.down("sm")]: {
+      margin: "20px 0 30px 0",
+    },
     "& .breadcrumbs": {
-      [theme.breakpoints.down("xs")]: {
-        margin: 0,
-      },
       "& .MuiBreadcrumbs-ol": {
         display: "flex",
         marginBottom: 30,
         alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+          marginBottom: 20,
+        },
         "& li": {
           display: "block",
-          [theme.breakpoints.down("xs")]: {
+          [theme.breakpoints.down("sm")]: {
             marginBottom: 5,
           },
         },

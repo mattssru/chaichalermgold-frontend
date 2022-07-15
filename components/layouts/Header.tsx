@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         transition: "none",
       },
       [theme.breakpoints.down("sm")]: {
-        height: 50,
+        height: 40,
       },
       "& img": {
         maxWidth: "100%",
@@ -139,7 +139,7 @@ const Header = (props: any) => {
         sx={{
           // boxShadow: { xs: "0 3px 6px rgba(0,0,0,0.10)" },
           bgcolor: "transparent",
-          py: "15px",
+          py: "10px",
           "&.MuiPaper-elevation4": {
             bgcolor: "#fff",
             boxShadow: { xs: "0 3px 6px rgba(0,0,0,0.10)" },
@@ -208,7 +208,7 @@ const Header = (props: any) => {
                   onClose={() => setOpenDrawer(false)}
                   sx={{
                     "& .MuiDrawer-paper": {
-                      width: { xs: "50%", sm: "30%" },
+                      width: { xs: "60%", sm: "30%" },
                       // width: "40%",
                       backgroundColor: "rgb(18, 18, 18)",
                       backgroundImage:
