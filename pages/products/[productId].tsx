@@ -77,32 +77,22 @@ const useStyles = makeStyles((theme: any) => ({
 }));
 const images = [
   {
-    original: "/images/product_01.jpg",
-    thumbnail: "/images/product_01.jpg",
+    original: "/images/default-image.png",
+    thumbnail: "/images/default-image.png",
   },
   {
-    original: "/images/product_02.jpg",
-    thumbnail: "/images/product_02.jpg",
-  },
-  {
-    original: "/images/product_03.jpg",
-    thumbnail: "/images/product_03.jpg",
-  },
-  {
-    original: "/images/product_04.jpg",
-    thumbnail: "/images/product_04.jpg",
-  },
-  {
-    original: "/images/product_05.jpg",
-    thumbnail: "/images/product_05.jpg",
+    original: "/images/default-image.png",
+    thumbnail: "/images/default-image.png",
   },
 ];
 
 const ProductDetail = () => {
   const classes = useStyles();
   const [product, setProduct] = useState<any>();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const { productId } = router.query;
     const fetch = async () => {
       const data = await getProductV2(productId);
@@ -110,6 +100,7 @@ const ProductDetail = () => {
       return data;
     };
     fetch();
+    setLoading(false);
   }, [getProductV2]);
 
   const navi = [
@@ -119,13 +110,11 @@ const ProductDetail = () => {
   ];
   const featureImage: any = product?.images.map((image: any) => {
     return {
-      original: image.src,
-      thumbnail: image.src,
-      srcSet: image.src,
+      original: image?.src,
+      thumbnail: image?.src,
     };
   });
-  const url = "";
-
+  const url = window.location.href;
   return (
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
@@ -136,7 +125,7 @@ const ProductDetail = () => {
               <ImageGallery
                 showFullscreenButton={false}
                 showPlayButton={false}
-                items={images}
+                items={featureImage || images}
               />
             </Box>
           </Grid>

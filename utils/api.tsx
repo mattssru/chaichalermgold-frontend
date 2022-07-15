@@ -39,17 +39,6 @@ export const getGoldPrice = async () => {
     .then((res) => res.data);
 };
 
-// const decodeToString = (object: any) => {
-//   object.forEach((element: any) => {
-//     console.log("element", decodeURI(element.slug));
-//   });
-
-//   // if (object instanceof Object) {
-
-//   // }
-//   return object;
-// };
-
 export const fetchProductV2 = async () => {
   return await WPApi.get("/products").then((res) => {
     return res.data;
@@ -62,6 +51,13 @@ export const getProductV2 = async (id: any) => {
   });
 };
 
+export const getCategories = async () => {
+  return await WPApi.get(`/products/categories`).then((res) => {
+    return res.data;
+  });
+};
+
+// export const get
 export const fetchProduct = async () => await server.get("product/fetch");
 // export const fetchProduct = async () => {
 //   return data?.filter((p: any) => p.type === "product");

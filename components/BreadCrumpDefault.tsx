@@ -54,7 +54,11 @@ const BreadcrumpDefault = (props: any) => {
   const listBreadcrumb = (items: any[]) => {
     return items.map((item: any, index: number) => {
       if (index === items.length - 1) {
-        return <Typography component="p">{item.title}</Typography>;
+        return (
+          <Typography key={index} component="p">
+            {item.title}
+          </Typography>
+        );
       } else if (index === 0) {
         return (
           <Link key={index} href={item.path}>

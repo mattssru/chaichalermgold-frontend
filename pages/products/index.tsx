@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { fetchProduct, fetchProductV2 } from "utils/api";
+import React, { useCallback, useEffect, useState } from "react";
+import { fetchProductV2, getCategories } from "utils/api";
 import { makeStyles } from "@mui/styles";
 import {
   Checkbox,
@@ -12,22 +12,45 @@ import {
 import CardProduct from "components/CardProduct";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import { InnerLayout } from "components/layouts/InnerLayout";
+import { sortBy } from "lodash";
 
 const useStyles = makeStyles((theme: any) => ({}));
 
 const ProductsPage = () => {
   const classes = useStyles();
   const [products, setProduct] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [filtered, setFilter] = useState("ทั้งหมด");
 
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchProductV2();
-      setProduct(data);
+      const temp: any =
+        filtered !== "ทั้งหมด"
+          ? data.filter((product: any) =>
+              product.categories.some((cate: any) => cate.name === filtered)
+            )
+          : data;
+      setProduct(temp);
+
       return data;
     };
     fetch();
-  }, [fetchProduct]);
+  }, [fetchProductV2, filtered]);
 
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await getCategories();
+      const temp: any = sortBy(data, ["id"]); // data.filter((data: any) => data.name !== "ทั้งหมด");
+      setCategories(temp);
+      return data;
+    };
+    fetch();
+  }, [getCategories]);
+
+  // const handleChange = useCallback((category :string) => {
+  //   products.filter((product :any) => return product.)
+  // }, [])
   // useEffect(() => {
   //   const fetch: any = async () => {
   //     const data: any = await fetchProduct();
@@ -52,41 +75,22 @@ const ProductsPage = () => {
             </Typography>
             <FormGroup>
               <Grid container spacing={0}>
-                <Grid item md={12} sm={3} xs={6}>
-                  <FormControlLabel
-                    control={<Checkbox defaultChecked />}
-                    label="สร้อยคอ"
-                    sx={{ mr: "0px", color: "#7e7e7e" }}
-                  />
-                </Grid>
-                <Grid item md={12} sm={3} xs={6}>
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="สร้อยข้อมือ"
-                    sx={{ mr: "0px", color: "#7e7e7e" }}
-                  />
-                </Grid>
-                <Grid item md={12} sm={3} xs={6}>
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="แหวนทอง"
-                    sx={{ mr: "0px", color: "#7e7e7e" }}
-                  />
-                </Grid>
-                <Grid item md={12} sm={3} xs={6}>
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="แหวนเพชร"
-                    sx={{ mr: "0px", color: "#7e7e7e" }}
-                  />
-                </Grid>
-                <Grid item md={12} sm={3} xs={6}>
-                  <FormControlLabel
-                    control={<Checkbox />}
-                    label="ต่างหู"
-                    sx={{ mr: "0px", color: "#7e7e7e" }}
-                  />
-                </Grid>
+                {categories?.map((category: any) => {
+                  return (
+                    <Grid key={category?.id} item md={12} sm={3} xs={6}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            onClick={() => setFilter(category.name)}
+                            checked={filtered === category?.name}
+                          />
+                        }
+                        label={category?.name || ""}
+                        sx={{ mr: "0px", color: "#7e7e7e" }}
+                      />
+                    </Grid>
+                  );
+                })}
               </Grid>
             </FormGroup>
           </Grid>

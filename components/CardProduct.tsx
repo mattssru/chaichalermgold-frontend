@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme: any) => ({
 
 const CardProduct = (props: any) => {
   const classes = useStyles(props);
-  console.log("CardProduct", props);
   return (
     <Box className={classes.root}>
       <Box
