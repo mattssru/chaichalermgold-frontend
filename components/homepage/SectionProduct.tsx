@@ -55,7 +55,7 @@ const SectionProduct = () => {
               >
                 <CardProduct
                   productId={item.id}
-                  image={item.image}
+                  image={item.images[0].src}
                   name={item.name}
                   price={item.price}
                   descriptions={item.descriptions}

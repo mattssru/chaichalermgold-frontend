@@ -50,9 +50,9 @@ const SectionContent = () => {
               >
                 <CardContent
                   slug={item.slug}
-                  image={item.image}
-                  name={item.name}
-                  description={item.description}
+                  image={item.thumb}
+                  name={item.title}
+                  description={item.detail.replace(/(<([^>]+)>)/gi, "")}
                 />
               </Grid>
             );

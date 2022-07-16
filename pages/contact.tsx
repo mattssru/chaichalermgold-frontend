@@ -141,7 +141,12 @@ const ContactPage = () => {
                   className="iconContact"
                 />
                 <Typography variant="subtitle1" component="p">
-                  <Link href="/">ห้างเพชรทองชัยเฉลิม ตราดาว</Link>
+                  <Link
+                    target="_blank"
+                    href="https://www.facebook.com/ChaichalermTraDao"
+                  >
+                    ห้างเพชรทองชัยเฉลิม ตราดาว
+                  </Link>
                 </Typography>
               </Box>
               <Box
@@ -157,7 +162,12 @@ const ContactPage = () => {
                   className="iconContact"
                 />
                 <Typography variant="subtitle1" component="p">
-                  <Link href="/">@CHAICHALERMGOLD</Link>
+                  <Link
+                    target="_blank"
+                    href="https://liff.line.me/1645278921-kWRPP32q/?accountId=chaichalermgold"
+                  >
+                    @CHAICHALERMGOLD
+                  </Link>
                 </Typography>
               </Box>
               <Box
@@ -173,7 +183,12 @@ const ContactPage = () => {
                   className="iconContact"
                 />
                 <Typography variant="subtitle1" component="p">
-                  <Link href="/">@CHAICHALERMJEWELLERY</Link>
+                  <Link
+                    target="_blank"
+                    href="https://instagram.com/chaichalermjewellery?igshid=YmMyMTA2M2Y="
+                  >
+                    @CHAICHALERMJEWELLERY
+                  </Link>
                 </Typography>
               </Box>
             </Box>

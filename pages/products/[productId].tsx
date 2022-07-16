@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
-import { getProductV2 } from "utils/api";
+import { getProduct } from "utils/api";
 import ImageGallery from "react-image-gallery";
 import { currencyFormat } from "utils/helper";
 import { InnerLayout } from "components/layouts/InnerLayout";
@@ -95,13 +95,13 @@ const ProductDetail = () => {
     setLoading(true);
     const { productId } = router.query;
     const fetch = async () => {
-      const data = await getProductV2(productId);
+      const data = await getProduct(productId);
       setProduct(data);
       return data;
     };
     fetch();
     setLoading(false);
-  }, [getProductV2]);
+  }, [getProduct]);
 
   const navi = [
     { title: "หน้าแรก", path: "/" },

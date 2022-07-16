@@ -14,14 +14,14 @@ const useStyles = makeStyles((theme: any) => ({
   root: {},
 }));
 
-const navi = [{ title: "หน้าแรก", path: "/" }, { title: "เกี่ยวกับเรา" }];
+// const navi = [{ title: "หน้าแรก", path: "/" }, { title: "เกี่ยวกับเรา" }];
 
 const AboutUsPage = () => {
   const classes = useStyles();
   return (
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
-        <BreadcrumpDefault items={navi} />
+        {/* <BreadcrumpDefault items={navi} /> */}
         <Typography variant="h1" sx={{ mb: "30px" }}>
           เกี่ยวกับเรา
         </Typography>

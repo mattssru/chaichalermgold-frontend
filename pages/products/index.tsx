@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { fetchProductV2, getCategories } from "utils/api";
+import { fetchProduct, getCategories } from "utils/api";
 import { makeStyles } from "@mui/styles";
 import {
   Checkbox,
@@ -24,7 +24,7 @@ const ProductsPage = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await fetchProductV2();
+      const data = await fetchProduct();
       const temp: any =
         filtered !== "ทั้งหมด"
           ? data.filter((product: any) =>
@@ -36,7 +36,7 @@ const ProductsPage = () => {
       return data;
     };
     fetch();
-  }, [fetchProductV2, filtered]);
+  }, [fetchProduct, filtered]);
 
   useEffect(() => {
     const fetch = async () => {

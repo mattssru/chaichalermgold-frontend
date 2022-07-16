@@ -1,12 +1,13 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useState, useEffect } from "react";
-import { fetchContent, getContent } from "utils/api";
+import { fetchContent, getPost } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 import { CardContent, ShareSocial } from "@components/*";
 import router from "next/router";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import { InnerLayout } from "components/layouts/InnerLayout";
+import { get } from "lodash";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -24,6 +25,18 @@ const useStyles = makeStyles((theme: any) => ({
     "& .active:after": {
       content: " (current page)",
     },
+    "& .tags": {
+      display: "flex",
+      alignItems: "center",
+      color: "#7e7e7e",
+      "& .tag": {
+        border: "1px solid #a1a1a1",
+        borderRadius: "3px",
+        padding: "10px",
+        marginLeft: "5px",
+        color: "#7e7e7e",
+      },
+    },
   },
 }));
 
@@ -35,27 +48,27 @@ const ContentDetailPage = () => {
   useEffect(() => {
     const { slug } = router.query;
     const fetch = async () => {
-      const data = await getContent(slug);
+      const data = await getPost(slug);
       setContent(data);
       return data;
     };
     fetch();
-  }, [getContent]);
-
-  useEffect(() => {
-    const fetch = async () => {
-      const { slug } = router.query;
-      const data: any = await fetchContent();
-      setListContent(data.filter((content: any) => content.slug !== slug));
-      return data;
-    };
-    fetch();
-  }, [fetchContent]);
+  }, [getPost]);
+  console.log("content", content);
+  // useEffect(() => {
+  //   const fetch = async () => {
+  //     const { slug } = router.query;
+  //     const data: any = await fetchContent();
+  //     setListContent(data.filter((content: any) => content.slug !== slug));
+  //     return data;
+  //   };
+  //   fetch();
+  // }, [fetchContent]);
 
   const navi = [
     { title: "หน้าแรก", path: "/" },
     { title: "บทความ", path: "/contents" },
-    { title: content?.name },
+    { title: content?.title },
   ];
   // const url = typeof window !== "undefined" ? window.location.href : "";
   const url =
@@ -67,7 +80,7 @@ const ContentDetailPage = () => {
         <Grid container spacing={4}>
           <Grid item md={9} sm={12} xs={12}>
             <Typography variant="h1" sx={{ mb: "10px" }}>
-              {content?.name}
+              {content?.title}
             </Typography>
             <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
               <Grid item sm={6} xs={12}>
@@ -78,7 +91,7 @@ const ContentDetailPage = () => {
                 >
                   <AccessTimeFilledIcon color="secondary" />
                   <Typography color="secondary" sx={{ ml: "10px" }}>
-                    31 พฤภาคม 2565
+                    {content?.publish_date}
                   </Typography>
                 </Box>
               </Grid>
@@ -93,25 +106,44 @@ const ContentDetailPage = () => {
             </Grid>
 
             <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
-              <img src={content?.image} alt={content?.name} />
+              <img src={content?.thumb} alt={content?.title} />
             </Box>
-            <Typography variant="body1" sx={{ mb: "20px" }}>
-              {content?.description}
-            </Typography>
+            <Typography
+              dangerouslySetInnerHTML={{ __html: content?.detail }}
+              sx={{
+                color: "#7e7e7e",
+                mb: "10px",
+                marginBottom: "25px",
+                borderBottom: "1px solid #e7e7e7",
+                paddingBottom: "20px",
+              }}
+            ></Typography>
+            {content?.tags.length > 0 && (
+              <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
+                Tags:{" "}
+                {content?.tags.map((tag: any, index: number) => {
+                  return (
+                    <Box className="tag" key={index}>
+                      {tag}
+                    </Box>
+                  );
+                })}
+              </Box>
+            )}
           </Grid>
           <Grid item md={3} sm={12} xs={12}>
             <Typography variant="h4" sx={{ mb: "20px" }}>
               More Content
             </Typography>
             <Grid container spacing={2}>
-              {listContent.map((item: any, index: number) => {
+              {get(content, "related", []).map((item: any, index: number) => {
                 return (
                   <Grid item md={12} sm={6} xs={6} key={index}>
                     <CardContent
                       slug={item.slug}
-                      image={item.image}
-                      name={item.name}
-                      description={item.description}
+                      image={item.thumb}
+                      name={item.title}
+                      description={item.detail.replace(/(<([^>]+)>)/gi, "")}
                       fontsize="18px"
                       lineheight="24px"
                       sizedes="14px"

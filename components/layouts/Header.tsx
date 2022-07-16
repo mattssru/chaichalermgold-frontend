@@ -71,17 +71,17 @@ const menu = [
     menu: "Home",
     href: "/",
   },
-  // {
-  //   menu: "Wedding & Engagement",
-  //   href: "/wedding",
-  // },
-  {
-    menu: "Promotion",
-    href: "/promotions",
-  },
   {
     menu: "Products",
     href: "/products",
+  },
+  {
+    menu: "Engagement",
+    href: "/wedding",
+  },
+  {
+    menu: "Promotion",
+    href: "/promotions",
   },
   {
     menu: "Contents",
@@ -90,10 +90,6 @@ const menu = [
   {
     menu: "Contact",
     href: "/contact",
-  },
-  {
-    menu: "About Us",
-    href: "/about-us",
   },
 ];
 interface Props {
