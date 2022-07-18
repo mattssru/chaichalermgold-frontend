@@ -137,7 +137,10 @@ const Wedding = () => {
   return (
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
-        <Box className={"background"}>
+        <Typography variant="h2" align="center">
+          Coming Soon.
+        </Typography>
+        {/* {<Box className={"background"}>
           <Grid spacing={4} data-aos="zoom-in" data-aos-duration="1500">
             <Box>
               <Typography align="center">
@@ -230,7 +233,7 @@ const Wedding = () => {
               />
             </Box>
           </Grid>
-        </Grid>
+        </Grid>} */}
       </Container>
     </InnerLayout>
   );
