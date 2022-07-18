@@ -114,7 +114,7 @@ const ProductDetail = () => {
       thumbnail: image?.src,
     };
   });
-  const url = "";
+  const url = typeof window !== "undefined" ? window.location.href : "";
   return (
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
@@ -204,7 +204,9 @@ const ProductDetail = () => {
                 );
               })}
             </Typography>
-            <ShareSocial url={url} />
+            <ShareSocial
+              url={typeof window !== "undefined" ? window.location.href : ""}
+            />
           </Grid>
         </Grid>
       </Container>

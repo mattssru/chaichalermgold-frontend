@@ -1,6 +1,7 @@
 import { Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { fetchProduct } from "utils/api";
 import prefix from "utils/path";
 import { CardRecommend } from "..";
 
@@ -51,7 +52,22 @@ const data = [
   //   image: `${prefix}/images/product_06.jpg`,
   // },
 ];
+
 const SectionRecommend = () => {
+  const [products, setProduct] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await fetchProduct();
+      const temp: any = data.filter((product: any) =>
+        product.categories.some((cate: any) => cate.slug === "new-arrival")
+      );
+      setProduct(temp);
+
+      return data;
+    };
+    fetch();
+  }, [fetchProduct]);
   const classes = useStyles();
   return (
     <section
@@ -65,14 +81,18 @@ const SectionRecommend = () => {
           align="center"
           sx={{ mb: { xs: "2rem", md: "2.5rem" } }}
         >
-          Recommend
+          New Arrival
         </Typography>
 
         <Grid container spacing={3}>
-          {data.map((item: any, index: number) => {
+          {products.map((item: any, index: number) => {
             return (
               <Grid item sm={4} xs={12} key={index}>
-                <CardRecommend href={item.href} image={item.image} />
+                <CardRecommend
+                  productId={item.id}
+                  image={item.images[0].src}
+                  name={item.name}
+                />
               </Grid>
             );
           })}

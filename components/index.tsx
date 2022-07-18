@@ -5,6 +5,7 @@ export { Container, TextField, Button, Grid, Stack } from "@mui/material";
 export { default as CardProduct } from "./CardProduct";
 export { default as CardRecommend } from "./CardRecommend";
 export { default as CardContent } from "./CardContent";
+export { default as CardPromotions } from "./CardPromotions";
 export { default as ButtonTransform } from "./ButtonTransform";
 export { default as Headline } from "./Headline";
 export { default as TableIcons } from "./TableIcons";

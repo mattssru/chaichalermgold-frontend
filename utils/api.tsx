@@ -38,7 +38,7 @@ export const getCategories = async () => {
   });
 };
 
-export const getPromotions = async () => {
+export const fetchPromotions = async () => {
   return await WPApi.get(`/promotions`).then((res) => {
     return res.data;
   });
