@@ -2,19 +2,17 @@ import { Box, Container, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Link from "components/Link";
 import React from "react";
+import { FacebookIcon, LineIcon } from "react-share";
 import prefix from "utils/path";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     "& .socail": {
-      height: 40,
+      height: 35,
       display: "flex",
       lineHeight: 0,
-      margin: "0 10px",
-      [theme.breakpoints.down("md")]: {
-        height: 30,
-        margin: "0 6px",
-      },
+      borderRadius: 10,
+      [theme.breakpoints.down("md")]: {},
       "& img": {
         width: "100%",
         height: "100%",
@@ -44,7 +42,7 @@ const Footer = () => {
             sx={{ height: "100%" }}
           >
             <Grid item md sm={12} xs={12}>
-              <Box sx={{ maxWidth: 250, margin: { xs: "0 auto", md: 0 } }}>
+              <Box sx={{ maxWidth: 200, margin: { xs: "0 auto", md: 0 } }}>
                 <img
                   src={`${prefix}/images/logo_footer.svg`}
                   alt=""
@@ -59,7 +57,14 @@ const Footer = () => {
               xs={12}
               sx={{ textAlign: { md: "left", xs: "center" } }}
             >
-              <Typography sx={{ color: "#fff" }} gutterBottom>
+              <Typography
+                sx={{
+                  color: "#fff",
+                  fontWeight: 600,
+                  fontSize: "1.2rem !important",
+                }}
+                gutterBottom
+              >
                 ห้างเพชรทองชัยเฉลิม ตราดาว
               </Typography>
               <Typography sx={{ color: "#fff" }} gutterBottom>
@@ -93,13 +98,18 @@ const Footer = () => {
               >
                 FOLLOW US
               </Typography>
-              <Box display="flex" alignItems="center" justifyContent="center">
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{ gap: "6px" }}
+              >
                 <Link
                   href="https://www.facebook.com/kosoltae"
                   target="_blank"
                   className="socail"
                 >
-                  <img src={`${prefix}/images/icon_facebook.svg`} alt="" />
+                  <FacebookIcon size={35} />
                 </Link>
                 <Link
                   href="https://www.facebook.com/kosoltae"
@@ -113,7 +123,7 @@ const Footer = () => {
                   target="_blank"
                   className="socail"
                 >
-                  <img src={`${prefix}/images/icon_line.svg`} alt="" />
+                  <LineIcon size={35} />
                 </Link>
               </Box>
             </Grid>
@@ -130,11 +140,13 @@ const Footer = () => {
             align="center"
             sx={{
               bgcolor: "#fff",
-              minHeight: 40,
-              padding: { xs: "10px 0" },
+              minHeight: { xs: 30, sm: 40 },
+              padding: "6px 0",
+              fontSize: { xs: "0.6rem", sm: "0.875rem" },
             }}
           >
-            Copyright 2022 Chaichalerm goldsmith & jewelry. All rights reserved.
+            @Copyright 2022 Chaichalerm goldsmith & jewelry. All rights
+            reserved.
           </Typography>
         </Container>
       </Box>

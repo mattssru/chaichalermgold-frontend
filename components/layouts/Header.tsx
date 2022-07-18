@@ -80,7 +80,7 @@ const menu = [
     href: "/wedding",
   },
   {
-    menu: "Promotion",
+    menu: "Promotions",
     href: "/promotions",
   },
   {
@@ -205,8 +205,8 @@ const Header = (props: any) => {
                   sx={{
                     "& .MuiDrawer-paper": {
                       width: { xs: "60%", sm: "30%" },
-                      // width: "40%",
                       backgroundColor: "rgb(18, 18, 18)",
+                      paddingTop: "15px",
                       backgroundImage:
                         "linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15))",
                       color: "#fff",
@@ -215,7 +215,6 @@ const Header = (props: any) => {
                         color: "rgb(255, 255, 255)",
                         padding: "8px 16px",
                         mr: 0,
-                        borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
                         display: "flex",
                         alignItems: "center",
                         fontSize: 14,

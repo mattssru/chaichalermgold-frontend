@@ -52,6 +52,10 @@ class App extends NextApp {
             href="https://unpkg.com/aos@2.3.1/dist/aos.css"
             rel="stylesheet"
           ></link>
+          <meta
+            property="og:image"
+            content="http://165.22.96.125:3000/images/about.jpeg"
+          />
           <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
           <title>ห้างทองเพชรเฉลิมชัย ตราดาว</title>
         </Head>

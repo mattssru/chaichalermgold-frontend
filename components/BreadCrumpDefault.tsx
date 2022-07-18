@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: any) => ({
     borderBottom: "1px solid #eee",
     margin: "30px 0",
     [theme.breakpoints.down("sm")]: {
-      margin: "20px 0 30px 0",
+      margin: "15px 0 20px 0",
     },
     "& .breadcrumbs": {
       "& .MuiBreadcrumbs-ol": {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: any) => ({
         marginBottom: 30,
         alignItems: "center",
         [theme.breakpoints.down("sm")]: {
-          marginBottom: 20,
+          marginBottom: 15,
         },
         "& li": {
           display: "block",

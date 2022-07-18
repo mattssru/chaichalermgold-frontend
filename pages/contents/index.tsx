@@ -30,18 +30,20 @@ const ContentPage = () => {
           บทความ
         </Typography>
         <Grid container spacing={3}>
-          {contents.map((item: any, index: number) => {
-            return (
-              <Grid item sm={4} xs={12} key={index}>
-                <CardContent
-                  slug={item.slug}
-                  image={item.thumb}
-                  name={item.title}
-                  description={item.detail.replace(/(<([^>]+)>)/gi, "")}
-                />
-              </Grid>
-            );
-          })}
+          {contents.length > 0
+            ? contents.map((item: any, index: number) => {
+                return (
+                  <Grid item sm={4} xs={12} key={index}>
+                    <CardContent
+                      slug={item.slug}
+                      image={item.thumb}
+                      name={item.title}
+                      description={item.detail.replace(/(<([^>]+)>)/gi, "")}
+                    />
+                  </Grid>
+                );
+              })
+            : "ยังไม่มีบทความใหม่"}
         </Grid>
       </Container>
     </InnerLayout>

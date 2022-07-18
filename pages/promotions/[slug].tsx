@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import React, { useState, useEffect } from "react";
 import { getPost } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import { CardContent, ShareSocial } from "@components/*";
+import { CardPromotions, ShareSocial } from "@components/*";
 import router from "next/router";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import { InnerLayout } from "components/layouts/InnerLayout";
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: any) => ({
       textDecoration: "none",
     },
     "& .active:after": {
-      content: " (current page)",
+      promotion: " (current page)",
     },
     "& .tags": {
       display: "flex",
@@ -42,13 +42,13 @@ const useStyles = makeStyles((theme: any) => ({
 
 const ContentDetailPage = () => {
   const classes = useStyles();
-  const [content, setContent] = useState<any>();
+  const [promotion, setPromotion] = useState<any>();
 
   useEffect(() => {
     const { slug } = router.query;
     const fetch = async () => {
       const data = await getPost(slug);
-      setContent(data);
+      setPromotion(data);
       return data;
     };
     fetch();
@@ -57,7 +57,7 @@ const ContentDetailPage = () => {
   //   const fetch = async () => {
   //     const { slug } = router.query;
   //     const data: any = await fetchContent();
-  //     setListContent(data.filter((content: any) => content.slug !== slug));
+  //     setListContent(data.filter((promotion: any) => promotion.slug !== slug));
   //     return data;
   //   };
   //   fetch();
@@ -65,8 +65,8 @@ const ContentDetailPage = () => {
 
   const navi = [
     { title: "หน้าแรก", path: "/" },
-    { title: "บทความ", path: "/contents" },
-    { title: content?.title },
+    { title: "โปรโมชั่น", path: "/promotions" },
+    { title: promotion?.title },
   ];
   const url = typeof window !== "undefined" ? window.location.href : "";
   // const url =
@@ -78,7 +78,7 @@ const ContentDetailPage = () => {
         <Grid container spacing={4}>
           <Grid item md={9} sm={12} xs={12}>
             <Typography variant="h1" sx={{ mb: "10px" }}>
-              {content?.title}
+              {promotion?.title}
             </Typography>
             <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
               <Grid item sm={6} xs={12}>
@@ -89,7 +89,7 @@ const ContentDetailPage = () => {
                 >
                   <AccessTimeFilledIcon color="secondary" />
                   <Typography color="secondary" sx={{ ml: "10px" }}>
-                    {content?.publish_date}
+                    {promotion?.publish_date}
                   </Typography>
                 </Box>
               </Grid>
@@ -104,10 +104,10 @@ const ContentDetailPage = () => {
             </Grid>
 
             <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
-              <img src={content?.thumb} alt={content?.title} />
+              <img src={promotion?.thumb} alt={promotion?.title} />
             </Box>
             <Typography
-              dangerouslySetInnerHTML={{ __html: content?.detail }}
+              dangerouslySetInnerHTML={{ __html: promotion?.detail }}
               sx={{
                 color: "#7e7e7e",
                 mb: "10px",
@@ -116,10 +116,10 @@ const ContentDetailPage = () => {
                 paddingBottom: "20px",
               }}
             ></Typography>
-            {content?.tags.length > 0 && (
+            {promotion?.tags.length > 0 && (
               <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
                 Tags:{" "}
-                {content?.tags.map((tag: any, index: number) => {
+                {promotion?.tags.map((tag: any, index: number) => {
                   return (
                     <Box className="tag" key={index}>
                       {tag}
@@ -134,10 +134,10 @@ const ContentDetailPage = () => {
               More Content
             </Typography>
             <Grid container spacing={2}>
-              {get(content, "related", []).map((item: any, index: number) => {
+              {get(promotion, "related", []).map((item: any, index: number) => {
                 return (
                   <Grid item md={12} sm={6} xs={6} key={index}>
-                    <CardContent
+                    <CardPromotions
                       slug={item.slug}
                       image={item.thumb}
                       name={item.title}

@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme: any) => ({
         maxWidth: 250,
         // backgroundColor: "transparent",
         // border: "1px solid #fff",
-        borderRadius: "25px !important",
+        borderRadius: "8px !important",
         [theme.breakpoints.down("sm")]: {
           margin: "30px auto 0",
         },

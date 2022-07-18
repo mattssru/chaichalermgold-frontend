@@ -1,7 +1,8 @@
 import { Box, Link } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-
+//"linear-gradient(180deg, rgba(24, 24, 29, 0.1), rgba(24, 24, 29, 0.1))",
+//
 const useStyles = makeStyles(() => ({
   root: {
     zIndex: 1,
@@ -29,7 +30,7 @@ const useStyles = makeStyles(() => ({
       height: "100%",
       padding: "0 15px 15px 15px",
       backgroundImage:
-        "linear-gradient(180deg, rgba(24, 24, 29, 0.1), rgba(24, 24, 29, 0.1))",
+        "linear-gradient(180deg, rgb(1 1 2 / 46%), rgb(24 24 29 / 25%))",
       "&:hover": {
         opacity: 1,
         zIndex: 10,
@@ -45,7 +46,7 @@ const useStyles = makeStyles(() => ({
 
 const CardRecommend = (props: any) => {
   const classes = useStyles();
-  const { href, image } = props;
+  const { productId, image, name } = props;
   return (
     <Box
       className={classes.root}
@@ -56,7 +57,7 @@ const CardRecommend = (props: any) => {
         position: "relative",
       }}
     >
-      <Link href={`/products/{href}`} className="imgOverlay">
+      <Link href={`/products/${props.productId}`} className="imgOverlay">
         <Box
           sx={{
             color: "#fff",
@@ -70,7 +71,7 @@ const CardRecommend = (props: any) => {
             transform: "translate(-50%, -100%)",
           }}
         >
-          Wedding & Engagement
+          {name}
         </Box>
         <Box
           className="hoverButton"
