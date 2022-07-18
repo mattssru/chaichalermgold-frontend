@@ -76,8 +76,8 @@ const menu = [
     href: "/products",
   },
   {
-    menu: "Engagement",
-    href: "/wedding",
+    menu: "Services",
+    href: "/services",
   },
   {
     menu: "Promotions",
@@ -92,6 +92,7 @@ const menu = [
     href: "/contact",
   },
 ];
+
 interface Props {
   window?: () => Window;
   children: React.ReactElement;
