@@ -1,12 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import ImageGallery from "react-image-gallery";
 import { InnerLayout } from "components/layouts/InnerLayout";
 import "react-image-gallery/styles/css/image-gallery.css";
-import Slider from "react-slick";
 import prefix from "utils/path";
-import { Fade } from "react-slideshow-image";
+import { Fade, Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 const useStyles = makeStyles((theme: any) => ({
@@ -41,6 +39,9 @@ const useStyles = makeStyles((theme: any) => ({
       "& p": {
         fontSize: "22px",
         fontFamily: "IBM Plex Sans Thai, sans-serif",
+        [theme.breakpoints.down("md")]: {
+          fontSize: "18px",
+        },
       },
     },
     "& .section_1": {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme: any) => ({
       marginTop: "50px",
     },
     "& .section_2": {
-      backgroundColor: "#EDEDED",
+      background: "#e3e3e3",
       padding: "50px 0",
     },
     "& .background": {
@@ -73,10 +74,16 @@ const useStyles = makeStyles((theme: any) => ({
       },
     },
     "& .fadeThumnail": {
+      position: "relative",
       "& .each-fade": {
-        height: 590,
+        height: 500,
+        borderRadius: "15px",
+        overflow: "hidden",
         [theme.breakpoints.down("md")]: {
-          height: 470,
+          height: 350,
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: 450,
         },
         "& img": {
           width: "100%",
@@ -91,25 +98,28 @@ const useStyles = makeStyles((theme: any) => ({
         left: 15,
       },
     },
+    "& .labelSign": {
+      height: 50,
+      justifyContent: "center",
+      alignItems: "center",
+      display: "flex",
+      width: 200,
+      bottom: -25,
+      left: "50%",
+      position: "absolute",
+      background: "#3c3c3c",
+      color: "#ede7d5",
+      borderRadius: 5,
+      transform: "translate(-50%, 0)",
+      zIndex: "1000",
+      [theme.breakpoints.down("md")]: {
+        width: 160,
+      },
+    },
+
     "& .sliderThumnail": {
       position: "relative",
-      "& .labelSign": {
-        height: 50,
-        justifyContent: "center",
-        alignItems: "center",
-        display: "flex",
-        width: 200,
-        bottom: -25,
-        left: "50%",
-        position: "absolute",
-        background: "#3c3c3c",
-        color: "#ede7d5",
-        borderRadius: 25,
-        transform: "translate(-50%, 0)",
-        [theme.breakpoints.down("md")]: {
-          width: 160,
-        },
-      },
+
       "& .image-gallery-slide": {
         height: 500,
         [theme.breakpoints.down("md")]: {
@@ -128,14 +138,48 @@ const useStyles = makeStyles((theme: any) => ({
         },
     },
     "& .section_3": {
-      margin: "50px 0 20px",
+      margin: "90px 0 20px",
+      padding: "35px 35px 15px",
+      backgroundColor: "#e9e2d9",
+      position: "relative",
+      "& .labelReview": {
+        height: 50,
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+        width: 200,
+        top: -25,
+        left: "50%",
+        position: "absolute",
+        background: "#3c3c3c",
+        color: "#ede7d5",
+        borderRadius: 5,
+        transform: "translate(-50%, 0)",
+        zIndex: "1000",
+        [theme.breakpoints.down("md")]: {
+          width: 160,
+        },
+      },
       "& .imageBar": {
-        "& img": {
-          width: "100%",
+        display: "flex",
+      },
+      "& img": {
+        width: "100%",
+        objectFit: "cover",
+        height: 300,
+        borderRadius: 10,
+        [theme.breakpoints.down("md")]: {
+          height: 150,
+        },
+        [theme.breakpoints.down("sm")]: {
+          height: 100,
         },
       },
       "& .imgInBar": {
         padding: "10px",
+      },
+      "& .react-slideshow-container+ul.indicators": {
+        marginTop: "10px",
       },
     },
   },
@@ -184,8 +228,9 @@ const weddingImages = [
 const fadeImages = [
   "/images/design_01.jpeg",
   "/images/design_02.jpeg",
-  "/images/design_03.jpeg",
+  "/images/design-09.jpg",
 ];
+
 const Wedding = () => {
   const classes = useStyles();
   const settings = {
@@ -203,19 +248,6 @@ const Wedding = () => {
             Services
           </Typography>
         </Container>
-        <Box className="fadeThumnail">
-          <Fade autoplay infinite duration={1000}>
-            <div className="each-fade">
-              <img src={fadeImages[0]} />
-            </div>
-            <div className="each-fade">
-              <img src={fadeImages[1]} />
-            </div>
-            <div className="each-fade">
-              <img src={fadeImages[2]} />
-            </div>
-          </Fade>
-        </Box>
         <Box className="section_1">
           <Container maxWidth="lg">
             <Grid
@@ -225,44 +257,62 @@ const Wedding = () => {
               data-aos-duration="1800"
             >
               <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
-                <Box className="sliderThumnail">
-                  <ImageGallery
-                    showFullscreenButton={false}
-                    showPlayButton={false}
-                    items={designImages}
-                    showThumbnails={false}
-                    showNav={false}
-                    autoPlay
-                    slideInterval={2000}
-                  />
+                <Box className="fadeThumnail">
+                  <Fade
+                    autoplay={true}
+                    infinite={true}
+                    arrows={false}
+                    canSwipe={true}
+                    duration={1000}
+                  >
+                    {fadeImages.map((image: any, index: number) => {
+                      return (
+                        <div className="each-fade" key={index}>
+                          <img src={image} />
+                        </div>
+                      );
+                    })}
+                  </Fade>
                   <Box className="labelSign">สั่งทำ/ออกแบบ</Box>
                 </Box>
               </Grid>
               <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
-                <Box className="sliderThumnail">
-                  <ImageGallery
-                    showFullscreenButton={false}
-                    showPlayButton={false}
-                    items={weddingImages}
-                    showThumbnails={false}
-                    showNav={false}
-                    autoPlay
-                    slideInterval={2000}
-                  />
-                  <Box className="labelSign">ปรึกษา Wedding</Box>
+                <Box className="fadeThumnail">
+                  <Fade
+                    autoplay={true}
+                    infinite={true}
+                    arrows={false}
+                    canSwipe={true}
+                    duration={1000}
+                  >
+                    {fadeImages.map((image: any, index: number) => {
+                      return (
+                        <div className="each-fade" key={index}>
+                          <img src={image} />
+                        </div>
+                      );
+                    })}
+                  </Fade>
+                  <Box className="labelSign">งานแก้เครื่องประดับ</Box>
                 </Box>
               </Grid>
               <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
-                <Box className="sliderThumnail">
-                  <ImageGallery
-                    showFullscreenButton={false}
-                    showPlayButton={false}
-                    items={designImages}
-                    showThumbnails={false}
-                    showNav={false}
-                    autoPlay
-                    slideInterval={2000}
-                  />
+                <Box className="fadeThumnail">
+                  <Fade
+                    autoplay={true}
+                    infinite={true}
+                    arrows={false}
+                    canSwipe={true}
+                    duration={1000}
+                  >
+                    {fadeImages.map((image: any, index: number) => {
+                      return (
+                        <div className="each-fade" key={index}>
+                          <img src={image} />
+                        </div>
+                      );
+                    })}
+                  </Fade>
                   <Box className="labelSign">One stop services</Box>
                 </Box>
               </Grid>
@@ -288,7 +338,7 @@ const Wedding = () => {
                 xs={12}
               >
                 <Box className="explainText">
-                  <img src={`${prefix}/images/pre_wedding_01.jpeg`} alt="" />
+                  <img src={`${prefix}/images/place-09.jpg`} alt="" />
                   {/* <ImageGallery
                     showFullscreenButton={false}
                     showPlayButton={false}
@@ -326,20 +376,60 @@ const Wedding = () => {
           </Container>
         </Box>
         <Box data-aos="fade-up" data-aos-duration="1800" className="section_3">
-          <Slider {...settings}>
-            <div className="imageBar">
-              <img src="/images/wedding-bar.png" />
-            </div>
-            <div className="imageBar">
-              <img src="/images/wedding-bar.png" />
-            </div>
-            <div className="imageBar">
-              <img src="/images/wedding-bar.png" />
-            </div>
-            <div className="imageBar">
-              <img src="/images/wedding-bar.png" />
-            </div>
-          </Slider>
+          <Box className="labelReview">Review</Box>
+
+          <Slide
+            indicators={true}
+            autoplay={true}
+            infinite={true}
+            arrows={false}
+            canSwipe={true}
+            duration={2000}
+          >
+            {/* children here */}
+            <Grid container spacing={3}>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_01.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_02.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_04.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_06.jpeg" />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_02.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_05.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_06.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design-09.jpg" />
+              </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_06.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_05.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_02.jpeg" />
+              </Grid>
+              <Grid item sm={3} xs={3}>
+                <img src="/images/design_01.jpeg" />
+              </Grid>
+            </Grid>
+          </Slide>
         </Box>
       </Box>
     </InnerLayout>
