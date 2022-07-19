@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "theme";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-slideshow-image/dist/styles.css";
 import { HomeLayout } from "components/layouts/HomeLayout";
 import { SnackbarProvider } from "notistack";
 

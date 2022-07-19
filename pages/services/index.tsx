@@ -8,6 +8,7 @@ import { InnerLayout } from "components/layouts/InnerLayout";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Slider from "react-slick";
 import prefix from "utils/path";
+import { Fade } from "react-slideshow-image";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -69,6 +70,7 @@ const useStyles = makeStyles((theme: any) => ({
         height: "100%",
       },
     },
+    "& .fadeThumnail": {},
     "& .sliderThumnail": {
       position: "relative",
       display: "flex",
@@ -190,7 +192,11 @@ const weddingImages = [
     thumbnail: "/images/section_gold.jpg",
   },
 ];
-
+const fadeImages = [
+  "/images/design_01.jpeg",
+  "/images/design_02.jpeg",
+  "/images/design_03.jpeg",
+];
 const Wedding = () => {
   const classes = useStyles();
   const settings = {
@@ -208,6 +214,19 @@ const Wedding = () => {
             Services
           </Typography>
         </Container>
+        <Box className="fadeThumnail">
+          <Fade autoplay infinite duration={1000}>
+            <div className="each-fade">
+              <img src={fadeImages[0]} />
+            </div>
+            <div className="each-fade">
+              <img src={fadeImages[1]} />
+            </div>
+            <div className="each-fade">
+              <img src={fadeImages[2]} />
+            </div>
+          </Fade>
+        </Box>
         <Box className="section_1">
           <Container maxWidth="lg">
             <Grid
