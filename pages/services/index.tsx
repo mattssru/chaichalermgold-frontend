@@ -1,18 +1,20 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import BreadcrumpDefault from "components/BreadCrumpDefault";
-import router from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ImageGallery from "react-image-gallery";
 import { InnerLayout } from "components/layouts/InnerLayout";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Slider from "react-slick";
 import prefix from "utils/path";
 import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    marginTop: "50px",
+    marginTop: 50,
+    [theme.breakpoints.down("sm")]: {
+      marginTop: 30,
+    },
     "& p": {
       "& img": {
         width: "auto",
@@ -43,12 +45,12 @@ const useStyles = makeStyles((theme: any) => ({
     },
     "& .section_1": {
       backgroundColor: "#f2dbe4",
-      padding: "50px",
+      padding: "25px 0 50px 0",
       marginTop: "50px",
     },
     "& .section_2": {
       backgroundColor: "#EDEDED",
-      padding: "50px",
+      padding: "50px 0",
     },
     "& .background": {
       // backgroundColor: "#EDEDED",
@@ -70,23 +72,43 @@ const useStyles = makeStyles((theme: any) => ({
         height: "100%",
       },
     },
-    "& .fadeThumnail": {},
+    "& .fadeThumnail": {
+      "& .each-fade": {
+        height: 590,
+        [theme.breakpoints.down("md")]: {
+          height: 470,
+        },
+        "& img": {
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        },
+      },
+      "& .react-slideshow-container .nav:last-of-type": {
+        right: 15,
+      },
+      "& .react-slideshow-container .nav:first-of-type": {
+        left: 15,
+      },
+    },
     "& .sliderThumnail": {
       position: "relative",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
       "& .labelSign": {
-        height: "50px",
+        height: 50,
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
-        width: "200px",
-        bottom: "-25px",
+        width: 200,
+        bottom: -25,
+        left: "50%",
         position: "absolute",
         background: "#3c3c3c",
         color: "#ede7d5",
-        borderRadius: "15px",
+        borderRadius: 25,
+        transform: "translate(-50%, 0)",
+        [theme.breakpoints.down("md")]: {
+          width: 160,
+        },
       },
       "& .image-gallery-slide": {
         height: 500,
@@ -99,44 +121,11 @@ const useStyles = makeStyles((theme: any) => ({
       },
       "& .image-gallery-slide .image-gallery-image, .image-gallery-thumbnail .image-gallery-thumbnail-image":
         {
+          width: "100%",
           height: "100%",
           objectFit: "cover",
           borderRadius: 10,
         },
-      "& .image-gallery-thumbnail+.image-gallery-thumbnail": {
-        marginLeft: 5,
-      },
-      "& .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus": {
-        opacity: 1,
-      },
-      "& .image-gallery-thumbnail .image-gallery-thumbnail-inner": {
-        height: 90,
-        [theme.breakpoints.down("md")]: {
-          height: 70,
-        },
-      },
-      "& .image-gallery-thumbnail": {
-        width: 90,
-        height: "100%",
-        opacity: "0.6",
-        border: "none",
-        [theme.breakpoints.down("md")]: {
-          width: 70,
-        },
-      },
-      "& .image-gallery-thumbnails .image-gallery-thumbnails-container": {
-        textAlign: "left",
-      },
-      "& .image-gallery-left-nav .image-gallery-svg, .image-gallery-right-nav .image-gallery-svg":
-        {
-          height: 30,
-          [theme.breakpoints.down("sm")]: {
-            height: 40,
-          },
-        },
-      "& .image-gallery-left-nav, .image-gallery-right-nav": {
-        padding: 0,
-      },
     },
     "& .section_3": {
       margin: "50px 0 20px",
@@ -210,7 +199,7 @@ const Wedding = () => {
     <InnerLayout>
       <Box className={classes.root}>
         <Container maxWidth="lg">
-          <Typography className="title" variant="h2">
+          <Typography variant="h1" sx={{ mb: "30px" }}>
             Services
           </Typography>
         </Container>
@@ -235,7 +224,7 @@ const Wedding = () => {
               data-aos="zoom-in"
               data-aos-duration="1800"
             >
-              <Grid item sm={4} xs={12}>
+              <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
                 <Box className="sliderThumnail">
                   <ImageGallery
                     showFullscreenButton={false}
@@ -249,7 +238,7 @@ const Wedding = () => {
                   <Box className="labelSign">สั่งทำ/ออกแบบ</Box>
                 </Box>
               </Grid>
-              <Grid item sm={4} xs={12}>
+              <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
                 <Box className="sliderThumnail">
                   <ImageGallery
                     showFullscreenButton={false}
@@ -263,7 +252,7 @@ const Wedding = () => {
                   <Box className="labelSign">ปรึกษา Wedding</Box>
                 </Box>
               </Grid>
-              <Grid item sm={4} xs={12}>
+              <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
                 <Box className="sliderThumnail">
                   <ImageGallery
                     showFullscreenButton={false}
