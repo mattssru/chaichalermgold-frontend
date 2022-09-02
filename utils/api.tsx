@@ -1,17 +1,8 @@
-import { getToken } from "./helper";
 import axios from "axios";
-import datajson from "../server/database/db.json";
-import bodyParser from "body-parser";
-const data = datajson || [];
-
-const api = axios.create({
-  baseURL: "http://165.22.96.125:8000/wp-json/wp/v2",
-  timeout: 1000,
-});
 
 const WPApi = axios.create({
   baseURL: "http://165.22.96.125:8000/wp-json/chaicharlerm/v1",
-  timeout: 1000,
+  timeout: 5000,
 });
 
 export const getGoldPrice = async () => {

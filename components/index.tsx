@@ -8,7 +8,6 @@ export { default as CardContent } from "./CardContent";
 export { default as CardPromotions } from "./CardPromotions";
 export { default as ButtonTransform } from "./ButtonTransform";
 export { default as Headline } from "./Headline";
-export { default as TableIcons } from "./TableIcons";
 export { default as UploadImage } from "./UploadImage";
 export { default as ShareSocial } from "./ShareSocial";
 export { default as BreadCrumpDefault } from "./BreadCrumpDefault";

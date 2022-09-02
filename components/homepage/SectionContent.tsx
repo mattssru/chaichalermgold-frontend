@@ -18,7 +18,7 @@ const SectionContent = () => {
   useEffect(() => {
     const fetch = async () => {
       const data: any = await fetchContent();
-      setContents(data);
+      setContents(data.slice(0, 3));
       return data;
     };
     fetch();

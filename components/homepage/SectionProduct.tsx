@@ -24,11 +24,12 @@ const SectionProduct = () => {
   useEffect(() => {
     const fetch = async () => {
       const data: any = await fetchProduct();
-      setProducts(data);
+      setProducts(data.slice(0, 8));
       return data;
     };
     fetch();
   }, [fetchProduct]);
+
   return (
     <section className={classes.root}>
       <Container maxWidth="lg">

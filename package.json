@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node --project tsconfig.server.json server/index.ts",
+    "dev": "tsc --skipLibCheck && next -p 3000",
     "type-check": "tsc",
     "lint": "next lint",
-    "build": "yarn build:next && yarn build:server && next export",
-    "start": "NODE_ENV=production node dist/index.js",
-    "build:server": "tsc --project tsconfig.server.json",
-    "build:next": "next build",
-    "export": "next export"
+    "build": "next build && next export",
+    "start": "next start"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

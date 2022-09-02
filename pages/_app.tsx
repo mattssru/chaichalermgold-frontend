@@ -38,6 +38,17 @@ class App extends NextApp {
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta name="description" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
+          <meta property="og:title" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
+          <meta
+            property="og:description"
+            content="Because of your big day is our most important day"
+          />
+          <meta property="og:url" content="https://www.chaichalermgold.com/" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:image"
+            content="https://chaichalermgold.com/images/about.jpeg"
+          />
           <link rel="icon" href="/images/logo_black.svg" />
           <link
             rel="stylesheet"
@@ -53,10 +64,6 @@ class App extends NextApp {
             href="https://unpkg.com/aos@2.3.1/dist/aos.css"
             rel="stylesheet"
           ></link>
-          <meta
-            property="og:image"
-            content="http://165.22.96.125:3000/images/about.jpeg"
-          />
           <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
           <title>ห้างทองเพชรเฉลิมชัย ตราดาว</title>
         </Head>

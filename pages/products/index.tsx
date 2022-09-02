@@ -25,6 +25,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetch = async () => {
       const data = await fetchProduct();
+      console.log('fetch')
       const temp: any =
         filtered !== "ทั้งหมด"
           ? data.filter((product: any) =>

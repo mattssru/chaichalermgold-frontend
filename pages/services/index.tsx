@@ -48,6 +48,9 @@ const useStyles = makeStyles((theme: any) => ({
       backgroundColor: "#f2dbe4",
       padding: "25px 0 50px 0",
       marginTop: "50px",
+      [theme.breakpoints.down("sm")]: {
+        marginTop: 0,
+      },
     },
     "& .section_2": {
       background: "#e3e3e3",
@@ -142,6 +145,9 @@ const useStyles = makeStyles((theme: any) => ({
       padding: "35px 35px 15px",
       backgroundColor: "#e9e2d9",
       position: "relative",
+      [theme.breakpoints.down("lg")]: {
+        padding: "35px 15px 15px 15px",
+      },
       "& .labelReview": {
         height: 50,
         justifyContent: "center",
@@ -233,13 +239,6 @@ const fadeImages = [
 
 const Wedding = () => {
   const classes = useStyles();
-  const settings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: true,
-    speed: 2000,
-    autoplay: true,
-  };
   return (
     <InnerLayout>
       <Box className={classes.root}>
@@ -293,7 +292,7 @@ const Wedding = () => {
                       );
                     })}
                   </Fade>
-                  <Box className="labelSign">งานแก้เครื่องประดับ</Box>
+                  <Box className="labelSign">งานซ่อมเครื่องประดับ</Box>
                 </Box>
               </Grid>
               <Grid item sm={4} xs={12} sx={{ mb: { xs: "20px", sm: 0 } }}>
@@ -376,8 +375,6 @@ const Wedding = () => {
           </Container>
         </Box>
         <Box data-aos="fade-up" data-aos-duration="1800" className="section_3">
-          <Box className="labelReview">Review</Box>
-
           <Slide
             indicators={true}
             autoplay={true}
@@ -387,7 +384,7 @@ const Wedding = () => {
             duration={2000}
           >
             {/* children here */}
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item sm={3} xs={3}>
                 <img src="/images/design_01.jpeg" />
               </Grid>
@@ -401,7 +398,7 @@ const Wedding = () => {
                 <img src="/images/design_06.jpeg" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item sm={3} xs={3}>
                 <img src="/images/design_02.jpeg" />
               </Grid>
@@ -415,7 +412,7 @@ const Wedding = () => {
                 <img src="/images/design-09.jpg" />
               </Grid>
             </Grid>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item sm={3} xs={3}>
                 <img src="/images/design_06.jpeg" />
               </Grid>
