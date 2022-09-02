@@ -1,32 +1,32 @@
-import React, { useEffect } from "react";
-import NextApp from "next/app";
-import Head from "next/head";
-import "../styles/globals.css";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import theme from "theme";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "react-slideshow-image/dist/styles.css";
-import { HomeLayout } from "components/layouts/HomeLayout";
-import { SnackbarProvider } from "notistack";
+import React, { useEffect } from "react"
+import NextApp from "next/app"
+import Head from "next/head"
+import "../styles/globals.css"
+import { CssBaseline, ThemeProvider } from "@mui/material"
+import theme from "theme"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import "react-slideshow-image/dist/styles.css"
+import { HomeLayout } from "components/layouts/HomeLayout"
+import { SnackbarProvider } from "notistack"
 
 class App extends NextApp {
   static getInitialProps = async ({ Component, ctx }: any) => {
-    let pageProps = {};
+    let pageProps = {}
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
+      pageProps = await Component.getInitialProps(ctx)
     }
-    return { pageProps };
-  };
+    return { pageProps }
+  }
   componentDidMount() {
-    const jssStyles = document.querySelector("#jss-server-side");
+    const jssStyles = document.querySelector("#jss-server-side")
     if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
+      jssStyles.parentNode.removeChild(jssStyles)
     }
   }
 
   render = () => {
-    const { Component, pageProps }: any = this.props;
+    const { Component, pageProps }: any = this.props
 
     return (
       <ThemeProvider theme={theme}>
@@ -39,6 +39,10 @@ class App extends NextApp {
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta name="description" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
           <meta property="og:title" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
+          <meta
+            name="keywords"
+            content="เพชร, ทอง, ห้องทอง, ห้างเพชร, งานแต่งงาน, แต่งงาน, แหวน, เครื่องประดับ"
+          />
           <meta
             property="og:description"
             content="“ เพราะวันสำคัญของคุณ คือวันสำคัญที่สุดของเรา ”"
@@ -78,7 +82,7 @@ class App extends NextApp {
           <Component {...pageProps} />
         </SnackbarProvider>
       </ThemeProvider>
-    );
-  };
+    )
+  }
 }
-export default App;
+export default App

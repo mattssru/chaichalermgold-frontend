@@ -1,9 +1,9 @@
-import { Container, Grid, Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import React, { useEffect, useState } from "react";
-import { fetchProduct } from "utils/api";
-import prefix from "utils/path";
-import { CardRecommend } from "..";
+import { Container, Grid, Theme, Typography } from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import React, { useEffect, useState } from "react"
+import { fetchProduct } from "utils/api"
+import prefix from "utils/path"
+import { CardRecommend } from ".."
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     //   right: -20,
     // },
   },
-}));
+}))
 
 const data = [
   {
@@ -51,24 +51,20 @@ const data = [
   //   href: "#",
   //   image: `${prefix}/images/product_06.jpg`,
   // },
-];
+]
 
 const SectionRecommend = () => {
-  const [products, setProduct] = useState([]);
+  const [products, setProduct] = useState([])
 
   useEffect(() => {
     const fetch = async () => {
-      const data = await fetchProduct();
-      const temp: any = data.filter((product: any) =>
-        product.categories.some((cate: any) => cate.slug === "new-arrival")
-      );
-      setProduct(temp);
-
-      return data;
-    };
-    fetch();
-  }, [fetchProduct]);
-  const classes = useStyles();
+      const data = await fetchProduct()
+      setProduct(data.slice(0, 3))
+      return data
+    }
+    fetch()
+  }, [fetchProduct])
+  const classes = useStyles()
   return (
     <section
       className={classes.root}
@@ -90,16 +86,16 @@ const SectionRecommend = () => {
               <Grid item sm={4} xs={12} key={index}>
                 <CardRecommend
                   productId={item.id}
-                  image={item.images[0].src}
+                  image={item.thumb}
                   name={item.name}
                 />
               </Grid>
-            );
+            )
           })}
         </Grid>
       </Container>
     </section>
-  );
-};
+  )
+}
 
-export default SectionRecommend;
+export default SectionRecommend

@@ -1,15 +1,15 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import BreadcrumpDefault from "components/BreadCrumpDefault";
-import router from "next/router";
-import React, { useEffect, useState } from "react";
-import { getProduct } from "utils/api";
-import ImageGallery from "react-image-gallery";
-import { currencyFormat } from "utils/helper";
-import { InnerLayout } from "components/layouts/InnerLayout";
-import "react-image-gallery/styles/css/image-gallery.css";
-import ShareSocial from "components/ShareSocial";
-
+import { Box, Container, Grid, Typography } from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import BreadcrumpDefault from "components/BreadCrumpDefault"
+import router from "next/router"
+import React, { useEffect, useState } from "react"
+import { getProduct } from "utils/api"
+import ImageGallery from "react-image-gallery"
+import { currencyFormat } from "utils/helper"
+import { InnerLayout } from "components/layouts/InnerLayout"
+import "react-image-gallery/styles/css/image-gallery.css"
+import ShareSocial from "components/ShareSocial"
+import Head from "next/head"
 const useStyles = makeStyles((theme: any) => ({
   root: {
     "& p": {
@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme: any) => ({
       },
     },
   },
-}));
+}))
 const images = [
   {
     original: "/images/default-image.png",
@@ -84,39 +84,46 @@ const images = [
     original: "/images/default-image.png",
     thumbnail: "/images/default-image.png",
   },
-];
+]
 
 const ProductDetail = () => {
-  const classes = useStyles();
-  const [product, setProduct] = useState<any>();
-  const [loading, setLoading] = useState(true);
+  const classes = useStyles()
+  const [product, setProduct] = useState<any>()
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setLoading(true);
-    const { productId } = router.query;
+    setLoading(true)
+    const { productId } = router.query
     const fetch = async () => {
-      const data = await getProduct(productId);
-      setProduct(data);
-      return data;
-    };
-    fetch();
-    setLoading(false);
-  }, [getProduct]);
+      const data = await getProduct(productId)
+      setProduct(data)
+      return data
+    }
+    fetch()
+    setLoading(false)
+  }, [getProduct])
 
   const navi = [
     { title: "หน้าแรก", path: "/" },
     { title: "สินค้า", path: "/products" },
     { title: product?.name },
-  ];
+  ]
   const featureImage: any = product?.images.map((image: any) => {
     return {
       original: image?.src,
       thumbnail: image?.src,
-    };
-  });
-  const url = typeof window !== "undefined" ? window.location.href : "";
+    }
+  })
+  const url = product?.source_url
   return (
     <InnerLayout>
+      <Head>
+        <title>{product?.name} | ห้างทองเพชรเฉลิมชัย ตราดาว</title>
+        <meta
+          property="og:title"
+          content={`${product?.name} | ห้างทองเพชรเฉลิมชัย ตราดาว`}
+        />
+      </Head>
       <Container maxWidth="lg" className={classes.root}>
         <BreadcrumpDefault items={navi} />
         <Grid container spacing={4}>
@@ -170,7 +177,7 @@ const ProductDetail = () => {
                 paddingBottom: "20px",
               }}
             ></Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 mb: "20px",
                 fontWeight: 600,
@@ -183,7 +190,7 @@ const ProductDetail = () => {
               {product?.stock_status !== "outofstock"
                 ? "มีสินค้า"
                 : "สินค้าหมด"}
-            </Typography>
+            </Typography> */}
             <Typography sx={{ fontWeight: 600, mb: "5px" }}>
               Categories :{" "}
               {product?.categories.map((cate: any) => {
@@ -191,7 +198,7 @@ const ProductDetail = () => {
                   <span style={{ fontWeight: 400, color: "#7e7e7e" }}>
                     #{cate?.name}{" "}
                   </span>
-                );
+                )
               })}
             </Typography>
             <Typography sx={{ fontWeight: 600, mb: "25px" }}>
@@ -201,17 +208,15 @@ const ProductDetail = () => {
                   <span style={{ fontWeight: 400, color: "#7e7e7e" }}>
                     #{tag?.name}{" "}
                   </span>
-                );
+                )
               })}
             </Typography>
-            <ShareSocial
-              url={typeof window !== "undefined" ? window.location.href : ""}
-            />
+            <ShareSocial url={url} />
           </Grid>
         </Grid>
       </Container>
     </InnerLayout>
-  );
-};
+  )
+}
 
-export default ProductDetail;
+export default ProductDetail

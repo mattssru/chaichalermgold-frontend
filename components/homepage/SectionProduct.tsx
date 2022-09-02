@@ -1,10 +1,10 @@
-import { Container, Grid, Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import React, { useEffect, useState } from "react";
-import { ButtonTransform, CardProduct } from "..";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import router from "next/router";
-import { fetchProduct } from "utils/api";
+import { Container, Grid, Theme, Typography } from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import React, { useEffect, useState } from "react"
+import { ButtonTransform, CardProduct } from ".."
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt"
+import router from "next/router"
+import { fetchProduct } from "utils/api"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -16,19 +16,19 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginBottom: 30,
     },
   },
-}));
+}))
 
 const SectionProduct = () => {
-  const classes = useStyles();
-  const [products, setProducts] = useState([]);
+  const classes = useStyles()
+  const [products, setProducts] = useState([])
   useEffect(() => {
     const fetch = async () => {
-      const data: any = await fetchProduct();
-      setProducts(data.slice(0, 8));
-      return data;
-    };
-    fetch();
-  }, [fetchProduct]);
+      const data: any = await fetchProduct()
+      setProducts(data.slice(0, 8))
+      return data
+    }
+    fetch()
+  }, [fetchProduct])
 
   return (
     <section className={classes.root}>
@@ -56,13 +56,13 @@ const SectionProduct = () => {
               >
                 <CardProduct
                   productId={item.id}
-                  image={item.images[0].src}
+                  image={item.thumb}
                   name={item.name}
                   price={item.price}
                   descriptions={item.descriptions}
                 />
               </Grid>
-            );
+            )
           })}
           {/* <Grid item sm={3}>
             <div>
@@ -76,7 +76,7 @@ const SectionProduct = () => {
         />
       </Container>
     </section>
-  );
-};
+  )
+}
 
-export default SectionProduct;
+export default SectionProduct
