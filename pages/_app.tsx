@@ -41,7 +41,7 @@ class App extends NextApp {
           <meta property="og:title" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
           <meta
             property="og:description"
-            content="Because of your big day is our most important day"
+            content="“ เพราะวันสำคัญของคุณ คือวันสำคัญที่สุดของเรา ”"
           />
           <meta property="og:url" content="https://www.chaichalermgold.com/" />
           <meta property="og:type" content="website" />

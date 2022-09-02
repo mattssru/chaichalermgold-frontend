@@ -1,12 +1,23 @@
 import { CardPromotions } from "@components/*";
 import { makeStyles } from "@mui/styles";
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid, Typography, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { fetchPromotions } from "utils/api";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import { InnerLayout } from "components/layouts/InnerLayout";
 
-const useStyles = makeStyles((theme: any) => ({}));
+const useStyles = makeStyles((theme: any) => ({
+  noPromotion:{
+    height: '50vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    fontSize: 26,
+    color: '#7f7171',
+    fontWeight: 700,
+  }
+}));
 
 const PromotionPage = () => {
   const classes = useStyles();
@@ -43,7 +54,7 @@ const PromotionPage = () => {
                   </Grid>
                 );
               })
-            : "ยังไม่มีโปรโมชั่น"}
+            : <Box className={classes.noPromotion}>ยังไม่มีโปรโมชั่นใหม่</Box>}
         </Grid>
       </Container>
     </InnerLayout>
