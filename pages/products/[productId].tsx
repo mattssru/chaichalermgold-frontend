@@ -10,6 +10,8 @@ import { InnerLayout } from "components/layouts/InnerLayout"
 import "react-image-gallery/styles/css/image-gallery.css"
 import ShareSocial from "components/ShareSocial"
 import Head from "next/head"
+import CardProduct from "components/CardProduct"
+
 const useStyles = makeStyles((theme: any) => ({
   root: {
     "& p": {
@@ -212,6 +214,26 @@ const ProductDetail = () => {
               })}
             </Typography>
             <ShareSocial url={url} />
+          </Grid>
+          <Grid item>
+            <Typography variant="h4" component="h2" sx={{ mb: "30px" }}>
+              สินค้าที่คล้ายกัน
+            </Typography>
+            <Grid container spacing={4}>
+              {product?.related.slice(0, 4).map((item: any, index: number) => {
+                return (
+                  <Grid item lg={3} sm={3} xs={6} key={index}>
+                    <CardProduct
+                      productId={item.id}
+                      image={item.thumb}
+                      name={item.name}
+                      price={item.price}
+                      descriptions={item.descriptions}
+                    />
+                  </Grid>
+                )
+              })}
+            </Grid>
           </Grid>
         </Grid>
       </Container>

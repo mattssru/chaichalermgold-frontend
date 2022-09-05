@@ -1,7 +1,7 @@
-import { Box, Link, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
-import React from "react";
-import { currencyFormat } from "utils/helper";
+import { Box, Link, Typography } from "@mui/material"
+import { makeStyles } from "@mui/styles"
+import React from "react"
+import { currencyFormat } from "utils/helper"
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
@@ -63,10 +63,10 @@ const useStyles = makeStyles((theme: any) => ({
       fontWeight: 700,
     },
   },
-}));
+}))
 
 const CardProduct = (props: any) => {
-  const classes = useStyles(props);
+  const classes = useStyles(props)
   return (
     <Box className={classes.root}>
       <Box
@@ -121,11 +121,11 @@ const CardProduct = (props: any) => {
         <Link href={`/products/${props.productId}`}>{props.name}</Link>
         <Typography sx={{ color: "#767676" }}>{props.descriptions}</Typography>
         <Typography variant="body1" className="price" sx={{ color: "#777" }}>
-          ฿{currencyFormat(props.price)}
+          {props.price ? `฿${currencyFormat(props.price)}` : "ติดต่อทางร้าน"}
         </Typography>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default CardProduct;
+export default CardProduct
