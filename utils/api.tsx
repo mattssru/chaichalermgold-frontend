@@ -8,6 +8,7 @@ const WPApi = axios.create({
 export const getGoldPrice = async () => {
   try {
     const response = await axios.get("/api/goldprice");
+    console.log("response", response);
     return response.data;
   } catch (error) {
     console.error("Error fetching gold price:", error);

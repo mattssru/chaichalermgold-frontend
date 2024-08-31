@@ -3,9 +3,9 @@ import axios from "axios";
 export default async function handler(req, res) {
   try {
     const response = await axios.get(
-      "https://traderider.com/gold/wp-content/plugins/traderider-fx/api-gold.php?start_date=&end_date="
+      "https://xinhua-api.netlify.app/api/gold-data"
     );
-    console.log("response", response);
+    console.log("response", response.data);
     res.status(200).json(response.data);
   } catch (error) {
     console.log("error", error);

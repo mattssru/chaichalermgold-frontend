@@ -38,10 +38,8 @@ const SectionGold = () => {
   useEffect(() => {
     const fetchGoldPrice = async () => {
       try {
-        const { data } = await axios.get("/api/goldprice");
-        if (data && data.items && data.items[0] && data.items[0][0]) {
-          setGoldPrice(data.items[0][0]);
-        }
+        const data = await getGoldPrice();
+        setGoldPrice(data);
       } catch (error: any) {
         console.error("Error fetching gold price:", error.message);
       }
@@ -106,7 +104,7 @@ const SectionGold = () => {
               component="p"
               sx={{ color: "#419547" }}
             >
-              {get(goldPrice, "buyBullion", "•••")}
+              {get(goldPrice, "buy", "•••")}
             </Typography>
             <Typography sx={{ mb: "15px" }}>ราคาทองแท่งรับซื้อ(บาท)</Typography>
             <Typography
@@ -115,7 +113,7 @@ const SectionGold = () => {
               component="p"
               sx={{ color: "#FF0000" }}
             >
-              {get(goldPrice, "sellBullion", "•••")}
+              {get(goldPrice, "sell", "•••")}
             </Typography>
             <Typography sx={{ mb: "20px" }}>ราคาทองแท่งขายออก(บาท)</Typography>
             {/* <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
