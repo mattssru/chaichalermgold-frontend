@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 import React, { useState, useEffect } from "react";
 import { getPost } from "utils/api";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import { CardContent, ShareSocial } from "@components/*";
+import ShareSocial from "@components/ShareSocial";
 import router from "next/router";
 import BreadcrumpDefault from "components/BreadCrumpDefault";
 import { InnerLayout } from "components/layouts/InnerLayout";
@@ -11,7 +11,7 @@ import { get } from "lodash";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
-    '& h1':{
+    "& h1": {
       marginBottom: 30,
     },
     "& .imageContent": {
@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme: any) => ({
         height: "auto",
       },
     },
-    '& p':{
-      fontSize: '1.25rem',
+    "& p": {
+      fontSize: "1.25rem",
       lineHeight: 1.55,
     },
-    '& div img':{
+    "& div img": {
       display: "block",
       maxWidth: "100%",
       width: "100%",
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme: any) => ({
     "& .tags": {
       display: "flex",
       alignItems: "center",
-      flexWrap: 'wrap',
+      flexWrap: "wrap",
       gap: 10,
       color: "#7e7e7e",
       "& .tag": {
@@ -52,21 +52,21 @@ const useStyles = makeStyles((theme: any) => ({
         color: "#7e7e7e",
       },
     },
-    '& .imageContents':{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(1, 1fr)',
+    "& .imageContents": {
+      display: "grid",
+      gridTemplateColumns: "repeat(1, 1fr)",
       gap: 10,
-      backgroundColor: '#e3e3e3',
+      backgroundColor: "#e3e3e3",
       padding: 15,
       borderRadius: 10,
-      [theme.breakpoints.up('sm')]: {
-        gridTemplateColumns: 'repeat(2, 1fr)',
+      [theme.breakpoints.up("sm")]: {
+        gridTemplateColumns: "repeat(2, 1fr)",
       },
-      [theme.breakpoints.up('md')]: {
-        gridTemplateColumns: 'repeat(3, 1fr)',
+      [theme.breakpoints.up("md")]: {
+        gridTemplateColumns: "repeat(3, 1fr)",
         padding: 25,
       },
-    }
+    },
   },
 }));
 
@@ -105,56 +105,56 @@ const ContentDetailPage = () => {
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
         <BreadcrumpDefault items={navi} />
-          <Typography variant="h1" sx={{ mb: "10px" }}>
-            {content?.title}
-          </Typography>
-          <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
-            <Grid item sm={6} xs={12}>
-              <Box
-                display="flex"
-                alignItems="center"
-                sx={{ mb: { xs: "15px", sm: "0" } }}
-              >
-                <AccessTimeFilledIcon color="secondary" />
-                <Typography color="secondary" sx={{ ml: "10px" }}>
-                  {content?.publish_date}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid
-              item
-              sm={6}
-              xs={12}
-              sx={{ textAlign: { xs: "left", sm: "right" } }}
+        <Typography variant="h1" sx={{ mb: "10px" }}>
+          {content?.title}
+        </Typography>
+        <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
+          <Grid item sm={6} xs={12}>
+            <Box
+              display="flex"
+              alignItems="center"
+              sx={{ mb: { xs: "15px", sm: "0" } }}
             >
-              <ShareSocial url={url} />
-            </Grid>
-          </Grid>
-          <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
-            <img src={content?.thumb} alt={content?.title} />
-          </Box>
-          <Typography
-            dangerouslySetInnerHTML={{ __html: content?.detail }}
-            sx={{
-              color: "#7e7e7e",
-              mb: "10px",
-              marginBottom: "25px",
-              borderBottom: "1px solid #e7e7e7",
-              paddingBottom: "20px",
-            }}
-          ></Typography>
-          {content?.tags.length > 0 && (
-            <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
-              Tags:{" "}
-              {content?.tags.map((tag: any, index: number) => {
-                return (
-                  <Box className="tag" key={index}>
-                    {tag}
-                  </Box>
-                );
-              })}
+              <AccessTimeFilledIcon color="secondary" />
+              <Typography color="secondary" sx={{ ml: "10px" }}>
+                {content?.publish_date}
+              </Typography>
             </Box>
-          )}
+          </Grid>
+          <Grid
+            item
+            sm={6}
+            xs={12}
+            sx={{ textAlign: { xs: "left", sm: "right" } }}
+          >
+            <ShareSocial url={url} />
+          </Grid>
+        </Grid>
+        <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
+          <img src={content?.thumb} alt={content?.title} />
+        </Box>
+        <Typography
+          dangerouslySetInnerHTML={{ __html: content?.detail }}
+          sx={{
+            color: "#7e7e7e",
+            mb: "10px",
+            marginBottom: "25px",
+            borderBottom: "1px solid #e7e7e7",
+            paddingBottom: "20px",
+          }}
+        ></Typography>
+        {content?.tags.length > 0 && (
+          <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
+            Tags:{" "}
+            {content?.tags.map((tag: any, index: number) => {
+              return (
+                <Box className="tag" key={index}>
+                  {tag}
+                </Box>
+              );
+            })}
+          </Box>
+        )}
       </Container>
     </InnerLayout>
   );
