@@ -11,6 +11,9 @@ import { get } from "lodash";
 
 const useStyles = makeStyles((theme: any) => ({
   root: {
+    '& h1':{
+      marginBottom: 30,
+    },
     "& .imageContent": {
       "& img": {
         display: "block",
@@ -18,6 +21,17 @@ const useStyles = makeStyles((theme: any) => ({
         width: "100%",
         height: "auto",
       },
+    },
+    '& p':{
+      fontSize: '1.25rem',
+      lineHeight: 1.55,
+    },
+    '& div img':{
+      display: "block",
+      maxWidth: "100%",
+      width: "100%",
+      height: "auto",
+      borderRadius: 12,
     },
     "& .nav-link": {
       textDecoration: "none",
@@ -28,15 +42,31 @@ const useStyles = makeStyles((theme: any) => ({
     "& .tags": {
       display: "flex",
       alignItems: "center",
+      flexWrap: 'wrap',
+      gap: 10,
       color: "#7e7e7e",
       "& .tag": {
         border: "1px solid #a1a1a1",
         borderRadius: "3px",
         padding: "10px",
-        marginLeft: "5px",
         color: "#7e7e7e",
       },
     },
+    '& .imageContents':{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(1, 1fr)',
+      gap: 10,
+      backgroundColor: '#e3e3e3',
+      padding: 15,
+      borderRadius: 10,
+      [theme.breakpoints.up('sm')]: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+      [theme.breakpoints.up('md')]: {
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        padding: 25,
+      },
+    }
   },
 }));
 
@@ -75,85 +105,56 @@ const ContentDetailPage = () => {
     <InnerLayout>
       <Container maxWidth="lg" className={classes.root}>
         <BreadcrumpDefault items={navi} />
-        <Grid container spacing={4}>
-          <Grid item md={9} sm={12} xs={12}>
-            <Typography variant="h1" sx={{ mb: "10px" }}>
-              {content?.title}
-            </Typography>
-            <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
-              <Grid item sm={6} xs={12}>
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  sx={{ mb: { xs: "15px", sm: "0" } }}
-                >
-                  <AccessTimeFilledIcon color="secondary" />
-                  <Typography color="secondary" sx={{ ml: "10px" }}>
-                    {content?.publish_date}
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid
-                item
-                sm={6}
-                xs={12}
-                sx={{ textAlign: { xs: "left", sm: "right" } }}
+          <Typography variant="h1" sx={{ mb: "10px" }}>
+            {content?.title}
+          </Typography>
+          <Grid container spacing={0} alignItems="center" sx={{ mb: "30px" }}>
+            <Grid item sm={6} xs={12}>
+              <Box
+                display="flex"
+                alignItems="center"
+                sx={{ mb: { xs: "15px", sm: "0" } }}
               >
-                <ShareSocial url={url} />
-              </Grid>
-            </Grid>
-
-            <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
-              <img src={content?.thumb} alt={content?.title} />
-            </Box>
-            <Typography
-              dangerouslySetInnerHTML={{ __html: content?.detail }}
-              sx={{
-                color: "#7e7e7e",
-                mb: "10px",
-                marginBottom: "25px",
-                borderBottom: "1px solid #e7e7e7",
-                paddingBottom: "20px",
-              }}
-            ></Typography>
-            {content?.tags.length > 0 && (
-              <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
-                Tags:{" "}
-                {content?.tags.map((tag: any, index: number) => {
-                  return (
-                    <Box className="tag" key={index}>
-                      {tag}
-                    </Box>
-                  );
-                })}
+                <AccessTimeFilledIcon color="secondary" />
+                <Typography color="secondary" sx={{ ml: "10px" }}>
+                  {content?.publish_date}
+                </Typography>
               </Box>
-            )}
+            </Grid>
+            <Grid
+              item
+              sm={6}
+              xs={12}
+              sx={{ textAlign: { xs: "left", sm: "right" } }}
+            >
+              <ShareSocial url={url} />
+            </Grid>
           </Grid>
-          <Grid item md={3} sm={12} xs={12}>
-            <Typography variant="h4" sx={{ mb: "20px" }}>
-              More Content
-            </Typography>
-            <Grid container spacing={2}>
-              {get(content, "related", []).map((item: any, index: number) => {
+          <Box className="imageContent" sx={{ lineHeight: 0, mb: "30px" }}>
+            <img src={content?.thumb} alt={content?.title} />
+          </Box>
+          <Typography
+            dangerouslySetInnerHTML={{ __html: content?.detail }}
+            sx={{
+              color: "#7e7e7e",
+              mb: "10px",
+              marginBottom: "25px",
+              borderBottom: "1px solid #e7e7e7",
+              paddingBottom: "20px",
+            }}
+          ></Typography>
+          {content?.tags.length > 0 && (
+            <Box className="tags" sx={{ lineHeight: 0, mb: "30px" }}>
+              Tags:{" "}
+              {content?.tags.map((tag: any, index: number) => {
                 return (
-                  <Grid item md={12} sm={6} xs={6} key={index}>
-                    <CardContent
-                      slug={item.slug}
-                      image={item.thumb}
-                      name={item.title}
-                      description={item.detail.replace(/(<([^>]+)>)/gi, "")}
-                      fontsize="18px"
-                      lineheight="24px"
-                      sizedes="14px"
-                      heightdes="60px"
-                      mb="0"
-                    />
-                  </Grid>
+                  <Box className="tag" key={index}>
+                    {tag}
+                  </Box>
                 );
               })}
-            </Grid>
-          </Grid>
-        </Grid>
+            </Box>
+          )}
       </Container>
     </InnerLayout>
   );

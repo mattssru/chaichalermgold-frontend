@@ -33,18 +33,20 @@ const useStyles = makeStyles((theme: Theme) => ({
 const SectionGold = () => {
   const [goldPrice, setGoldPrice] = useState({});
   const classes = useStyles();
+
   useEffect(() => {
-    getGoldPrice().then((res: any) => {
-      const gold = res.response;
-      setGoldPrice(gold);
-    });
+    const fetchGoldPrice = async () => {
+      const res = await getGoldPrice();
+      if (res && res.items && res.items[0] && res.items[0][0]) {
+        setGoldPrice(res.items[0][0]);
+      }
+    };
+
+    fetchGoldPrice();
 
     const interval = setInterval(() => {
-      getGoldPrice().then((res: any) => {
-        const gold = res.response;
-        setGoldPrice(gold);
-      });
-    }, 1800000);
+      fetchGoldPrice();
+    }, 1800000); // อัปเดตทุกๆ 30 นาที
 
     return () => clearInterval(interval);
   }, []);
@@ -93,16 +95,24 @@ const SectionGold = () => {
             <Typography sx={{ mb: "15px" }}>
               {get(goldPrice, "date", "")} {get(goldPrice, "update_time", "")}
             </Typography>
-            <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
-              {get(goldPrice, "price.gold_bar.buy", "•••")}
+            <Typography
+              variant="h3"
+              fontWeight={500}
+              component="p"
+              sx={{ color: "#419547" }}
+            >
+              {get(goldPrice, "buyBullion", "•••")}
+            </Typography>
+            <Typography sx={{ mb: "15px" }}>ราคาทองแท่งรับซื้อ(บาท)</Typography>
+            <Typography
+              variant="h3"
+              fontWeight={500}
+              component="p"
+              sx={{ color: "#FF0000" }}
+            >
+              {get(goldPrice, "sellBullion", "•••")}
             </Typography>
             <Typography sx={{ mb: "20px" }}>ราคาทองแท่งขายออก(บาท)</Typography>
-            <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
-              {get(goldPrice, "price.gold_bar.sell", "•••")}
-            </Typography>
-            <Typography sx={{ mb: "20px", pb: "20px" }}>
-              ราคาทองแท่งรับซื้อ(บาท)
-            </Typography>
             {/* <Typography variant="h3" component="p" sx={{ color: "#419547" }}>
               {get(goldPrice, "price.gold.buy", "•••")}
             </Typography>
@@ -119,7 +129,7 @@ const SectionGold = () => {
             >
               อ้างอิงจากเว็บ{" "}
               <Link
-                href="https://www.goldtraders.or.th/"
+                href="https://www.traderider.com"
                 target="_blank"
                 style={{ fontWeight: 400 }}
               >

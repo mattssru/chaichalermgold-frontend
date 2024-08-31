@@ -1,14 +1,18 @@
 import axios from "axios";
 
 const WPApi = axios.create({
-  baseURL: "http://165.22.96.125:8000/wp-json/chaicharlerm/v1",
+  baseURL: "https://api.chaichalermgold.com/wp-json/chaicharlerm/v1",
   timeout: 5000,
 });
 
 export const getGoldPrice = async () => {
-  return await axios
-    .get("https://thai-gold-api.herokuapp.com/latest")
-    .then((res) => res.data);
+  try {
+    const response = await axios.get("/api/goldprice");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching gold price:", error);
+    return null;
+  }
 };
 
 export const fetchProduct = async () => {

@@ -103,7 +103,7 @@ const CardRecommend = (props: any) => {
           alignItems: "flex-start",
           position: "relative",
           width: "100%",
-          paddingTop: "60%",
+          paddingTop: "100%",
           "& img": {
             borderRadius: "0.6rem",
           },

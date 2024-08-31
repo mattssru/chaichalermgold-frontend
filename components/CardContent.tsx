@@ -21,8 +21,13 @@ const useStyles = makeStyles(() => ({
     "& .name": {
       fontSize: (props: any) => props.fontsize || 20,
       lineHeight: (props: any) => props.lineheight || "24px",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      WebkitLineClamp: 2,
+      WebkitBoxOrient: "vertical",
+      height: 48,
       marginBottom: 5,
-      display: "block",
       "&:hover": {
         opacity: 0.7,
       },

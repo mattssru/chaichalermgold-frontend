@@ -1,12 +1,12 @@
 {
-  "name": "chaichalermgold-frontend",
+ "name": "chaichalermgold-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsc --skipLibCheck && next -p 3000",
+    "dev": "yarn type-check && next dev -p 3000",
     "type-check": "tsc",
     "lint": "next lint",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {

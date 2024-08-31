@@ -105,14 +105,14 @@ const Footer = () => {
                 sx={{ gap: "6px" }}
               >
                 <Link
-                  href="https://www.facebook.com/kosoltae"
+                  href="https://www.facebook.com/ChaichalermTraDao"
                   target="_blank"
                   className="socail"
                 >
                   <FacebookIcon size={35} />
                 </Link>
                 <Link
-                  href="https://www.facebook.com/kosoltae"
+                  href="https://www.instagram.com/chaichalermjewellery"
                   target="_blank"
                   className="socail"
                 >

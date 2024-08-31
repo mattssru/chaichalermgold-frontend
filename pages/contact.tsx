@@ -185,7 +185,7 @@ const ContactPage = () => {
                 <Typography variant="subtitle1" component="p">
                   <Link
                     target="_blank"
-                    href="https://instagram.com/chaichalermjewellery?igshid=YmMyMTA2M2Y="
+                    href="https://www.instagram.com/chaichalermjewellery/"
                   >
                     @CHAICHALERMJEWELLERY
                   </Link>

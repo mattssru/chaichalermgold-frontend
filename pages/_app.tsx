@@ -37,21 +37,20 @@ class App extends NextApp {
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
           />
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <meta name="description" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
           <meta property="og:title" content="ห้างทองเพชรเฉลิมชัย ตราดาว" />
-          <meta
-            name="keywords"
-            content="เพชร, ทอง, ห้องทอง, ห้างเพชร, งานแต่งงาน, แต่งงาน, แหวน, เครื่องประดับ"
-          />
           <meta
             property="og:description"
             content="“ เพราะวันสำคัญของคุณ คือวันสำคัญที่สุดของเรา ”"
           />
-          <meta property="og:url" content="https://www.chaichalermgold.com/" />
-          <meta property="og:type" content="website" />
           <meta
             property="og:image"
             content="https://chaichalermgold.com/images/about.jpeg"
+          />
+          <meta property="og:url" content="https://www.chaichalermgold.com/" />
+          <meta property="og:type" content="website" />
+          <meta
+            name="keywords"
+            content="เพชร, ทอง, ห้องทอง, ห้างเพชร, งานแต่งงาน, แต่งงาน, แหวน, เครื่องประดับ"
           />
           <link rel="icon" href="/images/logo_black.svg" />
           <link

@@ -60,7 +60,7 @@ const theme = createTheme({
           display: "none",
         },
         ".MuiTableBody-root": {
-          "& > tr:nth-child(even) td": {
+          "& > tr:nth-of-type(even) td": {
             backgroundColor: "rgba(0,0,0,0.03)",
           },
         },
@@ -71,7 +71,7 @@ const theme = createTheme({
           },
         },
         ".MuiTable-root": {
-          "& thead tr th:first-child": {
+          "& thead tr th:first-of-type": {
             "& .MuiCheckbox-colorSecondary.Mui-checked": {
               color: "#fff !important",
             },
