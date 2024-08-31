@@ -5,6 +5,7 @@ import prefix from "utils/path";
 import { getGoldPrice } from "utils/api";
 import { get } from "lodash";
 import Link from "components/Link";
+import axios from "axios";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -36,9 +37,13 @@ const SectionGold = () => {
 
   useEffect(() => {
     const fetchGoldPrice = async () => {
-      const res = await getGoldPrice();
-      if (res && res.items && res.items[0] && res.items[0][0]) {
-        setGoldPrice(res.items[0][0]);
+      try {
+        const { data } = await axios.get("/api/goldprice");
+        if (data && data.items && data.items[0] && data.items[0][0]) {
+          setGoldPrice(data.items[0][0]);
+        }
+      } catch (error: any) {
+        console.error("Error fetching gold price:", error.message); // จัดการข้อผิดพลาด
       }
     };
 
