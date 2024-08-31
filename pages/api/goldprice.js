@@ -9,6 +9,6 @@ export default async function handler(req, res) {
     res.status(200).json(response.data);
   } catch (error) {
     console.log("error", error);
-    res.status(500).json({ error: "Failed to fetch gold price" });
+    res.status(500).json({ error: `Failed to fetch gold price ${error}` });
   }
 }
