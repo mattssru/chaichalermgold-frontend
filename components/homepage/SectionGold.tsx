@@ -43,7 +43,7 @@ const SectionGold = () => {
           setGoldPrice(data.items[0][0]);
         }
       } catch (error: any) {
-        console.error("Error fetching gold price:", error.message); // จัดการข้อผิดพลาด
+        console.error("Error fetching gold price:", error.message);
       }
     };
 
